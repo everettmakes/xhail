@@ -125,6 +125,8 @@ BENCHMARK_META = {
 class LearnRequest(BaseModel):
     program: str = Field(..., description="Raw .lp program text to learn from.")
     depth: int = Field(10, ge=1, le=50, description="Max deduction depth (default 10).")
+    all_solutions: bool = Field(False, description="Enumerate all optimal hypotheses (--all).")
+    timeout: int = Field(30, ge=5, le=120, description="Solver timeout in seconds (default 30).")
 
 
 class PhaseOutput(BaseModel):
@@ -135,6 +137,7 @@ class PhaseOutput(BaseModel):
 class LearnResponse(BaseModel):
     success: bool
     hypothesis: list[str]
+    all_hypotheses: list[list[str]] = []
     n_examples: int
     n_background: int
     runtime_ms: float
@@ -209,6 +212,8 @@ def run_learn(req: LearnRequest):
                 depth=req.depth,
                 debug=True,
                 debug_output_dir=tmp_path,
+                all_solutions=req.all_solutions,
+                timeout=req.timeout,
             )
         except ParseError as e:
             raise HTTPException(status_code=422, detail=f"Parse error: {e}")
@@ -233,6 +238,7 @@ def run_learn(req: LearnRequest):
     return LearnResponse(
         success=result.success,
         hypothesis=result.hypothesis,
+        all_hypotheses=result.all_hypotheses,
         n_examples=result.n_examples,
         n_background=result.n_background,
         runtime_ms=round(elapsed_ms, 2),

@@ -12,6 +12,7 @@ interface PhaseOutput {
 interface LearnResponse {
   success: boolean;
   hypothesis: string[];
+  all_hypotheses: string[][];
   n_examples: number;
   n_background: number;
   runtime_ms: number;
@@ -646,6 +647,8 @@ function PhaseCard({
 export default function Home() {
   const [program, setProgram]               = useState<string>(BENCHMARKS.penguins.source);
   const [depth, setDepth]                   = useState(10);
+  const [allSolutions, setAllSolutions]     = useState(false);
+  const [activeHypIdx, setActiveHypIdx]     = useState(0);
   const [activeBm, setActiveBm]             = useState<BenchmarkKey | null>("penguins");
   const [activeTab, setActiveTab]           = useState<Tab>("intro");
   const [result, setResult]                 = useState<LearnResponse | null>(null);
@@ -663,11 +666,12 @@ export default function Home() {
     setLoading(true);
     setError(null);
     setResult(null);
+    setActiveHypIdx(0);
     try {
       const res = await fetch(`${apiUrl}/learn`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ program, depth }),
+        body: JSON.stringify({ program, depth, all_solutions: allSolutions, timeout: 30 }),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
@@ -679,7 +683,7 @@ export default function Home() {
     } finally {
       setLoading(false);
     }
-  }, [loading, program, depth, apiUrl]);
+  }, [loading, program, depth, allSolutions, apiUrl]);
 
   // ── Keyboard shortcut: Cmd/Ctrl + Enter ──
   useEffect(() => {
@@ -979,6 +983,33 @@ export default function Home() {
                 />
               </div>
 
+              {/* All solutions toggle */}
+              <button
+                onClick={() => setAllSolutions((v) => !v)}
+                title="Enumerate all optimal hypotheses"
+                className="flex flex-col items-center gap-1 flex-shrink-0 pb-0.5"
+              >
+                <span className="text-[9px] uppercase tracking-widest font-semibold"
+                  style={{ color: allSolutions ? "#38bdf8" : "#3d4347" }}>
+                  All
+                </span>
+                <div
+                  className="w-8 h-4 rounded-full transition-colors relative"
+                  style={{
+                    background: allSolutions ? "rgba(56,189,248,.25)" : "var(--surface-2)",
+                    border: `1px solid ${allSolutions ? "rgba(56,189,248,.5)" : "var(--border-2)"}`,
+                  }}
+                >
+                  <div
+                    className="absolute top-0.5 w-3 h-3 rounded-full transition-all"
+                    style={{
+                      left: allSolutions ? "calc(100% - 14px)" : "2px",
+                      background: allSolutions ? "#38bdf8" : "#2e3336",
+                    }}
+                  />
+                </div>
+              </button>
+
               {/* Run button */}
               <button
                 onClick={runLearn}
@@ -1016,19 +1047,19 @@ export default function Home() {
                 style={{ background: "var(--surface)" }}
               >
                 {[
-                  { code: "#modeh", pred: "flies", arg: "+bird",  color: "#38bdf8", desc: "Head mode — predicate to learn" },
-                  { code: "#modeb", pred: "penguin", arg: "+bird", color: "#22d3ee", desc: "Body mode — available conditions" },
-                  { code: "#example", pred: "flies(a)",  arg: null,  color: "#4ade80", desc: "Positive example" },
-                  { code: "#example not", pred: "flies(d)", arg: null, color: "#86efac", desc: "Negative example" },
-                ].map(({ code, pred, arg, color, desc }) => (
-                  <div key={code + pred}
+                  { code: "#modeh flies(+bird).",            color: "#38bdf8", desc: "Head mode — predicate to learn" },
+                  { code: "#modeb penguin(+bird).",          color: "#22d3ee", desc: "Body mode — available conditions" },
+                  { code: "#modeh flies(+bird) :1-3 =2 @1.", color: "#0ea5e9", desc: "Mode with min-max, weight, priority" },
+                  { code: "#example flies(a).",              color: "#4ade80", desc: "Positive example" },
+                  { code: "#example not flies(d).",          color: "#86efac", desc: "Negative example" },
+                  { code: "#example flies(a) =5 @2.",        color: "#34d399", desc: "Weighted/prioritised example" },
+                  { code: "#display flies/1.",               color: "#a78bfa", desc: "Filter output to this predicate" },
+                ].map(({ code, color, desc }) => (
+                  <div key={code}
                     className="flex items-center gap-3 px-3 py-2 rounded-md border"
                     style={{ borderColor: `${color}1a`, background: `${color}06` }}>
                     <code className="font-mono text-[11px] whitespace-nowrap flex-shrink-0" style={{ color }}>
-                      {code} <span style={{ color: "#94a3b8" }}>{pred}</span>
-                      {arg && <span style={{ color: "#64748b" }}>({arg})</span>}
-                      {!arg && <span style={{ color: "#64748b" }}>.</span>}
-                      {arg && <span style={{ color: "#64748b" }}>.</span>}
+                      {code}
                     </code>
                     <span className="text-[10px] text-slate-600 ml-auto text-right">{desc}</span>
                   </div>
@@ -1107,40 +1138,85 @@ export default function Home() {
                   <StatPill label="Rules"      value={result.hypothesis.length}              />
                   <StatPill label="Examples"   value={result.n_examples}                     />
                   <StatPill label="Background" value={result.n_background}                   />
+                  {result.all_hypotheses.length > 1 && (
+                    <StatPill label="Optimal"  value={result.all_hypotheses.length}          />
+                  )}
                 </div>
 
                 {/* Learned hypothesis */}
                 <section>
-                  <p className="text-[10px] uppercase tracking-widest text-slate-600 font-semibold mb-2.5">
-                    Learned hypothesis
-                  </p>
-                  {result.success ? (
-                    <div className="flex flex-col gap-2">
-                      {result.hypothesis.map((rule, i) => (
-                        <div key={i} className="hypothesis-rule" style={{ animationDelay: `${i * 0.06}s` }}>
-                          <code className="flex-1 min-w-0">{rule}</code>
+                  <div className="flex items-center justify-between mb-2.5">
+                    <p className="text-[10px] uppercase tracking-widest text-slate-600 font-semibold">
+                      {result.all_hypotheses.length > 1
+                        ? `Hypothesis ${activeHypIdx + 1} of ${result.all_hypotheses.length}`
+                        : "Learned hypothesis"}
+                    </p>
+                    {/* Hypothesis navigator */}
+                    {result.all_hypotheses.length > 1 && (
+                      <div className="flex items-center gap-1">
+                        <button
+                          onClick={() => setActiveHypIdx((i) => Math.max(0, i - 1))}
+                          disabled={activeHypIdx === 0}
+                          className="w-5 h-5 rounded flex items-center justify-center text-[10px]
+                            border border-[var(--border)] text-slate-500 hover:text-slate-200
+                            disabled:opacity-25 transition-colors"
+                        >‹</button>
+                        {result.all_hypotheses.map((_, i) => (
                           <button
-                            onClick={() => copy(rule, `rule-${i}`)}
-                            className="flex-shrink-0 text-green-700 hover:text-green-300 transition-colors"
-                            title="Copy rule"
-                          >
-                            {copied === `rule-${i}` ? <IconCheck /> : <IconCopy />}
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div
-                      className="animate-fade-up border rounded-lg p-4 text-sm font-mono"
-                      style={{
-                        borderColor: "rgba(251,191,36,.25)",
-                        background: "rgba(120,53,15,.15)",
-                        color: "rgba(251,191,36,.75)",
-                      }}
-                    >
-                      No hypothesis found — try loosening mode declarations or increasing depth.
-                    </div>
-                  )}
+                            key={i}
+                            onClick={() => setActiveHypIdx(i)}
+                            className="w-5 h-5 rounded flex items-center justify-center text-[9px] font-mono
+                              border transition-colors"
+                            style={{
+                              borderColor: i === activeHypIdx ? "rgba(56,189,248,.5)" : "var(--border)",
+                              background: i === activeHypIdx ? "rgba(56,189,248,.1)" : "transparent",
+                              color: i === activeHypIdx ? "#38bdf8" : "#475569",
+                            }}
+                          >{i + 1}</button>
+                        ))}
+                        <button
+                          onClick={() => setActiveHypIdx((i) => Math.min(result.all_hypotheses.length - 1, i + 1))}
+                          disabled={activeHypIdx === result.all_hypotheses.length - 1}
+                          className="w-5 h-5 rounded flex items-center justify-center text-[10px]
+                            border border-[var(--border)] text-slate-500 hover:text-slate-200
+                            disabled:opacity-25 transition-colors"
+                        >›</button>
+                      </div>
+                    )}
+                  </div>
+
+                  {(() => {
+                    const displayRules = result.all_hypotheses.length > 1
+                      ? (result.all_hypotheses[activeHypIdx] ?? [])
+                      : result.hypothesis;
+                    return result.success ? (
+                      <div className="flex flex-col gap-2">
+                        {displayRules.map((rule, i) => (
+                          <div key={i} className="hypothesis-rule" style={{ animationDelay: `${i * 0.06}s` }}>
+                            <code className="flex-1 min-w-0">{rule}</code>
+                            <button
+                              onClick={() => copy(rule, `rule-${activeHypIdx}-${i}`)}
+                              className="flex-shrink-0 text-green-700 hover:text-green-300 transition-colors"
+                              title="Copy rule"
+                            >
+                              {copied === `rule-${activeHypIdx}-${i}` ? <IconCheck /> : <IconCopy />}
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div
+                        className="animate-fade-up border rounded-lg p-4 text-sm font-mono"
+                        style={{
+                          borderColor: "rgba(251,191,36,.25)",
+                          background: "rgba(120,53,15,.15)",
+                          color: "rgba(251,191,36,.75)",
+                        }}
+                      >
+                        No hypothesis found — try loosening mode declarations or increasing depth.
+                      </div>
+                    );
+                  })()}
                 </section>
 
                 {/* Pipeline trace */}
@@ -1202,7 +1278,7 @@ export default function Home() {
             className="text-[10px] text-slate-700 hover:text-slate-400 transition-colors">
             GitHub
           </a>
-          <span className="ml-auto text-[10px] text-slate-800 font-mono">v0.1.0</span>
+          <span className="ml-auto text-[10px] text-slate-800 font-mono">v0.1.1</span>
         </footer>
       </div>
     </>
