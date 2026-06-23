@@ -234,16 +234,40 @@ class Induction:
                     all_hyps.append(h)
 
             # Deduplicate across optimal models.
-            # Two clauses are the same if they have the same head and the same
-            # body literals (regardless of order) — so we normalise by sorting
-            # body literal strings before hashing.
-            def _clause_key(clause):
-                return (str(clause.head), frozenset(str(lit) for lit in clause.body))
+            # We need to handle two normalisation cases:
+            #   1. Body literal order — frozenset over literal strings
+            #   2. Alpha-equivalence — variable renaming (V1,V2,V3 vs V2,V3,V1)
+            #      Canonicalise by replacing each variable with V1,V2,V3...
+            #      in order of first appearance across head then body literals.
+            import re as _re
+
+            def _canonical(clause) -> tuple:
+                """Return an order- and alpha-normalised key for a clause."""
+                # Collect all variable tokens in head-first, then body order
+                head_str = str(clause.head)
+                body_strs = sorted(str(lit) for lit in clause.body)
+                full = head_str + " " + " ".join(body_strs)
+                # Find variables: tokens matching V\d+ (XHAIL convention)
+                seen_vars: dict = {}
+                counter = [0]
+
+                def replace_var(m):
+                    v = m.group(0)
+                    if v not in seen_vars:
+                        counter[0] += 1
+                        seen_vars[v] = f"V{counter[0]}"
+                    return seen_vars[v]
+
+                canonical = _re.sub(r"\bV\d+\b", replace_var, full)
+                return canonical
+
+            def _hyp_key(h):
+                return frozenset(_canonical(c) for c in h)
 
             seen = set()
             unique_hyps = []
             for h in all_hyps:
-                key = frozenset(_clause_key(c) for c in h)
+                key = _hyp_key(h)
                 if key not in seen:
                     seen.add(key)
                     unique_hyps.append(h)
