@@ -385,6 +385,8 @@ def learn_from_string(
     depth: int = 10,
     *,
     on_phase: Optional[PhaseCallback] = None,
+    all_solutions: bool = False,
+    timeout: Optional[int] = None,
 ) -> LearningResult:
     """Run the XHAIL pipeline on a raw ASP program string.
 
@@ -419,4 +421,4 @@ def learn_from_string(
         print(result.to_json())
         # {"success": true, "n_rules": 1, ...}
     """
-    return learn(program, depth=depth, on_phase=on_phase)
+    return learn(program, depth=depth, on_phase=on_phase, all_solutions=all_solutions, timeout=timeout)
