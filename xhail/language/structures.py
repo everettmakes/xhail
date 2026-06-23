@@ -2,37 +2,65 @@ import copy
 
 from ..language.terms import Atom, Normal, PlaceMarker
 
+
+# ---------- display ----------- #
+class Display:
+    """Represents a ``#display predicate/arity.`` directive.
+
+    When one or more ``#display`` directives are present in the input, only
+    hypothesis rules whose head predicate matches are included in the output.
+    If no ``#display`` directives appear, all learned rules are shown (default).
+    """
+
+    KEY_WORD = "#display"
+
+    def __init__(self, predicate: str, arity=None):
+        self.predicate = predicate
+        self.arity = arity  # None means "any arity"
+
+    def matches(self, rule_str: str) -> bool:
+        """Return True if *rule_str* starts with a matching head predicate."""
+        head = rule_str.split(":-")[0].strip().rstrip(".")
+        head_pred = head.split("(")[0].strip()
+        if head_pred != self.predicate:
+            return False
+        if self.arity is None:
+            return True
+        lparen = head.find("(")
+        if lparen == -1:
+            return self.arity == 0
+        inner = head[lparen + 1 : head.rfind(")")]
+        depth = 0
+        arity = 1
+        for ch in inner:
+            if ch == "(":
+                depth += 1
+            elif ch == ")":
+                depth -= 1
+            elif ch == "," and depth == 0:
+                arity += 1
+        return arity == self.arity
+
+    def __str__(self) -> str:
+        if self.arity is not None:
+            return f"#display {self.predicate}/{self.arity}"
+        return f"#display {self.predicate}"
+
+
 # ---------------------------------------------------------------------------
 # Shared helper
 # ---------------------------------------------------------------------------
 
 
 def generalise_atom(atom: Atom, n: int = 1, replace_outputs: bool = True):
-    """Replace PlaceMarker terms in *atom* with fresh variable Normals.
-
-    Args:
-        atom: The atom to generalise (mutated in place).
-        n: Counter for generating variable names (V1, V2, …).
-        replace_outputs: If True, replace both ``+`` and ``-`` markers
-            (Modeb behaviour).  If False, only replace ``+`` markers
-            (Modeh behaviour).
-
-    Returns:
-        ``(atom, n)`` where *n* is the next unused variable counter.
-    """
+    """Replace PlaceMarker terms in *atom* with fresh variable Normals."""
     for idt, term in enumerate(atom.terms):
         if isinstance(term, PlaceMarker) and (replace_outputs or term.marker in ("+", "#")):
-            # '#' (ground-constant) placemarkers are treated like '+' (input) here:
-            # both become typed variables so the ASP abduction program can enumerate
-            # the right constants via type constraints (e.g. sugar(V1)).
-            # Full '#' semantics (keeping the constant ground in the hypothesis) is a
-            # known limitation and is tracked as future work.
             new_normal = Normal(f"V{n}")
             new_normal.setType(term.type)
             atom.terms[idt] = new_normal
             n += 1
         elif isinstance(term, Atom):
-            # Recurse into compound sub-terms (e.g. happens(use(+sugar),+time)).
             atom.terms[idt], n = generalise_atom(term, n, replace_outputs)
     return atom, n
 
@@ -56,19 +84,39 @@ class Example:
     def setPriority(self, priority):
         self.priority = priority
 
+    @property
+    def is_soft(self) -> bool:
+        """True when an explicit weight was specified — example may be missed."""
+        return self.weight != 1 or self.priority != 1
+
     def createProgram(self):
         program = []
         negation_string = "not " if self.negation else ""
-        program.append(
-            "%#maximize{"
-            + f"{str(self.weight)}@{str(self.priority)} : {negation_string}{self.atom}"
-            + "}."
-        )
-        program.append(f":- {self.atom}." if self.negation else f":- not {self.atom}.")
+        if self.is_soft:
+            # Soft example: maximise coverage weighted by priority, do not
+            # hard-require satisfaction.
+            program.append(
+                "#maximize{"
+                + f"{str(self.weight)}@{str(self.priority)} : {negation_string}{self.atom}"
+                + "}."
+            )
+        else:
+            # Hard example: must be satisfied (original behaviour).
+            program.append(
+                "%#maximize{"
+                + f"{str(self.weight)}@{str(self.priority)} : {negation_string}{self.atom}"
+                + "}."
+            )
+            program.append(f":- {self.atom}." if self.negation else f":- not {self.atom}.")
         return "\n".join(program)
 
     def __str__(self):
-        return "#example " + ("not " if self.negation else "") + str(self.atom)
+        parts = ["#example", "not " if self.negation else "", str(self.atom)]
+        if self.weight != 1:
+            parts.append(f" ={self.weight}")
+        if self.priority != 1:
+            parts.append(f" @{self.priority}")
+        return "".join(parts)
 
 
 # ---------- modeh ----------- #
@@ -80,14 +128,12 @@ class Modeh:
     CONSTRAINT_SEPARATOR = "-"
     weight = 1
     priority = 2
-    min = 0  # default 0
-    max = 1000000  # this just has to be super big by default
+    min = 0
+    max = 1000000
 
-    def __init__(self, atom: Atom, n: str):  # these will be placeholder atoms
+    def __init__(self, atom: Atom, n: str):
         self.atom = atom
         self.n = n
-        # Collect type labels from PlaceMarker terms only; Atom sub-terms (e.g.
-        # happens(use(+sugar),+time)) don't have a .type attribute and are skipped.
         self.types = [term.type for term in atom.terms if isinstance(term, PlaceMarker)]
 
     def setWeight(self, weight):
@@ -109,7 +155,6 @@ class Modeh:
         new_atom = copy.deepcopy(self.atom)
         generalised_atom, n = self.generalise(new_atom)
 
-        # 0-arity case: no type constraints or variables needed
         if not generalised_atom.terms:
             program = []
             program.append(
@@ -158,10 +203,10 @@ class Modeb:
     CONSTRAINT_SEPARATOR = "-"
     weight = 1
     priority = 1
-    min = 0  # default 0
-    max = 1000000  # this just has to be super big by default
+    min = 0
+    max = 1000000
 
-    def __init__(self, atom: Atom, n: str, negation=False):  # these will be placeholder atoms
+    def __init__(self, atom: Atom, n: str, negation=False):
         self.atom = atom
         self.n = n
         self.negation = negation
@@ -185,11 +230,9 @@ class Modeb:
         if self.negation:
             new_atom = copy.deepcopy(self.atom)
             generalised_atom, _ = self.generalise(new_atom)
-            not_pred = (
-                "not_" + generalised_atom.predicate
-            )  # D1 fix: was a nested same-quote f-string (PEP 701)
+            not_pred = "not_" + generalised_atom.predicate
             not_atom = Atom(not_pred, generalised_atom.terms)
-            if not generalised_atom.terms:  # 0-arity case
+            if not generalised_atom.terms:
                 program = f"{not_atom} :- not {generalised_atom}."
             else:
                 types = ", ".join(generalised_atom.getTypes())
@@ -200,5 +243,5 @@ class Modeb:
         return program
 
     def __str__(self):
-        neg = "not " if self.negation else ""  # D1 fix: was a nested same-quote f-string (PEP 701)
+        neg = "not " if self.negation else ""
         return f"#modeb {neg}{self.atom}"

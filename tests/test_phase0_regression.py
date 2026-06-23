@@ -292,7 +292,7 @@ class TestGoldenOutputs:
         parser = Parser()
         parser.loadString(prog)
         parser.parseProgram()
-        EX, MH, MB, BG = parser.separate()
+        EX, MH, MB, BG, DISP = parser.separate()
         model = Model(EX, MH, MB, BG, 5)
         Abduction(model).runPhase()
 

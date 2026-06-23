@@ -1,7 +1,7 @@
 import ply.lex as lex
 import ply.yacc as yacc
 
-from ..language.structures import Example, Modeb, Modeh
+from ..language.structures import Display, Example, Modeb, Modeh
 from ..language.terms import (
     Atom,
     Clause,
@@ -17,7 +17,6 @@ from ..language.terms import (
 # ---------- exceptions ---------- #
 class ParseError(Exception):
     """Raised when the XHAIL parser fails to parse input."""
-
     pass
 
 
@@ -27,6 +26,7 @@ tokens = (
     "EXAMPLE_KEY",
     "MODEB_KEY",
     "MODEH_KEY",
+    "DISPLAY_KEY",
     "PREDICATE",
     "TERM",
     "LPAREN",
@@ -36,6 +36,10 @@ tokens = (
     "DOT",
     "MARKER",
     "OPERATOR",
+    "AT",
+    "EQ_SINGLE",
+    "COLON",
+    "SLASH",
 )
 
 # ---------- define tokens ----------- #
@@ -49,14 +53,17 @@ t_IMPLIES = r":-"
 t_DOT = r"\."
 t_MARKER = r"\+|\-|\$"
 t_OPERATOR = r"(==|!=|<=|>=|<|>)"
+t_AT = r"@"
+t_EQ_SINGLE = r"="
+t_COLON = r":"
+t_SLASH = r"/"
 t_ignore = " \t\n"
 
 
-# ── Keyword tokens as functions ────────────────────────────────────────────
-# In PLY, function-based tokens always take priority over string-based tokens,
-# regardless of pattern length.  Declaring #example / #modeh / #modeb as
-# functions ensures they are matched BEFORE the '#' in the HASH_MARKER token
-# below (which handles '#sugar', '#fluent', … placemarkers in mode schemas).
+# ── Keyword tokens as functions (higher priority than string tokens) ────────
+def t_DISPLAY_KEY(t):
+    r"\#display"
+    return t
 
 
 def t_EXAMPLE_KEY(t):
@@ -76,14 +83,11 @@ def t_MODEB_KEY(t):
 
 def t_HASH_MARKER(t):
     r"\#(?=[a-zA-Z_])"
-    # Consume only the '#'; leave the following word for the TERM/PREDICATE rule.
-    # Report as MARKER so the schema grammar sees (MARKER, TERM) = '#sugar' etc.
     t.type = "MARKER"
     t.value = "#"
     return t
 
 
-# ---------- special tokens ----------- #
 def t_error(t):
     print(f"Illegal character '{t.value[0]}'")
     t.lexer.skip(1)
@@ -94,8 +98,6 @@ def t_ignore_COMMENT(t):
     pass
 
 
-# Module-level lexer used only by PLY internally for token definitions.
-# Parser instances create their own lexer via lex.lex() to avoid shared state.
 _lex_master = lex.lex()
 
 
@@ -113,6 +115,7 @@ def p_clause(p):
     """clause : example
     | modeb
     | modeh
+    | display
     | fact
     | normal_clause
     | constraint
@@ -120,20 +123,16 @@ def p_clause(p):
     p[0] = p[1]
 
 
-# ---------- atom (requires parentheses) ---------- #
 def p_atom(p):
     """atom : PREDICATE LPAREN terms RPAREN"""
     p[0] = Atom(p[1], p[3])
 
 
-# ---------- prop_atom (0-arity / propositional, no parentheses) ---------- #
-# D3 fix: grammar previously rejected propositional atoms like `p :- q.`
 def p_prop_atom(p):
     """prop_atom : TERM"""
     p[0] = Atom(p[1], [])
 
 
-# ---------- schema ---------- #
 def p_schema(p):
     """schema : PREDICATE LPAREN schema_terms RPAREN"""
     p[0] = Atom(p[1], p[3])
@@ -155,38 +154,160 @@ def p_schema_terms(p):
         p[0] = [p[1]] + p[3]
 
 
+# ---------- example annotation: optional =weight @priority ---------- #
+def p_ex_annotation_both(p):
+    """ex_annotation : EQ_SINGLE TERM AT TERM"""
+    p[0] = (_to_int(p[2], "example weight"), _to_int(p[4], "example priority"))
+
+
+def p_ex_annotation_weight(p):
+    """ex_annotation : EQ_SINGLE TERM"""
+    p[0] = (_to_int(p[2], "example weight"), 1)
+
+
+def p_ex_annotation_priority(p):
+    """ex_annotation : AT TERM"""
+    p[0] = (1, _to_int(p[2], "example priority"))
+
+
+def p_ex_annotation_empty(p):
+    """ex_annotation :"""
+    p[0] = (1, 1)
+
+
 # ---------- example ---------- #
-def p_example(p):
-    """example : EXAMPLE_KEY atom DOT
-    | EXAMPLE_KEY NOT atom DOT
-    | EXAMPLE_KEY prop_atom DOT
-    | EXAMPLE_KEY NOT prop_atom DOT
+def p_example_pos(p):
+    """example : EXAMPLE_KEY atom ex_annotation DOT
+    | EXAMPLE_KEY prop_atom ex_annotation DOT
     """
-    if len(p) == 4:
-        p[0] = Example(p[2], negation=False)
-    else:
-        p[0] = Example(p[3], negation=True)
+    ex = Example(p[2], negation=False)
+    ex.setWeight(p[3][0])
+    ex.setPriority(p[3][1])
+    p[0] = ex
+
+
+def p_example_neg(p):
+    """example : EXAMPLE_KEY NOT atom ex_annotation DOT
+    | EXAMPLE_KEY NOT prop_atom ex_annotation DOT
+    """
+    ex = Example(p[3], negation=True)
+    ex.setWeight(p[4][0])
+    ex.setPriority(p[4][1])
+    p[0] = ex
+
+
+# ---------- mode annotation: optional :min[-max] =weight @priority ---------- #
+def p_mode_annotation_full(p):
+    """mode_annotation : COLON TERM MARKER TERM EQ_SINGLE TERM AT TERM"""
+    p[0] = (_to_int(p[2], "min"), _to_int(p[4], "max"), _to_int(p[6], "weight"), _to_int(p[8], "priority"))
+
+
+def p_mode_annotation_range_weight(p):
+    """mode_annotation : COLON TERM MARKER TERM EQ_SINGLE TERM"""
+    p[0] = (_to_int(p[2], "min"), _to_int(p[4], "max"), _to_int(p[6], "weight"), 1)
+
+
+def p_mode_annotation_range_priority(p):
+    """mode_annotation : COLON TERM MARKER TERM AT TERM"""
+    p[0] = (_to_int(p[2], "min"), _to_int(p[4], "max"), 1, _to_int(p[6], "priority"))
+
+
+def p_mode_annotation_range(p):
+    """mode_annotation : COLON TERM MARKER TERM"""
+    p[0] = (_to_int(p[2], "min"), _to_int(p[4], "max"), 1, 1)
+
+
+def p_mode_annotation_min_weight_priority(p):
+    """mode_annotation : COLON TERM EQ_SINGLE TERM AT TERM"""
+    p[0] = (_to_int(p[2], "min"), 1000000, _to_int(p[4], "weight"), _to_int(p[6], "priority"))
+
+
+def p_mode_annotation_min_weight(p):
+    """mode_annotation : COLON TERM EQ_SINGLE TERM"""
+    p[0] = (_to_int(p[2], "min"), 1000000, _to_int(p[4], "weight"), 1)
+
+
+def p_mode_annotation_min_priority(p):
+    """mode_annotation : COLON TERM AT TERM"""
+    p[0] = (_to_int(p[2], "min"), 1000000, 1, _to_int(p[4], "priority"))
+
+
+def p_mode_annotation_min(p):
+    """mode_annotation : COLON TERM"""
+    val = _to_int(p[2], "min")
+    p[0] = (val, val, 1, 1)
+
+
+def p_mode_annotation_weight_priority(p):
+    """mode_annotation : EQ_SINGLE TERM AT TERM"""
+    p[0] = (0, 1000000, _to_int(p[2], "weight"), _to_int(p[4], "priority"))
+
+
+def p_mode_annotation_weight(p):
+    """mode_annotation : EQ_SINGLE TERM"""
+    p[0] = (0, 1000000, _to_int(p[2], "weight"), 1)
+
+
+def p_mode_annotation_priority(p):
+    """mode_annotation : AT TERM"""
+    p[0] = (0, 1000000, 1, _to_int(p[2], "priority"))
+
+
+def p_mode_annotation_empty(p):
+    """mode_annotation :"""
+    p[0] = (0, 1000000, 1, 2)
 
 
 # ---------- modeh ---------- #
 def p_modeh(p):
-    """modeh : MODEH_KEY schema DOT
-    | MODEH_KEY prop_atom DOT
+    """modeh : MODEH_KEY schema mode_annotation DOT
+    | MODEH_KEY prop_atom mode_annotation DOT
     """
-    p[0] = Modeh(p[2], "*")
+    mh = Modeh(p[2], "*")
+    mn, mx, w, pri = p[3]
+    mh.setMin(mn)
+    mh.setMax(mx)
+    mh.setWeight(w)
+    mh.setPriority(pri)
+    p[0] = mh
 
 
 # ---------- modeb ---------- #
-def p_modeb(p):
-    """modeb : MODEB_KEY schema DOT
-    | MODEB_KEY NOT schema DOT
-    | MODEB_KEY prop_atom DOT
-    | MODEB_KEY NOT prop_atom DOT
+def p_modeb_pos(p):
+    """modeb : MODEB_KEY schema mode_annotation DOT
+    | MODEB_KEY prop_atom mode_annotation DOT
     """
-    if len(p) == 4:
-        p[0] = Modeb(p[2], "*", False)
-    else:
-        p[0] = Modeb(p[3], "*", True)
+    mb = Modeb(p[2], "*", False)
+    mn, mx, w, pri = p[3]
+    mb.setMin(mn)
+    mb.setMax(mx)
+    mb.setWeight(w)
+    mb.setPriority(pri)
+    p[0] = mb
+
+
+def p_modeb_neg(p):
+    """modeb : MODEB_KEY NOT schema mode_annotation DOT
+    | MODEB_KEY NOT prop_atom mode_annotation DOT
+    """
+    mb = Modeb(p[3], "*", True)
+    mn, mx, w, pri = p[4]
+    mb.setMin(mn)
+    mb.setMax(mx)
+    mb.setWeight(w)
+    mb.setPriority(pri)
+    p[0] = mb
+
+
+# ---------- display ---------- #
+def p_display_arity(p):
+    """display : DISPLAY_KEY TERM SLASH TERM DOT"""
+    p[0] = Display(p[2], _to_int(p[4], "arity"))
+
+
+def p_display_no_arity(p):
+    """display : DISPLAY_KEY TERM DOT"""
+    p[0] = Display(p[2], None)
 
 
 # ---------- terms ---------- #
@@ -206,7 +327,6 @@ def p_terms(p):
         p[0] = [p[1]] + p[3]
 
 
-# ---------- fact ---------- #
 def p_fact(p):
     """fact : atom DOT
     | prop_atom DOT
@@ -214,10 +334,6 @@ def p_fact(p):
     p[0] = Fact(p[1])
 
 
-# ---------- constraint ---------- #
-# D2 fix: Constraint(p[2], True) was wrong — constructor only takes one arg.
-# D5 fix: added `IMPLIES body DOT` so idiomatic `:- body.` constraints work.
-# The old `NOT body DOT` form is kept for backward compatibility.
 def p_constraint(p):
     """constraint : NOT body DOT
     | IMPLIES body DOT
@@ -225,7 +341,6 @@ def p_constraint(p):
     p[0] = Constraint(p[2])
 
 
-# ---------- normal_clause ---------- #
 def p_normal_clause(p):
     """normal_clause : atom IMPLIES body DOT
     | prop_atom IMPLIES body DOT
@@ -250,19 +365,22 @@ def p_literal(p):
     | prop_atom
     | TERM OPERATOR TERM
     """
-    if len(p) == 2:  # atom or prop_atom  → positive literal
+    if len(p) == 2:
         p[0] = [Literal(p[1], False)]
-    elif len(p) == 3:  # NOT atom or NOT prop_atom → negative literal
+    elif len(p) == 3:
         p[0] = [Literal(p[2], True)]
-    else:  # TERM OPERATOR TERM — arithmetic/comparison constraint.
-        # Emit as MiscLiteral so the raw string (e.g. "S<T") passes through to
-        # clingo unchanged.  The old code emitted Literal('<', True) which
-        # serialised as "not <" — invalid ASP that crashed the solver.
+    else:
         p[0] = [MiscLiteral(f"{p[1]}{p[2]}{p[3]}")]
 
 
-# ---------- error ---------- #
-# D4 fix: was print() + silent None; now raises ParseError so callers get a usable message.
+# ---------- helpers ---------- #
+def _to_int(value: str, label: str) -> int:
+    try:
+        return int(value)
+    except (ValueError, TypeError):
+        raise ParseError(f"Expected integer for {label}, got '{value}'")
+
+
 def p_error(p):
     if p:
         raise ParseError(f"Syntax error at '{p.value}' on line {p.lineno}")
@@ -270,23 +388,20 @@ def p_error(p):
         raise ParseError("Syntax error at EOF")
 
 
-# Build the yacc parser once after all p_* grammar rules are defined.
-# PLY introspects the calling frame, so this must appear after the grammar functions.
-# write_tables=False: don't write parsetab.py to disk.
 _parser_cache = yacc.yacc(debug=False, write_tables=False)
 
 
 class Parser:
     def __init__(self):
         self.data = ""
-        self.parsedData = []  # instance attribute — was a class attribute (shared mutable state)
+        self.parsedData = []
 
-    # ---------- string -> Example | Modeh | Modeb | Background ---------- #
     def separate(self):
         examples = []
         modehs = []
         modebs = []
         background = []
+        displays = []
         for item in self.parsedData:
             if isinstance(item, Example):
                 examples.append(item)
@@ -294,18 +409,15 @@ class Parser:
                 modebs.append(item)
             elif isinstance(item, Modeh):
                 modehs.append(item)
+            elif isinstance(item, Display):
+                displays.append(item)
             elif isinstance(item, Clause):
                 background.append(item)
-        return examples, modehs, modebs, background
+        return examples, modehs, modebs, background, displays
 
-    # ---------- default parse mode ----------- #
     def parseProgram(self):
-        # Reuse the module-level cached parser; create a fresh lexer per call
-        # so concurrent / repeated parses don't share lexer state.
         _lexer = lex.lex()
         self.parsedData = _parser_cache.parse(self.data, lexer=_lexer)
-        # D4 fix: parser returned None means a syntax error occurred.
-        # p_error now raises ParseError directly, so None here is belt-and-braces.
         if self.parsedData is None:
             raise ParseError(
                 "Failed to parse program: the parser returned no result. "
@@ -313,7 +425,6 @@ class Parser:
             )
         return self.parsedData
 
-    # ---------- debug parse mode ----------- #
     def tokenByToken(self):
         _lexer = lex.lex()
         _lexer.input(self.data)

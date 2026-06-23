@@ -78,6 +78,27 @@ def _build_parser() -> argparse.ArgumentParser:
         metavar="DIR",
         help="Directory for intermediate ASP files when --debug is set (default: ./xhail_debug/).",
     )
+    run_p.add_argument(
+        "--all",
+        "-a",
+        action="store_true",
+        dest="all_solutions",
+        help="Enumerate and print all optimal hypotheses, not just the first.",
+    )
+    run_p.add_argument(
+        "--kill",
+        "-k",
+        type=int,
+        default=None,
+        metavar="N",
+        help="Stop solving after N seconds (timeout).",
+    )
+    run_p.add_argument(
+        "--terminate",
+        "-t",
+        action="store_true",
+        help="Stop after finding the first hypothesis (default behaviour; explicit flag for clarity).",
+    )
 
     return parser
 
@@ -116,6 +137,8 @@ def _cmd_run(args: argparse.Namespace) -> int:
             depth=args.depth,
             debug=args.debug,
             debug_output_dir=args.debug_output,
+            all_solutions=args.all_solutions,
+            timeout=args.kill,
         )
     except FileNotFoundError as exc:
         print(f"error: {exc}", file=sys.stderr)
@@ -131,8 +154,16 @@ def _cmd_run(args: argparse.Namespace) -> int:
         return 2
 
     if result.success:
-        for rule in result.hypothesis:
-            print(rule)
+        if args.all_solutions and len(result.all_hypotheses) > 1:
+            for idx, hyp in enumerate(result.all_hypotheses, 1):
+                print(f"% Hypothesis {idx}:")
+                for rule in hyp:
+                    print(rule)
+                if idx < len(result.all_hypotheses):
+                    print()
+        else:
+            for rule in result.hypothesis:
+                print(rule)
     else:
         print("No hypothesis found.", file=sys.stderr)
         return 1

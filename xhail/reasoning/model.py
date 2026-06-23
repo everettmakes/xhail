@@ -28,6 +28,7 @@ class Model:
         self.delta: list = []
         self.kernel: list = []  # clauses built during deduction
         self.hypothesis: list = []  # final learned clauses set by induction
+        self.all_hypotheses: list = []  # all optimal hypotheses (--all mode)
         self._subsumption_cache: dict = {}  # (str(atom), str(mode)) -> bool
 
         self.EX = EX
@@ -236,3 +237,79 @@ class Model:
 
     def getBackground(self):
         return self.BG
+
+    def getAllOptimalModels(self, timeout: int | None = None):
+        """Return all models with the minimum cost (for --all mode).
+
+        Uses clingo's ``--opt-mode=optN`` to enumerate every optimal model.
+        Falls back to collecting all models and filtering by minimum cost if
+        clingo returns no results under optN.
+
+        Args:
+            timeout: If set, pass ``--time-limit=N`` to clingo (seconds).
+
+        Returns:
+            A list of model symbol lists, each representing one optimal
+            hypothesis.  Empty list if no model exists.
+        """
+        n_threads = min(4, os.cpu_count() or 1)
+        opts = [
+            f"--parallel-mode={n_threads}",
+            "--warn=no-atom-undefined",
+            "--opt-mode=optN",
+        ]
+        if timeout is not None:
+            opts.append(f"--time-limit={timeout}")
+
+        control = clingo.Control(opts)
+        control.add("base", [], self.program)
+        control.ground([("base", [])])
+
+        all_models: list = []
+
+        def on_model(clingo_model):
+            model_symbols = clingo_model.symbols(shown=True)
+            model_cost = list(clingo_model.cost)
+            all_models.append((model_symbols, model_cost))
+
+        control.solve(on_model=on_model)
+
+        if not all_models:
+            return []
+
+        # Find minimum cost vector (lexicographic)
+        min_cost = min(m[1] for m in all_models)
+        return [m[0] for m in all_models if m[1] == min_cost]
+
+    def getBestModelWithTimeout(self, timeout: int | None = None):
+        """Like getBestModel but supports a timeout (seconds)."""
+        n_threads = min(4, os.cpu_count() or 1)
+        opts = [f"--parallel-mode={n_threads}", "--warn=no-atom-undefined"]
+        if timeout is not None:
+            opts.append(f"--time-limit={timeout}")
+
+        control = clingo.Control(opts)
+        control.add("base", [], self.program)
+        control.ground([("base", [])])
+        clingo_models = []
+
+        def on_model(clingo_model):
+            model_symbols = clingo_model.symbols(shown=True)
+            model_cost = clingo_model.cost
+            clingo_models.append([model_symbols, model_cost])
+
+        control.solve(on_model=on_model)
+
+        if not clingo_models:
+            return "[]"
+        best = min(clingo_models, key=lambda m: [int(c) for c in m[1]])
+        self.best_model = best
+        return best[0]
+
+    def setAllHypotheses(self, hypotheses: list) -> None:
+        """Store all optimal hypotheses (populated when all_solutions=True)."""
+        self.all_hypotheses = hypotheses
+
+    def getAllHypotheses(self) -> list:
+        """Return all optimal hypotheses (non-empty only when all_solutions=True)."""
+        return self.all_hypotheses

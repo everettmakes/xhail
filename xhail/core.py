@@ -68,6 +68,7 @@ class LearningResult:
     """
 
     hypothesis: list[str] = field(default_factory=list)
+    all_hypotheses: list[list[str]] = field(default_factory=list)
     success: bool = False
     source: Optional[str] = None
     n_examples: int = 0
@@ -218,6 +219,8 @@ def learn(
     debug: bool = False,
     debug_output_dir: Optional[Union[str, Path]] = None,
     on_phase: Optional[PhaseCallback] = None,
+    all_solutions: bool = False,
+    timeout: Optional[int] = None,
 ) -> LearningResult:
     """Run the full XHAIL learning pipeline and return the learned hypothesis.
 
@@ -257,6 +260,12 @@ def learn(
 
     Returns:
         A :class:`LearningResult` containing the learned rules and metadata.
+
+        all_solutions: If True, enumerate all optimal hypotheses (not just the
+            first).  Results are stored in ``result.all_hypotheses`` as a list
+            of hypothesis lists; ``result.hypothesis`` holds the first one.
+        timeout: If set, stop clingo after this many seconds in the induction
+            phase.  Partial results (if any) are returned.
 
     Raises:
         ParseError: If *source* cannot be parsed as a valid XHAIL program.
@@ -298,7 +307,7 @@ def learn(
     else:
         parser.loadFile(str(source_path))
     parser.parseProgram()
-    EX, MH, MB, BG = parser.separate()
+    EX, MH, MB, BG, DISP = parser.separate()
     logger.debug(
         "Parsed: %d example(s), %d modeh, %d modeb, %d background clause(s)",
         len(EX), len(MH), len(MB), len(BG),
@@ -335,7 +344,7 @@ def learn(
     # Phase 3 — Induction
     logger.info("Phase 3: Induction ...")
     t0 = time.perf_counter()
-    Induction(model).runPhase()
+    Induction(model).runPhase(all_solutions=all_solutions, timeout=timeout)
     phase_times["induction"] = time.perf_counter() - t0
     hypothesis_clauses = model.getHypothesis()
     hypothesis_strs = [str(c) for c in hypothesis_clauses]
@@ -345,8 +354,10 @@ def learn(
             "n_rules": len(hypothesis_strs),
         })
 
+    all_hyp_strs = [[str(c) for c in h] for h in model.getAllHypotheses()]
     result = LearningResult(
         hypothesis=hypothesis_strs,
+        all_hypotheses=all_hyp_strs,
         success=bool(hypothesis_strs),
         source=source_label,
         n_examples=len(EX),

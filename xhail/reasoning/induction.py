@@ -153,7 +153,29 @@ class Induction:
                 result.append(object)
         return result
 
-    def runPhase(self):
+    # ---------- Extract clauses from a single optimal model ---------- #
+    def _clauses_from_model(self, raw_model, clauses: list) -> list:
+        """Convert a raw clingo model (list of use/2 atoms) into Clause objects."""
+        selectors: dict = {}
+        facts = self.model.parseModel(raw_model)
+        for fact in facts:
+            terms = fact.head.terms
+            clause_idx = int(terms[0].value)
+            literal_idx = int(terms[1].value)
+            selectors.setdefault(clause_idx, []).append(literal_idx)
+
+        included_clauses = []
+        for key, indices in selectors.items():
+            if 0 not in indices:
+                continue
+            indices.remove(0)
+            new_head = clauses[key].head
+            new_body = [clauses[key].body[i - 1] for i in indices]
+            new_body = self.uniqueObjects(new_body)
+            included_clauses.append(Clause(new_head, new_body))
+        return included_clauses
+
+    def runPhase(self, all_solutions: bool = False, timeout: int | None = None):
         # ---------- Prepare Clauses ---------- #
         # IMPORTANT: updateClauseTypes must run BEFORE generalise so that '#'
         # placemarker positions are flagged as ground constants before
@@ -163,9 +185,7 @@ class Induction:
         clauses = [clause.generalise() for clause in clauses]  # skips ground Normals
         clauses = self.uniqueObjects(clauses)
 
-        # Cap kernel size: prefer shorter (more general) clauses.  The induction
-        # ASP program scales linearly with clause count × body size, so 200 unique
-        # abstract clauses keeps it well under 50K lines for any benchmark.
+        # Cap kernel size: prefer shorter (more general) clauses.
         max_kernel = int(_os.environ.get("XHAIL_MAX_KERNEL", str(_MAX_KERNEL_DEFAULT)))
         if len(clauses) > max_kernel:
             clauses.sort(key=lambda c: len(c.body))
@@ -177,7 +197,7 @@ class Induction:
             )
         logger.debug("Induction kernel: %d abstract clause(s).", len(clauses))
 
-        # ---------- Constuct Program ---------- #
+        # ---------- Construct Program ---------- #
         program = "#show use/2.\n"
         program += load_background(self.BG)
         program += load_examples(self.EX)
@@ -188,7 +208,7 @@ class Induction:
 
         # ---------- Update Model ---------- #
         self.model.setProgram(program)
-        logger.debug("Running induction phase...")
+        logger.debug("Running induction phase (all_solutions=%s)...", all_solutions)
 
         if self.model.debug_output_dir is not None:
             dest = self.model.debug_output_dir / "induction.lp"
@@ -196,33 +216,55 @@ class Induction:
             self.model.writeProgram(str(dest))
             logger.debug("Induction program written to %s", dest)
 
-        selectors = {}
-        best_model = self.model.getBestModel()
-        if str(best_model) != "[]":
-            selectors = {}
-            facts = self.model.parseModel(best_model)
-            for fact in facts:
-                terms = fact.head.terms
-                if int(terms[0].value) in selectors.keys():
-                    selectors[int(terms[0].value)].append(int(terms[1].value))
-                else:
-                    selectors[int(terms[0].value)] = [int(terms[1].value)]
+        if all_solutions:
+            # Enumerate ALL optimal hypotheses.
+            optimal_models = self.model.getAllOptimalModels(timeout=timeout)
+            if not optimal_models:
+                self.model.setHypothesis([])
+                self.model.setAllHypotheses([])
+                logger.info("No hypothesis found (induction returned no solution).")
+                return
 
-            included_clauses = []
-            for key in selectors.keys():
-                if 0 in selectors[key]:  # head = key
-                    selectors[key].remove(0)  # remove head-marker specifically, not last element
-                    new_head = clauses[key].head  # use this clause's head, not always clause 0
-                    new_body = []
-                    for literal in selectors[key]:
-                        new_body.append(clauses[key].body[literal - 1])
-                    new_body = self.uniqueObjects(new_body)
-                    new_clause = Clause(new_head, new_body)
-                    included_clauses.append(new_clause)
-            self.model.setHypothesis(included_clauses)
-            logger.info("Learned hypothesis (%d rule(s)):", len(included_clauses))
-            for clause in included_clauses:
-                logger.info("  %s", clause)
+            all_hyps = []
+            for raw_model in optimal_models:
+                if str(raw_model) == "[]":
+                    continue
+                h = self._clauses_from_model(raw_model, clauses)
+                if h:
+                    all_hyps.append(h)
+
+            # Deduplicate across optimal models
+            seen = set()
+            unique_hyps = []
+            for h in all_hyps:
+                key = frozenset(str(c) for c in h)
+                if key not in seen:
+                    seen.add(key)
+                    unique_hyps.append(h)
+
+            if unique_hyps:
+                self.model.setHypothesis(unique_hyps[0])
+                self.model.setAllHypotheses(unique_hyps)
+                logger.info("Found %d optimal hypothesis(es).", len(unique_hyps))
+            else:
+                self.model.setHypothesis([])
+                self.model.setAllHypotheses([])
+                logger.info("No hypothesis found.")
         else:
-            self.model.setHypothesis([])
-            logger.info("No hypothesis found (induction returned no solution).")
+            # Default: return single best hypothesis.
+            best_model = (
+                self.model.getBestModelWithTimeout(timeout=timeout)
+                if timeout is not None
+                else self.model.getBestModel()
+            )
+            if str(best_model) != "[]":
+                included_clauses = self._clauses_from_model(best_model, clauses)
+                self.model.setHypothesis(included_clauses)
+                self.model.setAllHypotheses([included_clauses] if included_clauses else [])
+                logger.info("Learned hypothesis (%d rule(s)):", len(included_clauses))
+                for clause in included_clauses:
+                    logger.info("  %s", clause)
+            else:
+                self.model.setHypothesis([])
+                self.model.setAllHypotheses([])
+                logger.info("No hypothesis found (induction returned no solution).")
