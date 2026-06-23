@@ -219,7 +219,6 @@ xhail/
 │   └── results/                CSV / JSON metrics (git-ignored)
 │
 ├── tests/                      183 tests, 94% line coverage
-├── docs/                       Technical paper (PDF)
 ├── scripts/                    Utility scripts
 └── .github/workflows/ci.yml    GitHub Actions — lint, type-check, test
 ```
