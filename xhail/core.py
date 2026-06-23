@@ -355,6 +355,19 @@ def learn(
         })
 
     all_hyp_strs = [[str(c) for c in h] for h in model.getAllHypotheses()]
+
+    # Apply #display filters: if any directives are present, keep only rules
+    # whose head predicate matches at least one directive.
+    if DISP:
+        def _display_filter(rules: list[str]) -> list[str]:
+            return [r for r in rules if any(d.matches(r) for d in DISP)]
+        hypothesis_strs = _display_filter(hypothesis_strs)
+        all_hyp_strs = [_display_filter(h) for h in all_hyp_strs]
+        logger.debug(
+            "#display filter applied (%d directive(s)): %d rule(s) remaining.",
+            len(DISP), len(hypothesis_strs),
+        )
+
     result = LearningResult(
         hypothesis=hypothesis_strs,
         all_hypotheses=all_hyp_strs,
