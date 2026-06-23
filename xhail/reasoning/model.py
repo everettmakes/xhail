@@ -1,5 +1,6 @@
 import logging
 import os
+import threading
 from pathlib import Path
 from typing import Optional
 
@@ -238,15 +239,30 @@ class Model:
     def getBackground(self):
         return self.BG
 
+    @staticmethod
+    def _solve_with_timeout(control, on_model, timeout: int | None):
+        """Run control.solve() and interrupt after ``timeout`` seconds.
+
+        ``--time-limit`` is a CLI-only flag; the Python API equivalent is to
+        call ``control.interrupt()`` from a background thread.
+        """
+        timer = None
+        if timeout is not None:
+            timer = threading.Timer(timeout, control.interrupt)
+            timer.start()
+        try:
+            control.solve(on_model=on_model)
+        finally:
+            if timer is not None:
+                timer.cancel()
+
     def getAllOptimalModels(self, timeout: int | None = None):
         """Return all models with the minimum cost (for --all mode).
 
         Uses clingo's ``--opt-mode=optN`` to enumerate every optimal model.
-        Falls back to collecting all models and filtering by minimum cost if
-        clingo returns no results under optN.
 
         Args:
-            timeout: If set, pass ``--time-limit=N`` to clingo (seconds).
+            timeout: If set, interrupt the solver after this many seconds.
 
         Returns:
             A list of model symbol lists, each representing one optimal
@@ -258,8 +274,6 @@ class Model:
             "--warn=no-atom-undefined",
             "--opt-mode=optN",
         ]
-        if timeout is not None:
-            opts.append(f"--time-limit={timeout}")
 
         control = clingo.Control(opts)
         control.add("base", [], self.program)
@@ -272,7 +286,7 @@ class Model:
             model_cost = list(clingo_model.cost)
             all_models.append((model_symbols, model_cost))
 
-        control.solve(on_model=on_model)
+        self._solve_with_timeout(control, on_model, timeout)
 
         if not all_models:
             return []
@@ -282,11 +296,9 @@ class Model:
         return [m[0] for m in all_models if m[1] == min_cost]
 
     def getBestModelWithTimeout(self, timeout: int | None = None):
-        """Like getBestModel but supports a timeout (seconds)."""
+        """Like getBestModel but interrupts the solver after ``timeout`` seconds."""
         n_threads = min(4, os.cpu_count() or 1)
         opts = [f"--parallel-mode={n_threads}", "--warn=no-atom-undefined"]
-        if timeout is not None:
-            opts.append(f"--time-limit={timeout}")
 
         control = clingo.Control(opts)
         control.add("base", [], self.program)
@@ -298,7 +310,7 @@ class Model:
             model_cost = clingo_model.cost
             clingo_models.append([model_symbols, model_cost])
 
-        control.solve(on_model=on_model)
+        self._solve_with_timeout(control, on_model, timeout)
 
         if not clingo_models:
             return "[]"
