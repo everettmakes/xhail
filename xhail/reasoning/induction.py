@@ -233,11 +233,17 @@ class Induction:
                 if h:
                     all_hyps.append(h)
 
-            # Deduplicate across optimal models
+            # Deduplicate across optimal models.
+            # Two clauses are the same if they have the same head and the same
+            # body literals (regardless of order) — so we normalise by sorting
+            # body literal strings before hashing.
+            def _clause_key(clause):
+                return (str(clause.head), frozenset(str(lit) for lit in clause.body))
+
             seen = set()
             unique_hyps = []
             for h in all_hyps:
-                key = frozenset(str(c) for c in h)
+                key = frozenset(_clause_key(c) for c in h)
                 if key not in seen:
                     seen.add(key)
                     unique_hyps.append(h)
