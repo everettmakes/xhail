@@ -642,6 +642,105 @@ function PhaseCard({
   );
 }
 
+// ── Server wake-up popup ───────────────────────────────────────────────────
+// The API scales to zero when idle, so the first request after a quiet period
+// waits on a cold start. Ping /health on load and tell the user what's happening.
+
+type ServerStatus = "checking" | "waking" | "ready" | "unreachable" | "hidden";
+
+function useServerWarmup(apiUrl: string) {
+  const [status, setStatus] = useState<ServerStatus>("checking");
+
+  useEffect(() => {
+    let cancelled = false;
+    let woke = false;
+    const started = Date.now();
+    const slowTimer = setTimeout(() => {
+      if (!cancelled) { woke = true; setStatus("waking"); }
+    }, 1500);
+
+    async function ping(): Promise<boolean> {
+      try {
+        const res = await fetch(`${apiUrl}/health`, { signal: AbortSignal.timeout(10000) });
+        return res.ok;
+      } catch {
+        return false;
+      }
+    }
+
+    (async () => {
+      while (!cancelled) {
+        if (await ping()) {
+          clearTimeout(slowTimer);
+          if (cancelled) return;
+          if (!woke) { setStatus("hidden"); return; }
+          setStatus("ready");
+          setTimeout(() => { if (!cancelled) setStatus("hidden"); }, 2500);
+          return;
+        }
+        if (Date.now() - started > 90000) {
+          clearTimeout(slowTimer);
+          if (!cancelled) setStatus("unreachable");
+          return;
+        }
+        await new Promise((r) => setTimeout(r, 3000));
+      }
+    })();
+
+    return () => { cancelled = true; clearTimeout(slowTimer); };
+  }, [apiUrl]);
+
+  return { status, dismiss: () => setStatus("hidden") };
+}
+
+function ServerWakePopup({ status, onDismiss }: { status: ServerStatus; onDismiss: () => void }) {
+  if (status === "checking" || status === "hidden") return null;
+
+  const content = {
+    waking: {
+      color: "#38bdf8",
+      title: "Server is starting up",
+      body: "The backend sleeps when idle. This usually takes 10–30 seconds — you can keep editing in the meantime.",
+    },
+    ready: {
+      color: "#4ade80",
+      title: "Server ready",
+      body: "You're good to run.",
+    },
+    unreachable: {
+      color: "#f87171",
+      title: "Server not responding",
+      body: "Couldn't reach the backend. Try refreshing in a minute.",
+    },
+  }[status];
+
+  return (
+    <div
+      role="status"
+      aria-live="polite"
+      className="fixed bottom-4 right-4 left-4 sm:left-auto sm:w-80 phase-card p-4 flex items-start gap-3 animate-fade-in"
+      style={{ zIndex: 50, background: "var(--surface-2)", borderColor: "var(--border-2)" }}
+    >
+      <div className="mt-0.5 flex-shrink-0" style={{ color: content.color }}>
+        {status === "waking" ? <IconSpinner /> : (
+          <div className="w-2 h-2 mt-1 rounded-full"
+            style={{ background: content.color, boxShadow: `0 0 7px ${content.color}` }} />
+        )}
+      </div>
+      <div className="flex-1 min-w-0">
+        <p className="text-xs font-semibold" style={{ color: content.color }}>{content.title}</p>
+        <p className="text-[11px] text-slate-400 mt-1 leading-relaxed">{content.body}</p>
+      </div>
+      {status !== "ready" && (
+        <button onClick={onDismiss} aria-label="Dismiss"
+          className="text-slate-600 hover:text-slate-300 transition-colors text-sm leading-none">
+          ×
+        </button>
+      )}
+    </div>
+  );
+}
+
 // ── Main page ─────────────────────────────────────────────────────────────
 
 export default function Home() {
@@ -658,6 +757,7 @@ export default function Home() {
   const { copied, copy }                    = useClipboard();
 
   const apiUrl   = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080";
+  const server   = useServerWarmup(apiUrl);
   const lineCount = program.split("\n").length;
 
   // ── Run ──
@@ -1281,6 +1381,8 @@ export default function Home() {
           <span className="ml-auto text-[10px] text-slate-800 font-mono">v0.1.1</span>
         </footer>
       </div>
+
+      <ServerWakePopup status={server.status} onDismiss={server.dismiss} />
     </>
   );
 }
