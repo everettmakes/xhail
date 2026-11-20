@@ -10,3 +10,4 @@ data/sft_*.jsonl
 data/repair_train*.jsonl
 data/repair_val*.jsonl
 data/train_v3.jsonl
+data_v4/

@@ -27,6 +27,7 @@ os.environ.setdefault("XHAIL_MP_START", "forkserver")
 
 from common import build_prompt, extract_modes, fewshot_messages, load_tasks, repair_prompt, retrieve_shots  # noqa: E402
 from feedback import diagnose, run_phases  # noqa: E402
+from rules import check_rule, rule_prompt  # noqa: E402
 
 
 def make_generator(model_name: str, batch: int):
@@ -59,8 +60,15 @@ def write_mode(args, generate) -> list[dict]:
              for t in tasks}
 
     def prompt(t):
+        if args.job == "rule":
+            return rule_prompt(t["program"])
         sys_msg, user = build_prompt(t["program"])
         return [sys_msg, *shots[t["id"]], user]
+
+    def check(t, text):
+        if args.job == "rule":  # does the rule fit the training examples?
+            return check_rule(t["program"], text)
+        return diagnose(t["program"], extract_modes(text))  # can XHAIL learn from the bias?
 
     state = {t["id"]: {"id": t["id"], "strategy": args.strategy, "seed": args.seed, "attempts": [], "solved_at": None}
              for t in tasks}
@@ -77,7 +85,7 @@ def write_mode(args, generate) -> list[dict]:
         texts = generate(convs, temp)
         still = []
         for t, text in zip(active, texts):
-            d = diagnose(t["program"], extract_modes(text))
+            d = check(t, text)
             s = state[t["id"]]
             s["attempts"].append({"completion": text, "category": d["category"], "feedback": d["feedback"]})
             if d["solved"]:
@@ -109,6 +117,7 @@ def main() -> None:
     ap.add_argument("--model", required=True)
     ap.add_argument("--tasks", help="JSONL path, 'benchmarks' or 'gold' (write mode)")
     ap.add_argument("--repair", help="corrupt.py JSONL (repair mode)")
+    ap.add_argument("--job", choices=["bias", "rule"], default="bias", help="write a bias, or write the rule directly")
     ap.add_argument("--strategy", choices=["resample", "feedback"], default="feedback")
     ap.add_argument("--k", type=int, default=4)
     ap.add_argument("--seed", type=int, default=0)
@@ -119,6 +128,8 @@ def main() -> None:
     ap.add_argument("--batch", type=int, default=8)
     ap.add_argument("--out", required=True)
     args = ap.parse_args()
+    if args.job == "rule" and (args.strategy != "resample" or args.repair or args.shots or args.fewshot):
+        ap.error("--job rule supports write mode with --strategy resample and no examples only")
 
     mp.get_context("forkserver").set_forkserver_preload(["common", "feedback"])
     run_phases("a.\n#example b.\n#modeh b.\n", timeout_s=30)  # start the forkserver while the process is small

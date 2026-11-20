@@ -260,6 +260,76 @@ def gen_ec_named(rng: random.Random):
     return "\n".join(bg), target, gold, cands
 
 
+def _ec_effect(rng: random.Random, kind: str):
+    """v4 event-calculus families. The event to learn changes the observed fluent by starting it
+    (start), stopping it (stop), or starting one fluent while stopping another (both). A distractor
+    event that touches the same fluents really happens in the narrative, so the head event cannot
+    be copied from the happens facts: it has to be read off the initiates/terminates axioms.
+
+        start  v initiates f;                d initiates an unrelated fluent  (event_calculus)
+        stop   v terminates f; d initiates f at time 0                         (sugar)
+        both   v initiates g, terminates h;  d initiates h                     (sprinkler)
+    """
+    tname, _, _, _ = rng.choice(EC_SCHEMES)
+    ents = rng.sample(EC_ENTITIES[tname], rng.randint(2, 3))
+    horizon = rng.randint(7, 9)
+    verb, dist, *others = rng.sample(EC_VERBS, rng.randint(3, 4))
+    f, h, trig, other, *rest = rng.sample(EC_FLUENTS, 4 + len(others) + 1)
+    subj = rng.choice(ents)
+    cause = rng.choice([e for e in ents if e != subj])
+    bg = [EC_AXIOMS, facts("time", [str(t) for t in range(horizon + 1)]), facts(tname, ents)]
+    ax = lambda kind_, ev, fl: f"{kind_}({ev}(X), {fl}(X), T) :- {tname}(X), time(T)."  # noqa: E731
+    evs = []
+    if kind == "start":
+        bg += [ax("initiates", verb, f), ax("initiates", dist, h)]
+        evs += [f"happens({dist}({e}),{rng.randint(0, horizon - 2)})." for e in ents if rng.random() < 0.7]
+        s0 = rng.randint(1, horizon - 4)
+        body, shown, gold_body = f"holdsAt({trig}({cause}),T)", f, [trig, other]
+    elif kind == "stop":
+        bg += [ax("terminates", verb, f), ax("initiates", dist, f)]
+        evs.append(f"happens({dist}({subj}),0).")
+        s0 = rng.randint(2, horizon - 4)
+        body, shown, gold_body = f"holdsAt({trig}({cause}),T)", f, [trig, other]
+    else:  # both
+        g = f
+        bg += [ax("initiates", verb, g), ax("terminates", verb, h), ax("initiates", dist, h)]
+        a = rng.randint(2, horizon - 4)
+        evs.append(f"happens({dist}({subj}),{a}).")
+        s0 = None
+        body, shown, gold_body = f"holdsAt({h}({subj}),T)", g, [h, other]
+    for v, fl in zip(others, rest):  # unrelated events with their own effects, some observed
+        bg.append(ax("initiates", v, fl))
+        evs += [f"happens({v}({e}),{rng.randint(0, horizon - 2)})." for e in ents if rng.random() < 0.4]
+    for fl in (trig, other):
+        bg.append(ax("initiates", f"raise_{fl}", fl))
+        bg.append(ax("terminates", f"drop_{fl}", fl))
+    if s0 is not None:
+        evs.append(f"happens(raise_{trig}({cause}),{s0}).")
+    for e in ents:  # the other fluent switches on and off at random: a plausible but wrong trigger
+        if rng.random() < 0.6:
+            s = rng.randint(0, horizon - 3)
+            evs.append(f"happens(raise_{other}({e}),{s}).")
+            if rng.random() < 0.5:
+                evs.append(f"happens(drop_{other}({e}),{rng.randint(s + 1, horizon - 1)}).")
+    bg.append(" ".join(sorted(set(evs))))
+    target = f"happens({verb}({subj}),T) :- time(T), {body}."
+    gold = [f"#modeh happens({verb}(#{tname}),+time)."] + [f"#modeb holdsAt({fl}(#{tname}),+time)." for fl in gold_body]
+    cands = [f"holdsAt({shown}({subj}),{t})" for t in range(1, horizon + 1)]
+    return "\n".join(bg), target, gold, cands
+
+
+def gen_ec_start(rng: random.Random):
+    return _ec_effect(rng, "start")
+
+
+def gen_ec_stop(rng: random.Random):
+    return _ec_effect(rng, "stop")
+
+
+def gen_ec_both(rng: random.Random):
+    return _ec_effect(rng, "both")
+
+
 def gen_const_attr(rng: random.Random):
     """A rule that tests an attribute against one constant value: needs #type in the body."""
     tname, attr, vtype, values = rng.choice(ATTR_SCHEMES)
@@ -290,7 +360,8 @@ def gen_prop(rng: random.Random):
 
 
 FAMILIES = {"unary": gen_unary, "part": gen_part, "chain": gen_chain, "ec": gen_ec,
-            "ec_named": gen_ec_named, "const_attr": gen_const_attr, "prop": gen_prop}
+            "ec_named": gen_ec_named, "const_attr": gen_const_attr, "prop": gen_prop,
+            "ec_start": gen_ec_start, "ec_stop": gen_ec_stop, "ec_both": gen_ec_both}
 
 
 # ---------------------------------------------------------------------------

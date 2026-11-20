@@ -13,17 +13,24 @@ Ladder and tiers are as in [RESULTS_v2.md](RESULTS_v2.md). There is one new tier
 | method | unseen, old families (160) | unseen, new families (80) | gold (16) |
 |---|---|---|---|
 | exhaustive (declare everything) | 84 | – | 75 |
-| v2, no examples | 95 (94–96) | 38 (38–40) | 60 (56–62) |
+| v2, no examples | 94 (93–95) | 37 (35–39) | 60 (56–62) |
 | v2, 2 retrieved examples | 79 (76–81) | 41 (31–48) | 56 (50–62) |
-| **v3, no examples** | **94 (93–95)** | **93 (92–94)** | **69 (62–75)** |
-| v3, 2 retrieved examples | 79 (71–84) | 65 (59–68) | 58 (56–62) |
+| **v3, no examples** | **94 (92–94)** | **93 (92–94)** | **69 (62–75)** |
+| v3, 2 retrieved examples | 78 (71–84) | 65 (59–68) | 58 (56–62) |
 
 Single attempt, v3 with no examples: 89 / 88 / 62. **Repair (v3):** gold 73% (v2: 69%), unseen new families 99%.
 Seen programs (sanity floor, v3): old families 98%, new families 88%.
 
+**Scoring fix (after first write-up).** The *correct* check for synthetic event-calculus tasks compared
+only `happens` atoms against held-out labels that are all `holdsAt` atoms, so it compared nothing and
+passed any rule XHAIL learned. It now compares every labelled atom. Rescoring moved numbers by at most
+1.6 points (table above is rescored). Gold was not affected, because it compares the whole domain. The
+fixed check also shows that the *gold* bias itself yields a slightly wrong rule on 1 of the 160 old-family
+test tasks (XHAIL's examples are soft, so it can leave one uncovered).
+
 ## What the numbers say
 
-1. **The new templates worked, and cost nothing.** On the new families, v3 reaches 93% against v2's 38%. On the old families it holds at 94% (v2: 95%). On gold it reaches 69% against v2's 60%: from 50% to 62% in a single attempt.
+1. **The new templates worked, and cost nothing.** On the new families, v3 reaches 93% against v2's 37%. On the old families it holds at 94% (v2: 94%). On gold it reaches 69% against v2's 60%: from 50% to 62% in a single attempt.
 2. **Gold moved for the reasons we targeted.** `propositional`, `ripe` (`#` constant in the body) and `adoptable` (needed negation) now pass. Gold correct with 4 attempts (69%) is close to the exhaustive baseline (75%).
 3. **Retrieved examples hurt both models.** Adding two similar examples lowers v3 by 15 points on old families, 28 on new and 11 on gold. The likely reason is that the models were fine-tuned on prompts without examples, so examples move them off the training distribution. The model seems to copy the examples' surface form (event names, extra modes) instead of reading the program. Examples help only where the model had never seen the pattern (v2 on `prop` and `const_attr`). That is what fine-tuning on that pattern already does better.
 4. **The remaining gold failures are specific.**

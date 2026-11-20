@@ -131,14 +131,31 @@ def expressive(target_rules: list[str], modes: list[str], bg: set[str]) -> str |
 # ---------------------------------------------------------------------------
 
 
-def extension(program: str, rules: list[str], head_pred: str) -> set[str] | None:
+def extension(program: str, rules: list[str], head_pred: str | None) -> set[str] | None:
+    """Atoms true in background + rules: those of head_pred, or all atoms when head_pred is None."""
     bg = background_only(program)
     prog = bg + "\n" + domain_facts(bg) + "\n" + "\n".join(_guard(r) for r in rules)
     try:
         atoms = ground_atoms(prog)
     except Exception:
         return None
-    return {a for a in atoms if a.startswith(head_pred + "(") or a == head_pred}
+    return atoms if head_pred is None else {a for a in atoms if a.startswith(head_pred + "(") or a == head_pred}
+
+
+def agrees(task: dict, rules: list[str]) -> bool:
+    """Do `rules` behave like the task's intended rule? With held-out labels, compare on every
+    labelled atom (training examples + held-out, whatever their predicate: in event-calculus tasks
+    they are holdsAt atoms, not the learned happens atoms). Without, compare the head predicate's
+    whole extension."""
+    target = task["target"] if isinstance(task["target"], list) else [task["target"]]
+    if task.get("holdout"):
+        labelled = {re.sub(r"\s+", "", a) for a in  # clingo prints atoms without spaces
+                    [h["atom"] for h in task["holdout"]] + EXAMPLE_ATOM_RE.findall(task["program"])}
+        want, got = extension(task["program"], target, None), extension(task["program"], rules, None)
+        return want is not None and got is not None and want & labelled == got & labelled
+    head_pred = parse_atom(parse_rule(target[0])[0])[0]
+    want, got = extension(task["program"], target, head_pred), extension(task["program"], rules, head_pred)
+    return want is not None and got == want
 
 
 # ---------------------------------------------------------------------------
@@ -179,15 +196,8 @@ def climb(task: dict, completion: str, timeout: float = 20.0) -> dict:
     if not (res.get("ok") and res.get("success")):
         return fail(3, "XHAIL timed out" if res.get("timeout") else f"XHAIL learned nothing ({res.get('error', 'no hypothesis')})",
                     modes=modes)
-    if target_rules:
-        head_pred = parse_atom(parse_rule(target_rules[0])[0])[0]
-        want, got = extension(program, target_rules, head_pred), extension(program, hyp, head_pred)
-        if want is not None and got is not None and task.get("holdout"):
-            labelled = {h["atom"] for h in task["holdout"]} | {
-                a for a in EXAMPLE_ATOM_RE.findall(program) if a.startswith(head_pred)}
-            want, got = want & labelled, got & labelled
-        if want is None or got != want:
-            return fail(3, f"learned {hyp}, which behaves differently from the intended rule", modes=modes, hypothesis=hyp)
+    if target_rules and not agrees(task, hyp):
+        return fail(3, f"learned {hyp}, which behaves differently from the intended rule", modes=modes, hypothesis=hyp)
 
     if len(modes) > len(task["gold_modes"]):
         return fail(4, f"{len(modes)} modes where gold needs {len(task['gold_modes'])}", modes=modes, hypothesis=hyp)

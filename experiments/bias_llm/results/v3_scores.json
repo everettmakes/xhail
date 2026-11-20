@@ -8,21 +8,21 @@
           "format": 0.975,
           "semantics": 0.8625000000000002,
           "expressive": 0.325,
-          "correct": 0.325,
+          "correct": 0.3125,
           "tight": 0.1125
         },
         "min": {
           "format": 0.975,
           "semantics": 0.8625,
           "expressive": 0.325,
-          "correct": 0.325,
+          "correct": 0.3125,
           "tight": 0.1125
         },
         "max": {
           "format": 0.975,
           "semantics": 0.8625,
           "expressive": 0.325,
-          "correct": 0.325,
+          "correct": 0.3125,
           "tight": 0.1125
         }
       },
@@ -33,21 +33,21 @@
           "format": 0.975,
           "semantics": 0.8708333333333332,
           "expressive": 0.3833333333333333,
-          "correct": 0.3833333333333333,
+          "correct": 0.3666666666666667,
           "tight": 0.15416666666666667
         },
         "min": {
           "format": 0.9625,
           "semantics": 0.8625,
           "expressive": 0.375,
-          "correct": 0.375,
+          "correct": 0.35,
           "tight": 0.15
         },
         "max": {
           "format": 0.9875,
           "semantics": 0.875,
           "expressive": 0.4,
-          "correct": 0.4,
+          "correct": 0.3875,
           "tight": 0.1625
         }
       },
@@ -58,7 +58,7 @@
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 0.3625,
-          "correct": 0.3625,
+          "correct": 0.35833333333333334,
           "tight": 0.28750000000000003
         },
         "min": {
@@ -72,7 +72,7 @@
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 0.4,
-          "correct": 0.4,
+          "correct": 0.3875,
           "tight": 0.35
         }
       },
@@ -83,7 +83,7 @@
           "format": 0.9958333333333332,
           "semantics": 0.9958333333333332,
           "expressive": 0.4124999999999999,
-          "correct": 0.4124999999999999,
+          "correct": 0.4083333333333334,
           "tight": 0.325
         },
         "min": {
@@ -512,22 +512,22 @@
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 0.8937500000000002,
-          "correct": 0.8937500000000002,
-          "tight": 0.8874999999999998
+          "correct": 0.8874999999999998,
+          "tight": 0.88125
         },
         "min": {
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 0.89375,
-          "correct": 0.89375,
-          "tight": 0.8875
+          "correct": 0.8875,
+          "tight": 0.88125
         },
         "max": {
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 0.89375,
-          "correct": 0.89375,
-          "tight": 0.8875
+          "correct": 0.8875,
+          "tight": 0.88125
         }
       },
       "v3 shots0 k=4": {
@@ -537,22 +537,22 @@
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 0.94375,
-          "correct": 0.94375,
-          "tight": 0.9375
+          "correct": 0.9375,
+          "tight": 0.93125
         },
         "min": {
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 0.93125,
-          "correct": 0.93125,
-          "tight": 0.925
+          "correct": 0.925,
+          "tight": 0.91875
         },
         "max": {
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 0.95,
-          "correct": 0.95,
-          "tight": 0.94375
+          "correct": 0.94375,
+          "tight": 0.9375
         }
       },
       "v3 shots2 single": {
@@ -562,8 +562,8 @@
           "format": 1.0,
           "semantics": 0.9854166666666666,
           "expressive": 0.7416666666666667,
-          "correct": 0.7333333333333334,
-          "tight": 0.6625
+          "correct": 0.7312500000000001,
+          "tight": 0.6604166666666668
         },
         "min": {
           "format": 1.0,
@@ -576,8 +576,8 @@
           "format": 1.0,
           "semantics": 0.99375,
           "expressive": 0.83125,
-          "correct": 0.83125,
-          "tight": 0.78125
+          "correct": 0.825,
+          "tight": 0.775
         }
       },
       "v3 shots2 k=4": {
@@ -587,8 +587,8 @@
           "format": 1.0,
           "semantics": 0.9916666666666667,
           "expressive": 0.7895833333333333,
-          "correct": 0.7854166666666668,
-          "tight": 0.7124999999999999
+          "correct": 0.7833333333333333,
+          "tight": 0.7104166666666667
         },
         "min": {
           "format": 1.0,
@@ -601,8 +601,8 @@
           "format": 1.0,
           "semantics": 0.99375,
           "expressive": 0.84375,
-          "correct": 0.84375,
-          "tight": 0.79375
+          "correct": 0.8375,
+          "tight": 0.7875
         }
       },
       "v2 shots0 single": {
@@ -612,22 +612,22 @@
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 0.9,
-          "correct": 0.9,
-          "tight": 0.9
+          "correct": 0.8937500000000002,
+          "tight": 0.8937500000000002
         },
         "min": {
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 0.9,
-          "correct": 0.9,
-          "tight": 0.9
+          "correct": 0.89375,
+          "tight": 0.89375
         },
         "max": {
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 0.9,
-          "correct": 0.9,
-          "tight": 0.9
+          "correct": 0.89375,
+          "tight": 0.89375
         }
       },
       "v2 shots0 k=4": {
@@ -637,22 +637,22 @@
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 0.9458333333333334,
-          "correct": 0.9458333333333334,
-          "tight": 0.9458333333333334
+          "correct": 0.9395833333333332,
+          "tight": 0.9395833333333332
         },
         "min": {
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 0.9375,
-          "correct": 0.9375,
-          "tight": 0.9375
+          "correct": 0.93125,
+          "tight": 0.93125
         },
         "max": {
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 0.95625,
-          "correct": 0.95625,
-          "tight": 0.95625
+          "correct": 0.95,
+          "tight": 0.95
         }
       },
       "gold bias": {
@@ -662,22 +662,22 @@
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 1.0,
-          "correct": 1.0,
-          "tight": 1.0
+          "correct": 0.99375,
+          "tight": 0.99375
         },
         "min": {
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 1.0,
-          "correct": 1.0,
-          "tight": 1.0
+          "correct": 0.99375,
+          "tight": 0.99375
         },
         "max": {
           "format": 1.0,
           "semantics": 1.0,
           "expressive": 1.0,
-          "correct": 1.0,
-          "tight": 1.0
+          "correct": 0.99375,
+          "tight": 0.99375
         }
       }
     },
@@ -1007,13 +1007,13 @@
   "new_by_family": {
     "v2 shots0 k=4": {
       "const_attr": 0.0,
-      "ec_named": 0.7037037037037037,
+      "ec_named": 0.6666666666666666,
       "prop": 0.0,
       "unary": 0.8125
     },
     "v2 shots2 k=4": {
       "const_attr": 0.41379310344827586,
-      "ec_named": 0.2222222222222222,
+      "ec_named": 0.18518518518518517,
       "prop": 1.0,
       "unary": 0.625
     },
