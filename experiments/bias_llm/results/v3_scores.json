@@ -1,0 +1,1033 @@
+{
+  "write": {
+    "new": {
+      "v2 shots0 single": {
+        "n": 80,
+        "seeds": 3,
+        "mean": {
+          "format": 0.975,
+          "semantics": 0.8625000000000002,
+          "expressive": 0.325,
+          "correct": 0.325,
+          "tight": 0.1125
+        },
+        "min": {
+          "format": 0.975,
+          "semantics": 0.8625,
+          "expressive": 0.325,
+          "correct": 0.325,
+          "tight": 0.1125
+        },
+        "max": {
+          "format": 0.975,
+          "semantics": 0.8625,
+          "expressive": 0.325,
+          "correct": 0.325,
+          "tight": 0.1125
+        }
+      },
+      "v2 shots0 k=4": {
+        "n": 80,
+        "seeds": 3,
+        "mean": {
+          "format": 0.975,
+          "semantics": 0.8708333333333332,
+          "expressive": 0.3833333333333333,
+          "correct": 0.3833333333333333,
+          "tight": 0.15416666666666667
+        },
+        "min": {
+          "format": 0.9625,
+          "semantics": 0.8625,
+          "expressive": 0.375,
+          "correct": 0.375,
+          "tight": 0.15
+        },
+        "max": {
+          "format": 0.9875,
+          "semantics": 0.875,
+          "expressive": 0.4,
+          "correct": 0.4,
+          "tight": 0.1625
+        }
+      },
+      "v2 shots2 single": {
+        "n": 80,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.3625,
+          "correct": 0.3625,
+          "tight": 0.28750000000000003
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.3125,
+          "correct": 0.3125,
+          "tight": 0.25
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.4,
+          "correct": 0.4,
+          "tight": 0.35
+        }
+      },
+      "v2 shots2 k=4": {
+        "n": 80,
+        "seeds": 3,
+        "mean": {
+          "format": 0.9958333333333332,
+          "semantics": 0.9958333333333332,
+          "expressive": 0.4124999999999999,
+          "correct": 0.4124999999999999,
+          "tight": 0.325
+        },
+        "min": {
+          "format": 0.9875,
+          "semantics": 0.9875,
+          "expressive": 0.3125,
+          "correct": 0.3125,
+          "tight": 0.25
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.475,
+          "correct": 0.475,
+          "tight": 0.375
+        }
+      },
+      "v3 shots0 single": {
+        "n": 80,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.875,
+          "correct": 0.875,
+          "tight": 0.8625000000000002
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.875,
+          "correct": 0.875,
+          "tight": 0.8625
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.875,
+          "correct": 0.875,
+          "tight": 0.8625
+        }
+      },
+      "v3 shots0 k=4": {
+        "n": 80,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.9333333333333332,
+          "correct": 0.9333333333333332,
+          "tight": 0.9208333333333334
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.925,
+          "correct": 0.925,
+          "tight": 0.9125
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.9375,
+          "correct": 0.9375,
+          "tight": 0.925
+        }
+      },
+      "v3 shots2 single": {
+        "n": 80,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.6166666666666667,
+          "correct": 0.6166666666666667,
+          "tight": 0.5625000000000001
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.575,
+          "correct": 0.575,
+          "tight": 0.525
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.6625,
+          "correct": 0.6625,
+          "tight": 0.6125
+        }
+      },
+      "v3 shots2 k=4": {
+        "n": 80,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.6458333333333334,
+          "correct": 0.6458333333333334,
+          "tight": 0.5875
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.5875,
+          "correct": 0.5875,
+          "tight": 0.525
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.675,
+          "correct": 0.675,
+          "tight": 0.675
+        }
+      },
+      "gold bias": {
+        "n": 80,
+        "seeds": 1,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 1.0,
+          "correct": 1.0,
+          "tight": 1.0
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 1.0,
+          "correct": 1.0,
+          "tight": 1.0
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 1.0,
+          "correct": 1.0,
+          "tight": 1.0
+        }
+      }
+    },
+    "gold": {
+      "v2 shots2 single": {
+        "n": 16,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 0.9583333333333334,
+          "expressive": 0.5625,
+          "correct": 0.5,
+          "tight": 0.25
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 0.9375,
+          "expressive": 0.5,
+          "correct": 0.4375,
+          "tight": 0.1875
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.625,
+          "correct": 0.5625,
+          "tight": 0.3125
+        }
+      },
+      "v2 shots2 k=4": {
+        "n": 16,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.6041666666666666,
+          "correct": 0.5625,
+          "tight": 0.25
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.5625,
+          "correct": 0.5,
+          "tight": 0.1875
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.625,
+          "correct": 0.625,
+          "tight": 0.3125
+        }
+      },
+      "v3 shots0 single": {
+        "n": 16,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 0.9375,
+          "expressive": 0.6875,
+          "correct": 0.625,
+          "tight": 0.25
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 0.9375,
+          "expressive": 0.6875,
+          "correct": 0.625,
+          "tight": 0.25
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 0.9375,
+          "expressive": 0.6875,
+          "correct": 0.625,
+          "tight": 0.25
+        }
+      },
+      "v3 shots0 k=4": {
+        "n": 16,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 0.9375,
+          "expressive": 0.7291666666666666,
+          "correct": 0.6875,
+          "tight": 0.25
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 0.9375,
+          "expressive": 0.6875,
+          "correct": 0.625,
+          "tight": 0.25
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 0.9375,
+          "expressive": 0.75,
+          "correct": 0.75,
+          "tight": 0.25
+        }
+      },
+      "v3 shots2 single": {
+        "n": 16,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 0.9791666666666666,
+          "expressive": 0.625,
+          "correct": 0.5833333333333334,
+          "tight": 0.2708333333333333
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 0.9375,
+          "expressive": 0.5625,
+          "correct": 0.5625,
+          "tight": 0.25
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.6875,
+          "correct": 0.625,
+          "tight": 0.3125
+        }
+      },
+      "v3 shots2 k=4": {
+        "n": 16,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 0.9583333333333334,
+          "expressive": 0.6041666666666666,
+          "correct": 0.5833333333333334,
+          "tight": 0.2708333333333333
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 0.9375,
+          "expressive": 0.5625,
+          "correct": 0.5625,
+          "tight": 0.25
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.625,
+          "correct": 0.625,
+          "tight": 0.3125
+        }
+      },
+      "v2 shots0 single": {
+        "n": 16,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 0.8125,
+          "expressive": 0.5,
+          "correct": 0.5,
+          "tight": 0.25
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 0.8125,
+          "expressive": 0.5,
+          "correct": 0.5,
+          "tight": 0.25
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 0.8125,
+          "expressive": 0.5,
+          "correct": 0.5,
+          "tight": 0.25
+        }
+      },
+      "v2 shots0 k=4": {
+        "n": 16,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 0.8958333333333334,
+          "expressive": 0.6041666666666666,
+          "correct": 0.6041666666666666,
+          "tight": 0.2916666666666667
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 0.875,
+          "expressive": 0.5625,
+          "correct": 0.5625,
+          "tight": 0.25
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 0.9375,
+          "expressive": 0.625,
+          "correct": 0.625,
+          "tight": 0.3125
+        }
+      },
+      "gold bias": {
+        "n": 16,
+        "seeds": 1,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 1.0,
+          "correct": 1.0,
+          "tight": 1.0
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 1.0,
+          "correct": 1.0,
+          "tight": 1.0
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 1.0,
+          "correct": 1.0,
+          "tight": 1.0
+        }
+      }
+    },
+    "test": {
+      "v2 shots2 single": {
+        "n": 160,
+        "seeds": 3,
+        "mean": {
+          "format": 0.99375,
+          "semantics": 0.9916666666666667,
+          "expressive": 0.7645833333333334,
+          "correct": 0.7604166666666666,
+          "tight": 0.6916666666666665
+        },
+        "min": {
+          "format": 0.98125,
+          "semantics": 0.98125,
+          "expressive": 0.7125,
+          "correct": 0.70625,
+          "tight": 0.6375
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.80625,
+          "correct": 0.80625,
+          "tight": 0.7875
+        }
+      },
+      "v2 shots2 k=4": {
+        "n": 160,
+        "seeds": 3,
+        "mean": {
+          "format": 0.9958333333333332,
+          "semantics": 0.9916666666666667,
+          "expressive": 0.7958333333333334,
+          "correct": 0.7916666666666666,
+          "tight": 0.7229166666666668
+        },
+        "min": {
+          "format": 0.99375,
+          "semantics": 0.9875,
+          "expressive": 0.76875,
+          "correct": 0.7625,
+          "tight": 0.6875
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 0.99375,
+          "expressive": 0.8125,
+          "correct": 0.80625,
+          "tight": 0.7875
+        }
+      },
+      "v3 shots0 single": {
+        "n": 160,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.8937500000000002,
+          "correct": 0.8937500000000002,
+          "tight": 0.8874999999999998
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.89375,
+          "correct": 0.89375,
+          "tight": 0.8875
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.89375,
+          "correct": 0.89375,
+          "tight": 0.8875
+        }
+      },
+      "v3 shots0 k=4": {
+        "n": 160,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.94375,
+          "correct": 0.94375,
+          "tight": 0.9375
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.93125,
+          "correct": 0.93125,
+          "tight": 0.925
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.95,
+          "correct": 0.95,
+          "tight": 0.94375
+        }
+      },
+      "v3 shots2 single": {
+        "n": 160,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 0.9854166666666666,
+          "expressive": 0.7416666666666667,
+          "correct": 0.7333333333333334,
+          "tight": 0.6625
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 0.98125,
+          "expressive": 0.625,
+          "correct": 0.625,
+          "tight": 0.58125
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 0.99375,
+          "expressive": 0.83125,
+          "correct": 0.83125,
+          "tight": 0.78125
+        }
+      },
+      "v3 shots2 k=4": {
+        "n": 160,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 0.9916666666666667,
+          "expressive": 0.7895833333333333,
+          "correct": 0.7854166666666668,
+          "tight": 0.7124999999999999
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 0.9875,
+          "expressive": 0.7125,
+          "correct": 0.7125,
+          "tight": 0.6625
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 0.99375,
+          "expressive": 0.84375,
+          "correct": 0.84375,
+          "tight": 0.79375
+        }
+      },
+      "v2 shots0 single": {
+        "n": 160,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.9,
+          "correct": 0.9,
+          "tight": 0.9
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.9,
+          "correct": 0.9,
+          "tight": 0.9
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.9,
+          "correct": 0.9,
+          "tight": 0.9
+        }
+      },
+      "v2 shots0 k=4": {
+        "n": 160,
+        "seeds": 3,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.9458333333333334,
+          "correct": 0.9458333333333334,
+          "tight": 0.9458333333333334
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.9375,
+          "correct": 0.9375,
+          "tight": 0.9375
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.95625,
+          "correct": 0.95625,
+          "tight": 0.95625
+        }
+      },
+      "gold bias": {
+        "n": 160,
+        "seeds": 1,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 1.0,
+          "correct": 1.0,
+          "tight": 1.0
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 1.0,
+          "correct": 1.0,
+          "tight": 1.0
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 1.0,
+          "correct": 1.0,
+          "tight": 1.0
+        }
+      }
+    },
+    "seen_new": {
+      "v3 shots0 single": {
+        "n": 80,
+        "seeds": 1,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.875,
+          "correct": 0.875,
+          "tight": 0.8625
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.875,
+          "correct": 0.875,
+          "tight": 0.8625
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.875,
+          "correct": 0.875,
+          "tight": 0.8625
+        }
+      },
+      "v3 shots0 k=4": {
+        "n": 80,
+        "seeds": 1,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.875,
+          "correct": 0.875,
+          "tight": 0.8625
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.875,
+          "correct": 0.875,
+          "tight": 0.8625
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.875,
+          "correct": 0.875,
+          "tight": 0.8625
+        }
+      }
+    },
+    "seen_old": {
+      "v3 shots0 single": {
+        "n": 80,
+        "seeds": 1,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.9,
+          "correct": 0.9,
+          "tight": 0.9
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.9,
+          "correct": 0.9,
+          "tight": 0.9
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.9,
+          "correct": 0.9,
+          "tight": 0.9
+        }
+      },
+      "v3 shots0 k=4": {
+        "n": 80,
+        "seeds": 1,
+        "mean": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.975,
+          "correct": 0.975,
+          "tight": 0.975
+        },
+        "min": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.975,
+          "correct": 0.975,
+          "tight": 0.975
+        },
+        "max": {
+          "format": 1.0,
+          "semantics": 1.0,
+          "expressive": 0.975,
+          "correct": 0.975,
+          "tight": 0.975
+        }
+      }
+    }
+  },
+  "repair": {
+    "gold": {
+      "n": 176,
+      "correct": 0.7329545454545454,
+      "by_level": {
+        "format": [
+          0.765625,
+          64
+        ],
+        "semantics": [
+          0.8409090909090909,
+          44
+        ],
+        "expressive": [
+          0.6521739130434783,
+          46
+        ],
+        "tight": [
+          0.6842105263157895,
+          19
+        ],
+        "correct": [
+          0.0,
+          3
+        ]
+      }
+    },
+    "new": {
+      "n": 474,
+      "correct": 0.9873417721518988,
+      "by_level": {
+        "tight": [
+          0.9844961240310077,
+          129
+        ],
+        "format": [
+          1.0,
+          160
+        ],
+        "semantics": [
+          0.9903846153846154,
+          104
+        ],
+        "expressive": [
+          0.9615384615384616,
+          78
+        ],
+        "correct": [
+          1.0,
+          3
+        ]
+      }
+    }
+  },
+  "gold_grid": {
+    "v2 shots2 single": {
+      "bench-animals": 4,
+      "bench-blocks": 5,
+      "bench-epidemic": 5,
+      "bench-event_calculus": 2,
+      "bench-grandfather": 4,
+      "bench-penguins": 2,
+      "bench-propositional": 5,
+      "bench-sugar": 2,
+      "bench-traffic": 5,
+      "bench-trains": 4,
+      "gold-adoptable": 2,
+      "gold-enrol": 3,
+      "gold-ripe": 2,
+      "gold-sprinkler": 2,
+      "gold-toxic": 5,
+      "gold-uncle": 4
+    },
+    "v2 shots2 k=4": {
+      "bench-animals": 4,
+      "bench-blocks": 5,
+      "bench-epidemic": 5,
+      "bench-event_calculus": 2,
+      "bench-grandfather": 4,
+      "bench-penguins": 2,
+      "bench-propositional": 5,
+      "bench-sugar": 2,
+      "bench-traffic": 5,
+      "bench-trains": 4,
+      "gold-adoptable": 2,
+      "gold-enrol": 3,
+      "gold-ripe": 2,
+      "gold-sprinkler": 2,
+      "gold-toxic": 5,
+      "gold-uncle": 4
+    },
+    "v3 shots0 single": {
+      "bench-animals": 4,
+      "bench-blocks": 4,
+      "bench-epidemic": 5,
+      "bench-event_calculus": 2,
+      "bench-grandfather": 3,
+      "bench-penguins": 1,
+      "bench-propositional": 5,
+      "bench-sugar": 2,
+      "bench-traffic": 4,
+      "bench-trains": 4,
+      "gold-adoptable": 5,
+      "gold-enrol": 2,
+      "gold-ripe": 4,
+      "gold-sprinkler": 2,
+      "gold-toxic": 5,
+      "gold-uncle": 4
+    },
+    "v3 shots0 k=4": {
+      "bench-animals": 4,
+      "bench-blocks": 4,
+      "bench-epidemic": 5,
+      "bench-event_calculus": 2,
+      "bench-grandfather": 3,
+      "bench-penguins": 1,
+      "bench-propositional": 5,
+      "bench-sugar": 2,
+      "bench-traffic": 4,
+      "bench-trains": 4,
+      "gold-adoptable": 5,
+      "gold-enrol": 4,
+      "gold-ripe": 4,
+      "gold-sprinkler": 2,
+      "gold-toxic": 5,
+      "gold-uncle": 4
+    },
+    "v3 shots2 single": {
+      "bench-animals": 4,
+      "bench-blocks": 3,
+      "bench-epidemic": 5,
+      "bench-event_calculus": 2,
+      "bench-grandfather": 4,
+      "bench-penguins": 2,
+      "bench-propositional": 5,
+      "bench-sugar": 2,
+      "bench-traffic": 5,
+      "bench-trains": 4,
+      "gold-adoptable": 2,
+      "gold-enrol": 3,
+      "gold-ripe": 5,
+      "gold-sprinkler": 2,
+      "gold-toxic": 5,
+      "gold-uncle": 4
+    },
+    "v3 shots2 k=4": {
+      "bench-animals": 4,
+      "bench-blocks": 1,
+      "bench-epidemic": 5,
+      "bench-event_calculus": 2,
+      "bench-grandfather": 4,
+      "bench-penguins": 2,
+      "bench-propositional": 5,
+      "bench-sugar": 2,
+      "bench-traffic": 5,
+      "bench-trains": 4,
+      "gold-adoptable": 2,
+      "gold-enrol": 3,
+      "gold-ripe": 5,
+      "gold-sprinkler": 2,
+      "gold-toxic": 5,
+      "gold-uncle": 4
+    },
+    "v2 shots0 single": {
+      "bench-animals": 4,
+      "bench-blocks": 1,
+      "bench-epidemic": 5,
+      "bench-event_calculus": 2,
+      "bench-grandfather": 4,
+      "bench-penguins": 1,
+      "bench-propositional": 1,
+      "bench-sugar": 2,
+      "bench-traffic": 5,
+      "bench-trains": 4,
+      "gold-adoptable": 2,
+      "gold-enrol": 5,
+      "gold-ripe": 2,
+      "gold-sprinkler": 2,
+      "gold-toxic": 5,
+      "gold-uncle": 4
+    },
+    "v2 shots0 k=4": {
+      "bench-animals": 4,
+      "bench-blocks": 4,
+      "bench-epidemic": 5,
+      "bench-event_calculus": 2,
+      "bench-grandfather": 4,
+      "bench-penguins": 1,
+      "bench-propositional": 1,
+      "bench-sugar": 2,
+      "bench-traffic": 5,
+      "bench-trains": 4,
+      "gold-adoptable": 2,
+      "gold-enrol": 5,
+      "gold-ripe": 2,
+      "gold-sprinkler": 2,
+      "gold-toxic": 5,
+      "gold-uncle": 4
+    },
+    "gold bias": {
+      "bench-animals": 5,
+      "bench-blocks": 5,
+      "bench-epidemic": 5,
+      "bench-event_calculus": 5,
+      "bench-grandfather": 5,
+      "bench-penguins": 5,
+      "bench-propositional": 5,
+      "bench-sugar": 5,
+      "bench-traffic": 5,
+      "bench-trains": 5,
+      "gold-adoptable": 5,
+      "gold-enrol": 5,
+      "gold-ripe": 5,
+      "gold-sprinkler": 5,
+      "gold-toxic": 5,
+      "gold-uncle": 5
+    }
+  },
+  "new_by_family": {
+    "v2 shots0 k=4": {
+      "const_attr": 0.0,
+      "ec_named": 0.7037037037037037,
+      "prop": 0.0,
+      "unary": 0.8125
+    },
+    "v2 shots2 k=4": {
+      "const_attr": 0.41379310344827586,
+      "ec_named": 0.2222222222222222,
+      "prop": 1.0,
+      "unary": 0.625
+    },
+    "v3 shots0 k=4": {
+      "const_attr": 1.0,
+      "ec_named": 0.8888888888888888,
+      "prop": 1.0,
+      "unary": 0.875
+    },
+    "v3 shots2 k=4": {
+      "const_attr": 1.0,
+      "ec_named": 0.2222222222222222,
+      "prop": 1.0,
+      "unary": 0.6875
+    }
+  }
+}
