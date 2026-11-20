@@ -1,0 +1,57 @@
+{
+  "overall": {
+    "n": 160,
+    "valid": 0.569,
+    "solved": 0.225,
+    "acc": 0.225,
+    "hyp_match": 0.212,
+    "timeouts": 0,
+    "median_runtime_s_solved": 0.1194,
+    "mean_n_modes": 4.787,
+    "mode_f1": 0.543
+  },
+  "chain": {
+    "n": 44,
+    "valid": 0.432,
+    "solved": 0.205,
+    "acc": 0.205,
+    "hyp_match": 0.182,
+    "timeouts": 0,
+    "median_runtime_s_solved": 0.2607,
+    "mean_n_modes": 3.591,
+    "mode_f1": 0.459
+  },
+  "ec": {
+    "n": 46,
+    "valid": 0.196,
+    "solved": 0.174,
+    "acc": 0.174,
+    "hyp_match": 0.174,
+    "timeouts": 0,
+    "median_runtime_s_solved": 0.0558,
+    "mean_n_modes": 4.261,
+    "mode_f1": 0.425
+  },
+  "part": {
+    "n": 34,
+    "valid": 0.853,
+    "solved": 0.235,
+    "acc": 0.235,
+    "hyp_match": 0.206,
+    "timeouts": 0,
+    "median_runtime_s_solved": 0.4241,
+    "mean_n_modes": 7.294,
+    "mode_f1": 0.762
+  },
+  "unary": {
+    "n": 36,
+    "valid": 0.944,
+    "solved": 0.306,
+    "acc": 0.306,
+    "hyp_match": 0.306,
+    "timeouts": 0,
+    "median_runtime_s_solved": 0.0291,
+    "mean_n_modes": 4.556,
+    "mode_f1": 0.59
+  }
+}

@@ -1,0 +1,10 @@
+{"id": "bench-animals", "completion": "#modeh mammal(+dog).\n#modeb produces_milk(+dog).\n#modeb produces_milk(+cat).\n#modeb produces_milk(+bat).\n#modeb produces_milk(+whale).\n\n#modeb lays_eggs(+eagle).\n#modeb lays_eggs(+salmon).\n#modeb cold_blooded(+salmon)."}
+{"id": "bench-blocks", "completion": "#modeh happens(pick_up(#block),+time).\n#modeb holdsAt(block(#block),+time)."}
+{"id": "bench-epidemic", "completion": "#modeh happens(infect(#person),+time).\n#modeb holdsAt(contract(#person),+time).\n#modeb holdsAt(recover(#person),+time)."}
+{"id": "bench-event_calculus", "completion": "#modeh happens(wake_up(#person),+time).\n#modeb holdsAt(sleep(#person),+time).\n#modeb holdsAt(awake(#person),+time).\n#modeb holdsAt(productive(#person),+time)."}
+{"id": "bench-grandfather", "completion": "#modeh grandfather(+person,+person).\n#modeb parent(+person,-person).\n#modeb parent(+person,+person).\n#modeb father(+person,-person).\n#modeb father(+person,+person)."}
+{"id": "bench-penguins", "completion": "#modeh flies(+bird).\n#modeb penguin(+bird).\n#modeb bird(+bird).\n#modeb not penguin(+bird).\n#modeb not bird(+bird)."}
+{"id": "bench-propositional", "completion": "#modeh output(+inductive_rule,+input_a,+input_b).\n#modeb not inductive_rule(+input_a,+input_b)."}
+{"id": "bench-sugar", "completion": "#modeh happens(add(#sugar),+time).\n#modeb holdsAt(available(#sugar),+time)."}
+{"id": "bench-traffic", "completion": "#modeh stop(+light).\n#modeb red(+light).\n#modeb green(+light).\n#modeb light(+light).\n#modeb not red(+light).\n#modeb not green(+light).\n#modeb not light(+light)."}
+{"id": "bench-trains", "completion": "#modeh eastbound(+train).\n#modeb has_car(+train,-car).\n#modeb short(+car).\n#modeb long(+car).\n#modeb rectangle(+car).\n#modeb ellipse(+car).\n#modeb triangle_load(+car).\n#modeb circle_load(+car)."}

@@ -1,0 +1,161 @@
+id,family,n_modes,mode_p,mode_r,mode_f1,valid,timeout,solved,runtime_s,hypothesis,error,acc,hyp_match
+chain-00068,chain,7,1.0,1.0,1.0,True,False,True,0.05758919300000187,"influences(V1,V2) :- friend(V1,V3), linked(V3,V2).",,1.0,True
+part-00064,part,7,1.0,1.0,1.0,True,False,True,0.2335746049999976,"approved(V1) :- has_atom(V1,V2), sick(V2), metal(V2).",,1.0,True
+chain-00074,chain,7,1.0,1.0,1.0,True,False,True,0.22367728499999728,"influences(V4,V1) :- sibling(V4,V2), parent(V2,V1).",,1.0,True
+ec-00466,ec,3,1.0,1.0,1.0,True,False,True,0.02382704200000063,"happens(charge(r4),V1) :- holdsAt(moving(r4),V1).",,1.0,True
+ec-00215,ec,4,1.0,1.0,1.0,True,False,True,0.11617984600000142,"happens(charge(r3),V1) :- holdsAt(low(r4),V1).",,1.0,True
+part-00301,part,7,1.0,1.0,1.0,True,False,True,6.099232761000003,"safe(V1) :- has_line(V1,V2), coastal(V2).",,1.0,True
+chain-00399,chain,7,1.0,1.0,1.0,True,False,True,0.2650671700000018,"grandparent(V1,V2) :- owes(V1,V3), linked(V3,V2).",,1.0,True
+chain-00107,chain,5,1.0,1.0,1.0,True,False,True,0.23937888699999377,"indirect(V1,V2) :- friend(V1,V3), friend(V3,V2).",,1.0,True
+ec-00198,ec,3,1.0,1.0,1.0,True,False,True,0.020027244000004885,"happens(switch(l3),V1) :- holdsAt(motion(l3),V1).",,1.0,True
+chain-00432,chain,5,1.0,1.0,1.0,True,False,True,0.22778383499999677,"boss_of(V2,V4) :- teaches(V2,V1), teaches(V1,V4).",,1.0,True
+ec-00339,ec,3,1.0,1.0,1.0,True,False,True,0.0400593120000039,"happens(charge(r1),V1) :- holdsAt(moving(r3),V1).",,1.0,True
+ec-00399,ec,4,1.0,1.0,1.0,True,False,True,0.029295862999994426,"happens(open(v2),V1) :- holdsAt(pressured(v4),V1).",,1.0,True
+ec-00225,ec,4,1.0,1.0,1.0,True,False,True,0.02228646199999673,"happens(open(v2),V1) :- holdsAt(damaged(v4),V1).",,1.0,True
+unary-00079,unary,7,1.0,0.5384615384615384,0.7000000000000001,True,False,False,0.034065533000003256,,,0.0,False
+unary-00306,unary,7,1.0,1.0,1.0,True,False,True,0.025986594000002583,risky(V1) :- tall(V1).,,1.0,True
+ec-00295,ec,4,1.0,1.0,1.0,True,False,True,0.03898671900000039,"happens(restart(m2),V1) :- holdsAt(faulty(m4),V1).",,1.0,True
+unary-00266,unary,4,1.0,0.5714285714285714,0.7272727272727273,True,False,True,0.011073186000004398,flagged(V1) :- wet(V1).,,1.0,True
+ec-00051,ec,3,1.0,1.0,1.0,True,False,True,0.051279986000004385,"happens(open(v1),V1) :- holdsAt(cold(v2),V1).",,1.0,True
+chain-00390,chain,5,1.0,1.0,1.0,True,False,True,0.2224355880000033,"boss_of(V4,V2) :- teaches(V4,V1), teaches(V1,V2).",,1.0,True
+unary-00183,unary,9,1.0,1.0,1.0,True,False,True,0.03421017099999801,stable(V1) :- not rich(V1).,,1.0,True
+unary-00141,unary,5,1.0,0.5555555555555556,0.7142857142857143,True,False,False,0.013007199000000469,,,0.0,False
+part-00475,part,5,1.0,1.0,1.0,True,False,True,0.15137510399999599,"good(V1) :- has_player(V1,V3), striped(V3).",,1.0,True
+part-00032,part,7,1.0,1.0,1.0,True,False,True,0.9298865829999983,"healthy(V4) :- has_room(V4,V1), loud(V1).",,1.0,True
+chain-00344,chain,5,1.0,1.0,1.0,True,False,True,0.11525538599999408,"influences(V2,V1) :- owes(V2,V3), owes(V3,V1).",,1.0,True
+chain-00254,chain,7,1.0,1.0,1.0,True,False,True,0.17361270600000012,"boss_of(V1,V2) :- knows(V1,V3), helps(V3,V2).",,1.0,True
+unary-00067,unary,5,1.0,1.0,1.0,True,False,True,0.019259585000000357,"risky(V1) :- smoker(V1), fast(V1).",,1.0,True
+unary-00382,unary,5,1.0,1.0,1.0,True,False,True,0.019579712999998833,"ready(V1) :- tagged(V1), striped(V1).",,1.0,False
+ec-00182,ec,2,1.0,1.0,1.0,True,False,True,0.017180311000004167,"happens(infect(dan),V1) :- holdsAt(tired(carol),V1).",,1.0,True
+unary-00387,unary,6,1.0,0.5454545454545454,0.7058823529411764,True,False,False,0.014208879000001673,,,0.0,False
+unary-00376,unary,5,1.0,1.0,1.0,True,False,True,0.02337736500000176,flagged(V1) :- urban(V1).,,1.0,True
+part-00094,part,7,1.0,1.0,1.0,True,False,True,0.7607174739999962,"flagged(V1) :- has_car(V1,V3), smoker(V3), young(V3).",,1.0,True
+unary-00495,unary,4,1.0,0.5714285714285714,0.7272727272727273,True,False,False,0.01129261600000575,,,0.0,False
+chain-00178,chain,5,1.0,1.0,1.0,True,False,True,0.39879259699999636,"second_degree(V4,V2) :- helps(V4,V3), owes(V3,V2).",,1.0,True
+part-00149,part,7,1.0,1.0,1.0,True,False,True,0.3118549349999995,"selected(V1) :- has_atom(V1,V2), rich(V2).",,1.0,True
+ec-00498,ec,4,1.0,1.0,1.0,True,False,True,0.0294943309999951,"happens(restart(m4),V1) :- holdsAt(locked(m3),V1).",,1.0,True
+ec-00134,ec,3,1.0,1.0,1.0,True,False,True,0.023165497999997342,"happens(open(v3),V1) :- holdsAt(cold(v4),V1).",,1.0,True
+chain-00221,chain,5,1.0,1.0,1.0,True,False,True,0.08221509899999546,"indirect(V2,V3) :- calls(V2,V1), sibling(V1,V3).",,1.0,True
+unary-00187,unary,7,1.0,0.5384615384615384,0.7000000000000001,True,False,False,0.04352248099999656,,,0.0,False
+part-00411,part,7,1.0,1.0,1.0,True,False,True,0.32208275300000366,"approved(V3) :- has_room(V3,V2), soft(V2).",,1.0,True
+part-00089,part,5,1.0,1.0,1.0,True,False,True,3.7320628310000004,"ready(V1) :- has_line(V1,V3), vaccinated(V3), sour(V3).",,1.0,True
+chain-00203,chain,5,1.0,1.0,1.0,True,False,True,0.16766304500000473,"connected(V3,V1) :- knows(V3,V2), friend(V2,V1).",,1.0,True
+chain-00120,chain,7,1.0,1.0,1.0,True,False,True,0.052642588000004764,"influences(V3,V1) :- near(V3,V2), sibling(V2,V1).",,1.0,True
+chain-00235,chain,7,1.0,1.0,1.0,True,False,True,0.07464651800000155,"connected(V2,V3) :- parent(V2,V1), follows(V1,V3).",,1.0,True
+ec-00470,ec,4,1.0,1.0,1.0,True,False,True,0.08989458700000341,"happens(restart(m3),V1) :- holdsAt(idle(m3),V1).",,1.0,True
+unary-00416,unary,7,1.0,1.0,1.0,True,False,True,0.06548249600000133,"ready(V1) :- sweet(V1), large(V1).",,1.0,True
+chain-00106,chain,5,1.0,1.0,1.0,True,False,True,0.07041287700000254,"boss_of(V1,V3) :- calls(V1,V2), friend(V2,V3).",,1.0,True
+ec-00168,ec,4,1.0,1.0,1.0,True,False,True,0.03877701500000086,"happens(charge(r4),V1) :- holdsAt(idle(r2),V1).",,1.0,True
+part-00181,part,7,1.0,1.0,1.0,True,False,True,0.3365185119999978,"stable(V1) :- has_player(V1,V2), insured(V2), smoker(V2), tagged(V2).",,1.0,True
+chain-00121,chain,5,1.0,1.0,1.0,True,False,True,0.2823282970000065,"indirect(V2,V3) :- follows(V2,V1), follows(V1,V3).",,1.0,True
+unary-00255,unary,11,0.5454545454545454,1.0,0.7058823529411764,True,False,True,0.10106734800000083,premium(V1) :- sour(V1).,,1.0,True
+chain-00447,chain,5,1.0,1.0,1.0,True,False,True,0.3963464460000026,"indirect(V3,V2) :- near(V3,V4), near(V4,V2).",,1.0,True
+part-00096,part,7,1.0,1.0,1.0,True,False,True,1.2351578800000027,"special(V1) :- has_line(V1,V3), urban(V3), heavy(V3).",,1.0,True
+chain-00128,chain,7,1.0,1.0,1.0,True,False,True,0.1152192819999982,"reachable(V1,V2) :- knows(V1,V3), parent(V3,V2).",,1.0,True
+part-00117,part,6,1.0,1.0,1.0,True,False,True,1.601180786999997,"eligible(V1) :- has_car(V1,V3), sealed(V3).",,1.0,True
+unary-00223,unary,7,1.0,1.0,1.0,True,False,True,0.028584113000000855,"flagged(V1) :- sick(V1), cheap(V1).",,1.0,True
+chain-00002,chain,5,1.0,1.0,1.0,True,False,True,0.14464245100000284,"influences(V1,V4) :- calls(V1,V3), teaches(V3,V4).",,1.0,True
+chain-00040,chain,7,1.0,1.0,1.0,True,False,True,0.1605763900000028,"indirect(V2,V3) :- linked(V2,V1), teaches(V1,V3).",,1.0,True
+ec-00292,ec,4,1.0,1.0,1.0,True,False,True,0.040329839000001755,"happens(switch(l2),V1) :- holdsAt(motion(l4),V1).",,1.0,True
+part-00155,part,6,1.0,1.0,1.0,True,False,True,3.4827333120000006,"flagged(V4) :- has_room(V4,V1), metal(V1), spotted(V1).",,1.0,True
+unary-00164,unary,6,1.0,0.5454545454545454,0.7058823529411764,True,False,True,0.019692710000001057,"risky(V1) :- wooden(V1), sick(V1).",,1.0,False
+unary-00186,unary,6,1.0,1.0,1.0,True,False,True,0.026947613000004367,"special(V1) :- sour(V1), sick(V1).",,1.0,True
+part-00417,part,7,1.0,1.0,1.0,True,False,True,0.37579577099999995,"good(V1) :- has_car(V1,V3), fast(V3), young(V3).",,1.0,True
+chain-00112,chain,5,1.0,1.0,1.0,True,False,True,0.10958749000000267,"indirect(V3,V1) :- calls(V3,V2), calls(V2,V1).",,1.0,True
+ec-00144,ec,4,1.0,1.0,1.0,True,False,True,0.06851297900000475,"happens(open(v1),V1) :- holdsAt(pressured(v1),V1).",,1.0,True
+unary-00291,unary,4,1.0,0.5714285714285714,0.7272727272727273,True,False,False,0.015584478000000956,,,0.0,False
+ec-00145,ec,4,1.0,1.0,1.0,True,False,True,0.08161862800000108,"happens(restart(m4),V1) :- holdsAt(idle(m4),V1).",,1.0,True
+unary-00488,unary,4,1.0,0.5714285714285714,0.7272727272727273,True,False,False,0.00947024599999935,,,0.0,False
+unary-00454,unary,7,0.5714285714285714,1.0,0.7272727272727273,True,False,True,0.03159597899999511,good(V1) :- young(V1).,,1.0,True
+chain-00162,chain,5,1.0,1.0,1.0,True,False,True,0.062194660999999485,"connected(V1,V2) :- calls(V1,V3), calls(V3,V2).",,1.0,True
+ec-00378,ec,4,1.0,1.0,1.0,True,False,True,0.05587761099999966,"happens(open(v3),V1) :- holdsAt(damaged(v4),V1).",,1.0,True
+unary-00391,unary,5,1.0,0.5555555555555556,0.7142857142857143,True,False,False,0.012984725999999114,,,0.0,False
+unary-00128,unary,5,1.0,0.5555555555555556,0.7142857142857143,True,False,False,0.01282879800000103,,,0.0,False
+ec-00282,ec,4,1.0,1.0,1.0,True,False,True,0.029476883999997483,"happens(switch(l3),V1) :- holdsAt(motion(l2),V1).",,1.0,True
+chain-00441,chain,7,1.0,1.0,1.0,True,False,True,0.7807191320000015,"indirect(V3,V1) :- likes(V3,V2), teaches(V2,V1).",,1.0,True
+part-00166,part,5,1.0,1.0,1.0,True,False,True,0.4910651659999985,"flagged(V1) :- has_atom(V1,V2), fragile(V2), heavy(V2).",,1.0,True
+chain-00495,chain,7,1.0,1.0,1.0,True,False,True,0.12102208499999989,"second_degree(V2,V1) :- parent(V2,V4), knows(V4,V1).",,1.0,True
+unary-00499,unary,5,1.0,1.0,1.0,True,False,True,0.017382566999998517,ready(V1) :- tagged(V1).,,1.0,True
+part-00182,part,7,1.0,1.0,1.0,True,False,True,0.2162325729999992,"flagged(V3) :- has_room(V3,V1), cheap(V1).",,1.0,True
+ec-00276,ec,4,1.0,1.0,1.0,True,False,True,0.022118886999997756,"happens(charge(r2),V1) :- holdsAt(idle(r2),V1).",,1.0,True
+ec-00195,ec,4,1.0,1.0,1.0,True,False,True,0.04515046299999881,"happens(charge(r3),V1) :- holdsAt(low(r1),V1).",,1.0,True
+chain-00010,chain,5,1.0,1.0,1.0,True,False,True,0.11113469899999728,"reachable(V1,V3) :- calls(V2,V1), trusts(V2,V3).",,1.0,False
+chain-00253,chain,7,1.0,1.0,1.0,True,False,True,0.05591932699999802,"grandparent(V1,V2) :- sibling(V1,V3), helps(V3,V2).",,1.0,True
+unary-00002,unary,5,1.0,1.0,1.0,True,False,True,0.015350537000003328,target(V1) :- wooden(V1).,,1.0,True
+chain-00280,chain,5,1.0,1.0,1.0,True,False,True,0.10879290799999808,"connected(V2,V3) :- calls(V2,V1), sibling(V2,V1).",,0.75,False
+chain-00368,chain,7,1.0,1.0,1.0,True,False,True,0.07253001299999795,"indirect(V1,V3) :- teaches(V2,V3).",,1.0,True
+ec-00107,ec,4,1.0,1.0,1.0,True,False,True,0.02973229300000213,"happens(restart(m2),V1) :- holdsAt(locked(m4),V1).",,1.0,True
+ec-00189,ec,4,1.0,1.0,1.0,True,False,True,0.03071708600000278,"happens(open(v2),V1) :- holdsAt(pressured(v2),V1).",,1.0,True
+chain-00454,chain,5,1.0,1.0,1.0,True,False,True,0.13390282299999967,"grandparent(V1,V3) :- manages(V1,V2), parent(V2,V3).",,1.0,True
+part-00316,part,5,1.0,1.0,1.0,True,False,True,6.614100791999995,"happy(V1) :- has_line(V1,V3), wild(V3), sweet(V3).",,1.0,True
+ec-00220,ec,3,1.0,1.0,1.0,True,False,True,0.022911242999995807,"happens(switch(l2),V1) :- holdsAt(motion(l3),V1).",,1.0,True
+chain-00473,chain,5,1.0,1.0,1.0,True,False,True,0.1323102870000099,"second_degree(V2,V1) :- knows(V2,V3), parent(V3,V1).",,1.0,True
+unary-00191,unary,7,1.0,1.0,1.0,True,False,True,0.08106723200000943,"risky(V1) :- sweet(V1), hot(V1).",,1.0,True
+unary-00028,unary,5,1.0,0.5555555555555556,0.7142857142857143,True,False,False,0.013379545999995912,,,0.0,False
+ec-00375,ec,4,1.0,1.0,1.0,True,False,True,0.025713767000013377,"happens(charge(r4),V1) :- holdsAt(docked(r4),V1).",,1.0,True
+chain-00123,chain,7,1.0,1.0,1.0,True,False,True,0.038976593000001,"indirect(V2,V1) :- helps(V2,V3), sibling(V3,V1).",,1.0,True
+ec-00381,ec,3,1.0,1.0,1.0,True,False,True,0.027764771999997606,"happens(infect(dan),V1) :- holdsAt(busy(bob),V1).",,1.0,True
+ec-00148,ec,4,1.0,1.0,1.0,True,False,True,0.028280856999998605,"happens(switch(l3),V1) :- holdsAt(motion(l1),V1).",,1.0,True
+unary-00127,unary,4,1.0,0.5714285714285714,0.7272727272727273,True,False,False,0.009689390999994885,,,0.0,False
+part-00033,part,7,1.0,1.0,1.0,True,False,True,0.5566782169999982,"flagged(V1) :- has_car(V1,V2), insured(V2), large(V2).",,1.0,True
+chain-00067,chain,7,1.0,1.0,1.0,True,False,True,0.22903966900000228,"related(V2,V1) :- teaches(V2,V3), trusts(V3,V1).",,1.0,True
+ec-00272,ec,3,1.0,1.0,1.0,True,False,True,0.023247365999992553,"happens(open(v4),V1) :- holdsAt(clear(v4),V1).",,1.0,True
+part-00406,part,5,1.0,1.0,1.0,True,False,True,4.3798151680000075,"ready(V1) :- has_player(V1,V2), sweet(V2), bright(V2).",,1.0,True
+ec-00483,ec,4,1.0,1.0,1.0,True,False,True,0.025072738000005756,"happens(switch(l1),V1) :- holdsAt(dark(l1),V1).",,1.0,True
+chain-00131,chain,7,1.0,1.0,1.0,True,False,True,0.7194976529999906,"indirect(V2,V3) :- manages(V2,V4), teaches(V4,V3).",,1.0,True
+unary-00418,unary,7,1.0,1.0,1.0,True,False,True,0.053130371000008836,ready(V1) :- bright(V1).,,1.0,True
+ec-00369,ec,3,1.0,1.0,1.0,True,False,True,0.03152778999999839,"happens(infect(dan),V1) :- holdsAt(tired(dan),V1).",,1.0,True
+chain-00311,chain,7,1.0,1.0,1.0,True,False,True,0.15774482799999134,"related(V2,V3) :- teaches(V2,V1), calls(V1,V3).",,1.0,True
+chain-00251,chain,7,1.0,1.0,1.0,True,False,True,0.5968508769999943,"second_degree(V3,V1) :- calls(V3,V2), linked(V2,V1).",,1.0,True
+part-00147,part,7,1.0,1.0,1.0,True,False,True,0.32564009800000804,"stable(V1) :- has_car(V1,V2), urban(V2).",,1.0,True
+part-00389,part,5,1.0,1.0,1.0,True,False,True,0.9374516440000065,"eligible(V3) :- has_room(V3,V2), urban(V2).",,1.0,True
+part-00224,part,5,1.0,1.0,1.0,True,False,True,5.162840932000009,"target(V4) :- has_room(V4,V3), rare(V3), hot(V3).",,1.0,True
+unary-00206,unary,5,1.0,0.5555555555555556,0.7142857142857143,True,False,False,0.01320674499999086,,,0.0,False
+chain-00146,chain,5,1.0,1.0,1.0,True,False,True,0.10365363600000421,"boss_of(V2,V3) :- sibling(V2,V4), friend(V4,V3).",,1.0,True
+part-00466,part,6,1.0,1.0,1.0,True,False,True,0.17622543100000598,"premium(V1) :- has_atom(V1,V3), sour(V3).",,1.0,True
+part-00176,part,6,1.0,1.0,1.0,True,False,True,0.886433499000006,"special(V1) :- has_line(V1,V4), hot(V4).",,1.0,True
+chain-00400,chain,7,1.0,1.0,1.0,True,False,True,0.09771470100000101,"connected(V1,V2) :- trusts(V1,V3), follows(V3,V2).",,1.0,True
+ec-00241,ec,3,1.0,1.0,1.0,True,False,True,0.019524812000000225,"happens(switch(l1),V1) :- holdsAt(motion(l2),V1).",,1.0,True
+ec-00340,ec,4,1.0,1.0,1.0,True,False,True,0.023456081999995604,"happens(switch(l1),V1) :- holdsAt(dark(l1),V1).",,1.0,True
+unary-00151,unary,5,1.0,1.0,1.0,True,False,True,0.02352412400000503,special(V1) :- large(V1).,,1.0,True
+chain-00494,chain,7,1.0,1.0,1.0,True,False,True,0.07045760500000142,"grandparent(V1,V3) :- friend(V1,V2), linked(V2,V3).",,1.0,True
+unary-00202,unary,5,1.0,1.0,1.0,True,False,True,0.022903321000001142,special(V1) :- tagged(V1).,,1.0,True
+part-00135,part,6,1.0,1.0,1.0,True,False,True,0.2390293499999956,"selected(V1) :- has_atom(V1,V3), fast(V3), active(V3).",,1.0,True
+unary-00300,unary,6,1.0,1.0,1.0,True,False,True,0.023096130999988418,"premium(V1) :- young(V1), sour(V1).",,1.0,True
+ec-00347,ec,3,1.0,1.0,1.0,True,False,True,0.03266589099999351,"happens(open(v4),V1) :- holdsAt(damaged(v2),V1).",,1.0,True
+chain-00232,chain,5,1.0,1.0,1.0,True,False,True,0.08899216000000365,"grandparent(V2,V3) :- owes(V2,V1), calls(V1,V3).",,1.0,True
+ec-00159,ec,3,1.0,1.0,1.0,True,False,True,0.02078803999999934,"happens(switch(l3),V1) :- holdsAt(blocked(l1),V1).",,1.0,True
+chain-00444,chain,7,1.0,1.0,1.0,True,False,True,0.15980958400000134,"connected(V3,V2) :- likes(V3,V1), knows(V1,V2).",,1.0,True
+chain-00090,chain,5,1.0,1.0,1.0,True,False,True,0.04950029600000505,"second_degree(V2,V1) :- helps(V2,V3), linked(V3,V1).",,1.0,True
+ec-00363,ec,3,1.0,1.0,1.0,True,False,True,0.020983270000002108,"happens(switch(l1),V1) :- holdsAt(motion(l2),V1).",,1.0,True
+part-00013,part,5,1.0,1.0,1.0,True,False,True,0.25496184800000776,"happy(V1) :- has_car(V1,V2), rich(V2).",,1.0,True
+ec-00137,ec,4,1.0,1.0,1.0,True,False,True,0.03697433399999284,"happens(open(v3),V1) :- holdsAt(pressured(v1),V1).",,1.0,True
+chain-00266,chain,5,1.0,1.0,1.0,True,False,True,0.40555007399999,"second_degree(V3,V2) :- manages(V3,V1), manages(V1,V2).",,1.0,True
+unary-00194,unary,7,1.0,1.0,1.0,True,False,True,0.020773552999997946,stable(V1) :- loud(V1).,,1.0,True
+ec-00047,ec,4,1.0,1.0,1.0,True,False,True,0.04342038499999035,"happens(charge(r1),V1) :- holdsAt(idle(r3),V1).",,1.0,True
+unary-00286,unary,5,1.0,1.0,1.0,True,False,True,0.01805978299999822,"risky(V1) :- cheap(V1), large(V1).",,1.0,True
+part-00077,part,5,1.0,1.0,1.0,True,False,True,0.2450461290000021,"eligible(V1) :- has_player(V1,V3), metal(V3).",,1.0,True
+unary-00285,unary,4,1.0,0.5714285714285714,0.7272727272727273,True,False,False,0.009762658999989071,,,0.0,False
+chain-00033,chain,7,1.0,1.0,1.0,True,False,True,0.2568278529999901,"related(V3,V1) :- calls(V3,V4), linked(V4,V1).",,1.0,True
+unary-00447,unary,5,1.0,1.0,1.0,True,False,True,0.024796319000003564,"ready(V1) :- cheap(V1), rich(V1).",,1.0,True
+ec-00359,ec,3,1.0,1.0,1.0,True,False,True,0.02297404099999767,"happens(open(v2),V1) :- holdsAt(damaged(v1),V1).",,1.0,True
+ec-00326,ec,3,1.0,1.0,1.0,True,False,True,0.02122332899999435,"happens(restart(m1),V1) :- holdsAt(locked(m4),V1).",,1.0,True
+chain-00194,chain,7,1.0,1.0,1.0,True,False,True,0.07367604899999947,"reachable(V2,V3) :- knows(V2,V1), manages(V1,V3).",,1.0,True
+part-00233,part,5,1.0,1.0,1.0,True,False,True,1.254712167000008,"good(V1) :- has_atom(V1,V4), young(V4).",,1.0,True
+part-00476,part,7,1.0,1.0,1.0,True,False,True,0.26096661500000096,"healthy(V1) :- has_car(V1,V2), smoker(V2), fast(V2).",,1.0,True
+ec-00482,ec,4,1.0,1.0,1.0,True,False,True,0.02666934399999832,"happens(restart(m3),V1) :- holdsAt(locked(m2),V1).",,1.0,True
+part-00121,part,7,1.0,1.0,1.0,True,False,True,0.34321257400000604,"happy(V1) :- has_car(V1,V3), rare(V3), coastal(V3).",,1.0,True
+ec-00199,ec,4,1.0,1.0,1.0,True,False,True,0.042698944999997934,"happens(charge(r4),V1) :- holdsAt(moving(r3),V1).",,1.0,True
+ec-00105,ec,3,1.0,1.0,1.0,True,False,True,0.03268473100000335,"happens(charge(r1),V1) :- holdsAt(low(r3),V1).",,1.0,True
+ec-00380,ec,3,1.0,1.0,1.0,True,False,True,0.028376518000001738,"happens(infect(alice),V1) :- holdsAt(hungry(bob),V1).",,1.0,True
+part-00329,part,6,1.0,1.0,1.0,True,False,True,0.8266581320000057,"safe(V1) :- has_line(V1,V3), red(V3).",,1.0,True
+part-00495,part,6,1.0,1.0,1.0,True,False,True,0.17259435799999778,"target(V3) :- has_room(V3,V1), rich(V1), coastal(V1).",,1.0,False
+chain-00047,chain,5,1.0,1.0,1.0,True,False,True,0.26552881100001,"related(V4,V2) :- parent(V4,V3), near(V3,V2).",,1.0,True
+ec-00477,ec,3,1.0,1.0,1.0,True,False,True,0.021446897999993553,"happens(switch(l2),V1) :- holdsAt(motion(l1),V1).",,1.0,True
+part-00030,part,6,1.0,1.0,1.0,True,False,True,0.2633213339999969,"safe(V1) :- has_car(V1,V2), tall(V2), fragile(V2).",,1.0,True
+unary-00082,unary,4,1.0,1.0,1.0,True,False,True,0.01334395300000324,safe(V1) :- insured(V1).,,1.0,True
+part-00361,part,7,1.0,1.0,1.0,True,False,True,0.7458952100000005,"healthy(V4) :- has_room(V4,V3), bright(V3).",,1.0,True
+ec-00323,ec,4,1.0,1.0,1.0,True,False,True,0.15338683199999537,"happens(switch(l1),V1) :- holdsAt(dark(l2),V1).",,1.0,True
+ec-00052,ec,3,1.0,1.0,1.0,True,False,True,0.022573018000002776,"happens(infect(dan),V1) :- holdsAt(busy(alice),V1).",,1.0,True
+part-00288,part,6,1.0,1.0,1.0,True,False,True,0.3167455489999895,"premium(V1) :- has_car(V1,V3), urban(V3), wild(V3).",,1.0,True
+ec-00229,ec,3,1.0,1.0,1.0,True,False,True,0.03154800299999749,"happens(restart(m3),V1) :- holdsAt(idle(m2),V1).",,1.0,True

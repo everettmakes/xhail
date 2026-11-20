@@ -1,0 +1,11 @@
+id,family,level,failed,reason
+bench-animals,benchmark,4,tight,5 modes where gold needs 3
+bench-blocks,benchmark,3,correct,XHAIL learned nothing (no hypothesis)
+bench-epidemic,benchmark,5,,
+bench-event_calculus,benchmark,5,,
+bench-grandfather,benchmark,5,,
+bench-penguins,benchmark,5,,
+bench-propositional,benchmark,5,,
+bench-sugar,benchmark,5,,
+bench-traffic,benchmark,2,expressive,no #modeb (with matching types and +/- links) for `red(X)` in `stop(X) :- red(X).`
+bench-trains,benchmark,3,correct,XHAIL learned nothing (no hypothesis)

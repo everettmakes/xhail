@@ -1,0 +1,161 @@
+id,family,level,failed,reason
+chain-00068,chain,2,expressive,"no #modeb (with matching types and +/- links) for `friend(X,Z)` in `influences(X,Y) :- friend(X,Z), linked(Z,Y), X != Y.`"
+part-00064,part,3,correct,XHAIL learned nothing (no hypothesis)
+chain-00074,chain,2,expressive,"no #modeb (with matching types and +/- links) for `sibling(X,Z)` in `influences(X,Y) :- sibling(X,Z), parent(Z,Y), X != Y.`"
+ec-00466,ec,4,tight,5 modes where gold needs 3
+ec-00215,ec,5,,
+part-00301,part,1,semantics,"`#modeb has_line(+line).`: has_line/1 is not defined in the background (available: bright/1, coastal/1, has_line/2, line/1, order/1, smoker/1, wild/1, wooden/1)."
+chain-00399,chain,0,format,not a mode declaration: `#modeb linked(+`
+chain-00107,chain,1,semantics,"`#modeh knows(+person,-person).`: knows/2 is neither the predicate in the examples (indirect/2) nor used in the body of a background rule."
+ec-00198,ec,2,expressive,"no #modeh can produce the head `happens(switch(l3),T)`"
+chain-00432,chain,1,semantics,"`#modeh teaches(+person,+person).`: teaches/2 is neither the predicate in the examples (boss_of/2) nor used in the body of a background rule."
+ec-00339,ec,4,tight,4 modes where gold needs 3
+ec-00399,ec,1,semantics,"`#modeb starts(#valve,+time).`: starts/2 is not defined in the background (available: happens/2, holdsAt/2, initiates/3, terminates/3, time/1, valve/1)."
+ec-00225,ec,1,semantics,"`#modeb holdsAt(#flowing,+time).`: type `flowing` is not a unary background predicate (candidates: time, valve)."
+unary-00079,unary,1,semantics,"`#modeb is_happy(+patient).`: is_happy/1 is not defined in the background (available: hot/1, loud/1, old/1, patient/1, sealed/1, striped/1, young/1)."
+unary-00306,unary,5,,
+ec-00295,ec,2,expressive,"no #modeh can produce the head `happens(restart(m2),T)`"
+unary-00266,unary,2,expressive,"no #modeb (with matching types and +/- links) for `not smoker(X)` in `flagged(X) :- patient(X), wet(X), not smoker(X).`"
+ec-00051,ec,2,expressive,"no #modeh can produce the head `happens(open(v1),T)`"
+chain-00390,chain,1,semantics,"`#modeh teaches(+item,+item).`: teaches/2 is neither the predicate in the examples (boss_of/2) nor used in the body of a background rule."
+unary-00183,unary,2,expressive,"no #modeb (with matching types and +/- links) for `not rich(X)` in `stable(X) :- animal(X), not rich(X).`"
+unary-00141,unary,2,expressive,"no #modeb (with matching types and +/- links) for `not sweet(X)` in `risky(X) :- item(X), not sweet(X).`"
+part-00475,part,1,semantics,"`#modeb player(+player,-type).`: player/2 is not defined in the background (available: active/1, has_player/2, player/1, striped/1, team/1, vaccinated/1)."
+part-00032,part,2,expressive,"no #modeb (with matching types and +/- links) for `has_room(X,Y)` in `healthy(X) :- house(X), has_room(X,Y), loud(Y).`"
+chain-00344,chain,2,expressive,"no #modeb (with matching types and +/- links) for `owes(X,Z)` in `influences(X,Y) :- owes(X,Z), owes(Z,Y), X != Y.`"
+chain-00254,chain,5,,
+unary-00067,unary,1,semantics,"`#modeb is_sweet(+patient).`: is_sweet/1 is not defined in the background (available: fast/1, loud/1, patient/1, smoker/1, sweet/1)."
+unary-00382,unary,1,semantics,"`#modeb stripped(+city).`: stripped/1 is not defined in the background (available: city/1, fragile/1, loud/1, striped/1, tagged/1)."
+ec-00182,ec,2,expressive,"no #modeh can produce the head `happens(infect(dan),T)`"
+unary-00387,unary,2,expressive,"no #modeb (with matching types and +/- links) for `not sick(X)` in `happy(X) :- item(X), not sick(X).`"
+unary-00376,unary,1,semantics,"`#modeb is_hot(+city).`: is_hot/1 is not defined in the background (available: bright/1, city/1, hot/1, soft/1, urban/1)."
+part-00094,part,1,semantics,"`#modeb fragilize(+car).`: fragilize/1 is not defined in the background (available: car/1, fragile/1, has_car/2, large/1, rich/1, smoker/1, train/1, young/1)."
+unary-00495,unary,2,expressive,"no #modeb (with matching types and +/- links) for `not wet(X)` in `selected(X) :- patient(X), not wet(X).`"
+chain-00178,chain,1,semantics,"`#modeh helps(+person,+person).`: helps/2 is neither the predicate in the examples (second_degree/2) nor used in the body of a background rule."
+part-00149,part,2,expressive,"no #modeb (with matching types and +/- links) for `has_atom(X,Y)` in `selected(X) :- molecule(X), has_atom(X,Y), rich(Y).`"
+ec-00498,ec,2,expressive,"no #modeh can produce the head `happens(restart(m4),T)`"
+ec-00134,ec,1,semantics,"`#modeb holdsAt(#flowing,+time).`: type `flowing` is not a unary background predicate (candidates: time, valve)."
+chain-00221,chain,1,semantics,"`#modeh calls(+person,-person).`: calls/2 is neither the predicate in the examples (indirect/2) nor used in the body of a background rule."
+unary-00187,unary,1,semantics,"`#modeb is_tagged(-animal).`: is_tagged/1 is not defined in the background (available: animal/1, coastal/1, fast/1, large/1, metal/1, old/1, tagged/1)."
+part-00411,part,2,expressive,"no #modeb (with matching types and +/- links) for `has_room(X,Y)` in `approved(X) :- house(X), has_room(X,Y), soft(Y).`"
+part-00089,part,1,semantics,"`#modeb has_line(+line).`: has_line/1 is not defined in the background (available: has_line/2, line/1, order/1, sealed/1, sour/1, vaccinated/1)."
+chain-00203,chain,5,,
+chain-00120,chain,5,,
+chain-00235,chain,2,expressive,"no #modeb (with matching types and +/- links) for `parent(X,Z)` in `connected(X,Y) :- parent(X,Z), follows(Z,Y), X != Y.`"
+ec-00470,ec,2,expressive,"no #modeh can produce the head `happens(restart(m3),T)`"
+unary-00416,unary,5,,
+chain-00106,chain,5,,
+ec-00168,ec,2,expressive,"no #modeh can produce the head `happens(charge(r4),T)`"
+part-00181,part,5,,
+chain-00121,chain,1,semantics,"`#modeh follows(+person,+person).`: follows/2 is neither the predicate in the examples (indirect/2) nor used in the body of a background rule."
+unary-00255,unary,1,semantics,`#modeh wild(+animal).`: wild/1 is neither the predicate in the examples (premium/1) nor used in the body of a background rule.
+chain-00447,chain,1,semantics,"`#modeh near(+person,-person).`: near/2 is neither the predicate in the examples (indirect/2) nor used in the body of a background rule."
+part-00096,part,2,expressive,"no #modeb (with matching types and +/- links) for `has_line(X,Y)` in `special(X) :- order(X), has_line(X,Y), heavy(Y), urban(Y).`"
+chain-00128,chain,1,semantics,"`#modeb trust(+person,-person).`: trust/2 is not defined in the background (available: knows/2, parent/2, person/1, trusts/2)."
+part-00117,part,2,expressive,"no #modeb (with matching types and +/- links) for `has_car(X,Y)` in `eligible(X) :- train(X), has_car(X,Y), sealed(Y).`"
+unary-00223,unary,5,,
+chain-00002,chain,1,semantics,"`#modeh teaches(+teacher,-student).`: teaches/2 is neither the predicate in the examples (influences/2) nor used in the body of a background rule."
+chain-00040,chain,2,expressive,"no #modeb (with matching types and +/- links) for `linked(X,Z)` in `indirect(X,Y) :- linked(X,Z), teaches(Z,Y), X != Y.`"
+ec-00292,ec,2,expressive,"no #modeh can produce the head `happens(switch(l2),T)`"
+part-00155,part,1,semantics,"`#modeb room(+house,-room).`: room/2 is not defined in the background (available: has_room/2, house/1, large/1, metal/1, room/1, sour/1, spotted/1)."
+unary-00164,unary,1,semantics,"`#modeb is_spotted(+patient,-bool).`: is_spotted/2 is not defined in the background (available: fast/1, fragile/1, patient/1, sick/1, spotted/1, wooden/1)."
+unary-00186,unary,1,semantics,"`#modeb is_special(-animal).`: is_special/1 is not defined in the background (available: animal/1, hot/1, sick/1, sour/1, spotted/1, wet/1)."
+part-00417,part,4,tight,8 modes where gold needs 7
+chain-00112,chain,1,semantics,"`#modeh manages(+city,+city).`: manages/2 is neither the predicate in the examples (indirect/2) nor used in the body of a background rule."
+ec-00144,ec,2,expressive,"no #modeh can produce the head `happens(open(v1),T)`"
+unary-00291,unary,2,expressive,"no #modeb (with matching types and +/- links) for `not sour(X)` in `selected(X) :- animal(X), not sour(X).`"
+ec-00145,ec,1,semantics,"`#modeb holdsAt(idle(#machine)+time).`: holdsAt/1 is not defined in the background (available: clipped/3, happens/2, holdsAt/2, initiates/3, machine/1, terminates/3, time/1)."
+unary-00488,unary,2,expressive,"no #modeb (with matching types and +/- links) for `not loud(X)` in `premium(X) :- person(X), not loud(X).`"
+unary-00454,unary,2,expressive,"no #modeb (with matching types and +/- links) for `young(X)` in `good(X) :- animal(X), young(X).`"
+chain-00162,chain,3,correct,XHAIL learned nothing (no hypothesis)
+ec-00378,ec,1,semantics,"`#modeb happens(initiates(+valve,-state),+time).`: type `state` is not a unary background predicate (candidates: time, valve)."
+unary-00391,unary,2,expressive,"no #modeb (with matching types and +/- links) for `not sour(X)` in `valid(X) :- person(X), not sour(X).`"
+unary-00128,unary,1,semantics,"`#modeb is_rare(-animal).`: is_rare/1 is not defined in the background (available: animal/1, large/1, rare/1, soft/1, young/1)."
+ec-00282,ec,2,expressive,"no #modeh can produce the head `happens(switch(l3),T)`"
+chain-00441,chain,1,semantics,"`#modeh linked(+city,+city).`: linked/2 is neither the predicate in the examples (indirect/2) nor used in the body of a background rule."
+part-00166,part,3,correct,XHAIL learned nothing (no hypothesis)
+chain-00495,chain,1,semantics,"`#modeh knows(+person,-person).`: knows/2 is neither the predicate in the examples (second_degree/2) nor used in the body of a background rule."
+unary-00499,unary,5,,
+part-00182,part,1,semantics,`#modeh room(+room).`: room/1 is neither the predicate in the examples (flagged/1) nor used in the body of a background rule.
+ec-00276,ec,5,,
+ec-00195,ec,4,tight,5 modes where gold needs 4
+chain-00010,chain,5,,
+chain-00253,chain,2,expressive,"no #modeb (with matching types and +/- links) for `sibling(X,Z)` in `grandparent(X,Y) :- sibling(X,Z), helps(Z,Y), X != Y.`"
+unary-00002,unary,1,semantics,"`#modeb is_metal(-person).`: is_metal/1 is not defined in the background (available: bright/1, metal/1, person/1, sour/1, wooden/1)."
+chain-00280,chain,2,expressive,"no #modeb (with matching types and +/- links) for `calls(X,Z)` in `connected(X,Y) :- calls(X,Z), calls(Z,Y), X != Y.`"
+chain-00368,chain,1,semantics,"`#modeh teaches(+teacher,+student).`: teaches/2 is neither the predicate in the examples (indirect/2) nor used in the body of a background rule."
+ec-00107,ec,2,expressive,"no #modeh can produce the head `happens(restart(m2),T)`"
+ec-00189,ec,2,expressive,"no #modeh can produce the head `happens(open(v2),T)`"
+chain-00454,chain,3,correct,XHAIL learned nothing (no hypothesis)
+part-00316,part,1,semantics,"`#modeb wood(+line).`: wood/1 is not defined in the background (available: has_line/2, line/1, order/1, sweet/1, wild/1, wooden/1)."
+ec-00220,ec,2,expressive,"no #modeh can produce the head `happens(switch(l2),T)`"
+chain-00473,chain,5,,
+unary-00191,unary,5,,
+unary-00028,unary,2,expressive,"no #modeb (with matching types and +/- links) for `not urban(X)` in `target(X) :- city(X), not urban(X).`"
+ec-00375,ec,2,expressive,"no #modeh can produce the head `happens(charge(r4),T)`"
+chain-00123,chain,1,semantics,"`#modeh helps(+person,+person).`: helps/2 is neither the predicate in the examples (indirect/2) nor used in the body of a background rule."
+ec-00381,ec,2,expressive,"no #modeh can produce the head `happens(infect(dan),T)`"
+ec-00148,ec,2,expressive,"no #modeh can produce the head `happens(switch(l3),T)`"
+unary-00127,unary,1,semantics,"`#modeb isYoung(-animal).`: isYoung/1 is not defined in the background (available: animal/1, hot/1, striped/1, young/1)."
+part-00033,part,2,expressive,"no #modeb (with matching types and +/- links) for `has_car(X,Y)` in `flagged(X) :- train(X), has_car(X,Y), insured(Y), large(Y).`"
+chain-00067,chain,0,format,not a mode declaration: `#modeb trust(since)+city.`
+ec-00272,ec,1,semantics,"`#modeb holdsAt(flowing(#valve,+time)).`: holdsAt/1 is not defined in the background (available: clipped/3, happens/2, holdsAt/2, initiates/3, terminates/3, time/1, valve/1)."
+part-00406,part,0,format,not a mode declaration: `#modeb player(+`
+ec-00483,ec,2,expressive,"no #modeh can produce the head `happens(switch(l1),T)`"
+chain-00131,chain,1,semantics,"`#modeh teaches(+city,+city).`: teaches/2 is neither the predicate in the examples (indirect/2) nor used in the body of a background rule."
+unary-00418,unary,5,,
+ec-00369,ec,2,expressive,"no #modeh can produce the head `happens(infect(dan),T)`"
+chain-00311,chain,2,expressive,"no #modeb (with matching types and +/- links) for `teaches(X,Z)` in `related(X,Y) :- teaches(X,Z), calls(Z,Y), X != Y.`"
+chain-00251,chain,5,,
+part-00147,part,2,expressive,"no #modeb (with matching types and +/- links) for `has_car(X,Y)` in `stable(X) :- train(X), has_car(X,Y), urban(Y), tall(Y).`"
+part-00389,part,2,expressive,"no #modeb (with matching types and +/- links) for `has_room(X,Y)` in `eligible(X) :- house(X), has_room(X,Y), urban(Y).`"
+part-00224,part,4,tight,6 modes where gold needs 5
+unary-00206,unary,1,semantics,`#modeh spotted(+city).`: spotted/1 is neither the predicate in the examples (special/1) nor used in the body of a background rule.
+chain-00146,chain,5,,
+part-00466,part,1,semantics,"`#modeb wood(-atom).`: wood/1 is not defined in the background (available: atom/1, has_atom/2, loud/1, molecule/1, sick/1, sour/1, wooden/1)."
+part-00176,part,2,expressive,"no #modeb (with matching types and +/- links) for `order(X)` in `special(X) :- order(X), has_line(X,Y), hot(Y).`"
+chain-00400,chain,1,semantics,"`#modeh follows(+city,+city).`: follows/2 is neither the predicate in the examples (connected/2) nor used in the body of a background rule."
+ec-00241,ec,2,expressive,"no #modeh can produce the head `happens(switch(l1),T)`"
+ec-00340,ec,2,expressive,"no #modeh can produce the head `happens(switch(l1),T)`"
+unary-00151,unary,5,,
+chain-00494,chain,1,semantics,"`#modeh likes(+city,+city).`: likes/2 is neither the predicate in the examples (grandparent/2) nor used in the body of a background rule."
+unary-00202,unary,1,semantics,"`#modeb tagged(+patient,-patient).`: tagged/2 is not defined in the background (available: cheap/1, old/1, patient/1, tagged/1, young/1)."
+part-00135,part,3,correct,XHAIL learned nothing (no hypothesis)
+unary-00300,unary,1,semantics,"`#modeb is_sour(+person).`: is_sour/1 is not defined in the background (available: person/1, soft/1, sour/1, striped/1, sweet/1, young/1)."
+ec-00347,ec,1,semantics,"`#modeb holdsAt(flowing(#valve)+time).`: holdsAt/1 is not defined in the background (available: clipped/3, happens/2, holdsAt/2, initiates/3, terminates/3, time/1, valve/1)."
+chain-00232,chain,5,,
+ec-00159,ec,2,expressive,"no #modeh can produce the head `happens(switch(l3),T)`"
+chain-00444,chain,1,semantics,"`#modeb connected(+person,+person).`: connected/2 is not defined in the background (available: knows/2, likes/2, person/1, sibling/2)."
+chain-00090,chain,1,semantics,"`#modeh linked(+person,-person).`: linked/2 is neither the predicate in the examples (second_degree/2) nor used in the body of a background rule."
+ec-00363,ec,2,expressive,"no #modeh can produce the head `happens(switch(l1),T)`"
+part-00013,part,2,expressive,"no #modeb (with matching types and +/- links) for `has_car(X,Y)` in `happy(X) :- train(X), has_car(X,Y), rich(Y), old(Y).`"
+ec-00137,ec,1,semantics,"`#modeb holdsAt(flowing(#valve,+time)).`: holdsAt/1 is not defined in the background (available: clipped/3, happens/2, holdsAt/2, initiates/3, terminates/3, time/1, valve/1)."
+chain-00266,chain,1,semantics,"`#modeh teaches(+city,+city).`: teaches/2 is neither the predicate in the examples (second_degree/2) nor used in the body of a background rule."
+unary-00194,unary,1,semantics,"`#modeb is_loud(+animal).`: is_loud/1 is not defined in the background (available: animal/1, fragile/1, loud/1, metal/1)."
+ec-00047,ec,5,,
+unary-00286,unary,2,expressive,"no #modeb (with matching types and +/- links) for `cheap(X)` in `risky(X) :- city(X), cheap(X), large(X).`"
+part-00077,part,5,,
+unary-00285,unary,2,expressive,"no #modeb (with matching types and +/- links) for `not large(X)` in `healthy(X) :- patient(X), not large(X).`"
+chain-00033,chain,2,expressive,"no #modeb (with matching types and +/- links) for `calls(X,Z)` in `related(X,Y) :- calls(X,Z), linked(Z,Y), X != Y.`"
+unary-00447,unary,5,,
+ec-00359,ec,1,semantics,"`#modeh holdsAt(+flowing,+time).`: type `flowing` is not a unary background predicate (candidates: time, valve)."
+ec-00326,ec,2,expressive,"no #modeh can produce the head `happens(restart(m1),T)`"
+chain-00194,chain,1,semantics,"`#modeh knows(+person,-person).`: knows/2 is neither the predicate in the examples (reachable/2) nor used in the body of a background rule."
+part-00233,part,2,expressive,"no #modeb (with matching types and +/- links) for `has_atom(X,Y)` in `good(X) :- molecule(X), has_atom(X,Y), young(Y).`"
+part-00476,part,2,expressive,"no #modeb (with matching types and +/- links) for `has_car(X,Y)` in `healthy(X) :- train(X), has_car(X,Y), smoker(Y), fast(Y).`"
+ec-00482,ec,2,expressive,"no #modeh can produce the head `happens(restart(m3),T)`"
+part-00121,part,2,expressive,"no #modeb (with matching types and +/- links) for `has_car(X,Y)` in `happy(X) :- train(X), has_car(X,Y), rare(Y), coastal(Y).`"
+ec-00199,ec,4,tight,5 modes where gold needs 4
+ec-00105,ec,4,tight,4 modes where gold needs 3
+ec-00380,ec,2,expressive,"no #modeh can produce the head `happens(infect(alice),T)`"
+part-00329,part,2,expressive,"no #modeb (with matching types and +/- links) for `order(X)` in `safe(X) :- order(X), has_line(X,Y), red(Y).`"
+part-00495,part,1,semantics,"`#modeb room(+house,-room).`: room/2 is not defined in the background (available: cheap/1, coastal/1, has_room/2, house/1, loud/1, rich/1, room/1)."
+chain-00047,chain,2,expressive,"no #modeb (with matching types and +/- links) for `parent(X,Z)` in `related(X,Y) :- parent(X,Z), near(Z,Y), X != Y.`"
+ec-00477,ec,2,expressive,"no #modeh can produce the head `happens(switch(l2),T)`"
+part-00030,part,2,expressive,"no #modeb (with matching types and +/- links) for `has_car(X,Y)` in `safe(X) :- train(X), has_car(X,Y), fragile(Y), tall(Y).`"
+unary-00082,unary,5,,
+part-00361,part,2,expressive,"no #modeb (with matching types and +/- links) for `has_room(X,Y)` in `healthy(X) :- house(X), has_room(X,Y), bright(Y).`"
+ec-00323,ec,2,expressive,"no #modeh can produce the head `happens(switch(l1),T)`"
+ec-00052,ec,1,semantics,"`#modeb holdsAt(ill(#person,+time)).`: holdsAt/1 is not defined in the background (available: clipped/3, happens/2, holdsAt/2, initiates/3, person/1, terminates/3, time/1)."
+part-00288,part,5,,
+ec-00229,ec,2,expressive,"no #modeh can produce the head `happens(restart(m3),T)`"

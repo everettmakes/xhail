@@ -1,0 +1,11 @@
+id,family,n_modes,mode_p,mode_r,mode_f1,valid,timeout,solved,runtime_s,hypothesis,error,acc,hyp_match
+bench-animals,benchmark,3,1.0,1.0,1.0,True,False,True,0.010433115999944675,mammal(V1) :- produces_milk(V1).,,,True
+bench-blocks,benchmark,2,1.0,1.0,1.0,True,False,True,0.014441658000009738,"happens(pick_up(a),V1) :- holdsAt(clear(a),V1). | happens(pick_up(c),V1) :- holdsAt(clear(a),V1).",,,True
+bench-epidemic,benchmark,2,1.0,1.0,1.0,True,False,True,0.015317471999992449,"happens(infect(bob),V1) :- holdsAt(ill(alice),V1). | happens(infect(carol),V1) :- holdsAt(ill(bob),V1).",,,True
+bench-event_calculus,benchmark,2,1.0,1.0,1.0,True,False,True,0.011929108999993332,"happens(work(alice),V1) :- holdsAt(awake(alice),V1).",,,True
+bench-grandfather,benchmark,3,1.0,1.0,1.0,True,False,True,0.08216296499995224,"grandfather(V3,V2) :- parent(V3,V4), parent(V4,V2).",,,True
+bench-penguins,benchmark,3,1.0,1.0,1.0,True,False,True,0.008860721000019112,flies(V1) :- not penguin(V1).,,,True
+bench-propositional,benchmark,3,1.0,1.0,1.0,True,False,True,0.007702777000076821,output :- .,,,True
+bench-sugar,benchmark,3,1.0,1.0,1.0,True,False,True,0.014606361000005563,"happens(use(lactose),V1) :- not holdsAt(available(glucose),V1), holdsAt(available(lactose),V1). | happens(use(glucose),V1) :- holdsAt(available(glucose),V1).",,,True
+bench-traffic,benchmark,3,1.0,1.0,1.0,True,False,True,0.007588757000007718,stop(V1) :- red(V1).,,,True
+bench-trains,benchmark,5,1.0,1.0,1.0,True,False,True,0.07997218100001646,"eastbound(V1) :- has_car(V1,V3), triangle_load(V3), short(V3).",,,False

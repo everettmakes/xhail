@@ -1,0 +1,10 @@
+{"id": "bench-animals", "completion": "#modeh mammal(+animal).\n#modeb has_hair(+animal).\n#modeb produces_milk(+animal).\n#modeb cold_blooded(+animal).\n#modeb lays_eggs(+animal)."}
+{"id": "bench-blocks", "completion": "#modeh holdsAt(+holding,+time).\n#modeb happens(pick_up(-B),+time).\n#modeb holdsAt(+holding,+time).\n#modeb initiates(+pick_up(+B),-holding,+time).\n#modeb terminated(+pick_up(+B),-holding,+time).\n#modeb time(+time).\n#modeb block(+block)."}
+{"id": "bench-epidemic", "completion": "#modeh happens(happen,+time).\n#modeb holdsAt(idle,+person).\n#modeb holdsAt(ill,+person).\n#modeb infect(+person,-person).\n#modeb contract(+person,-person).\n#modeb recover(+person,-person).\n#modeb infected(+person,-person).\n#modeb recovered(+person,-person)."}
+{"id": "bench-event_calculus", "completion": "#modeh happens(+action,+time).\n#modeb holdsAt(+state,+time).\n#modeb wakesUp(person,+time).\n#modeb sleep(person,+time).\n#modeb work(person,+time)."}
+{"id": "bench-grandfather", "completion": "#modeh father(+person,+person).\n#modeb person(-person).\n#modeb parent(+person,-person)."}
+{"id": "bench-penguins", "completion": "#modeh flies(+bird).\n#modeb bird(+bird)."}
+{"id": "bench-propositional", "completion": "#modeh output(_,_).\n#modeb output(_,_)."}
+{"id": "bench-sugar", "completion": "#modeh happens(+action,+time).\n#modeb holdsAt(-action,+time).\n#modeb holdsAt(+action,+time)."}
+{"id": "bench-traffic", "completion": "#modeh stops(+light).\n#modeb red(+light).\n#modeb green(+light)."}
+{"id": "bench-trains", "completion": "#modeh car(+car).\n#modeb has_car(+train,-car).\n#modeb rectangle(+shape).\n#modeb ellipse(+shape).\n#modeb triangle_load(+shape).\n#modeb circle_load(+shape)."}

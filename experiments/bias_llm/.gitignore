@@ -1,0 +1,12 @@
+# Model weights and tool caches
+checkpoints/
+huggingface_tokenizers_cache/
+unsloth_compiled_cache/
+*.log
+
+# Regenerable training data: corrupt.py -> repair_*, build_sft.py -> sft_*, data_v3 = generate_tasks.py output
+data_v3/
+data/sft_*.jsonl
+data/repair_train*.jsonl
+data/repair_val*.jsonl
+data/train_v3.jsonl

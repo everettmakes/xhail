@@ -1,0 +1,13 @@
+{
+  "animals": ["mammal(X) :- has_hair(X).", "mammal(X) :- produces_milk(X)."],
+  "blocks": ["happens(pick_up(a),T) :- holdsAt(clear(a),T).", "happens(pick_up(c),T) :- holdsAt(clear(c),T)."],
+  "epidemic": ["happens(infect(bob),T) :- holdsAt(ill(alice),T).", "happens(infect(carol),T) :- holdsAt(ill(bob),T)."],
+  "event_calculus": ["happens(work(alice),T) :- holdsAt(awake(alice),T)."],
+  "grandfather": ["grandfather(X,Y) :- father(X,Z), parent(Z,Y)."],
+  "penguins": ["flies(X) :- bird(X), not penguin(X)."],
+  "propositional": ["output."],
+  "sugar": ["happens(use(glucose),T) :- holdsAt(available(glucose),T).",
+            "happens(use(lactose),T) :- holdsAt(available(lactose),T), not holdsAt(available(glucose),T)."],
+  "traffic": ["stop(X) :- red(X)."],
+  "trains": ["eastbound(X) :- has_car(X,Y), short(Y), triangle_load(Y)."]
+}

@@ -59,3 +59,4 @@ play/
 *.swo
 Thumbs.db
 pytest-cache-files-*
+kaggle_upload/

@@ -1,0 +1,15 @@
+{
+  "n": 160,
+  "reached": {
+    "format": 1.0,
+    "semantics": 1.0,
+    "expressive": 0.906,
+    "correct": 0.906,
+    "tight": 0.894
+  },
+  "first_failure": {
+    "none": 143,
+    "expressive": 15,
+    "tight": 2
+  }
+}

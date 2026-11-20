@@ -1,0 +1,1200 @@
+{
+  "write": {
+    "gold": {
+      "base3shot feedback k=4": {
+        "raw": {
+          "n": 16,
+          "seeds": 1,
+          "mean": {
+            "format": 0.3125,
+            "semantics": 0.25,
+            "expressive": 0.1875,
+            "correct": 0.1875,
+            "tight": 0.125
+          },
+          "min": {
+            "format": 0.3125,
+            "semantics": 0.25,
+            "expressive": 0.1875,
+            "correct": 0.1875,
+            "tight": 0.125
+          },
+          "max": {
+            "format": 0.3125,
+            "semantics": 0.25,
+            "expressive": 0.1875,
+            "correct": 0.1875,
+            "tight": 0.125
+          }
+        },
+        "pruned": {
+          "n": 16,
+          "seeds": 1,
+          "mean": {
+            "format": 0.3125,
+            "semantics": 0.25,
+            "expressive": 0.125,
+            "correct": 0.125,
+            "tight": 0.125
+          },
+          "min": {
+            "format": 0.3125,
+            "semantics": 0.25,
+            "expressive": 0.125,
+            "correct": 0.125,
+            "tight": 0.125
+          },
+          "max": {
+            "format": 0.3125,
+            "semantics": 0.25,
+            "expressive": 0.125,
+            "correct": 0.125,
+            "tight": 0.125
+          }
+        }
+      },
+      "base3shot single": {
+        "raw": {
+          "n": 16,
+          "seeds": 1,
+          "mean": {
+            "format": 0.875,
+            "semantics": 0.75,
+            "expressive": 0.1875,
+            "correct": 0.1875,
+            "tight": 0.125
+          },
+          "min": {
+            "format": 0.875,
+            "semantics": 0.75,
+            "expressive": 0.1875,
+            "correct": 0.1875,
+            "tight": 0.125
+          },
+          "max": {
+            "format": 0.875,
+            "semantics": 0.75,
+            "expressive": 0.1875,
+            "correct": 0.1875,
+            "tight": 0.125
+          }
+        },
+        "pruned": {
+          "n": 16,
+          "seeds": 1,
+          "mean": {
+            "format": 0.875,
+            "semantics": 0.75,
+            "expressive": 0.125,
+            "correct": 0.125,
+            "tight": 0.125
+          },
+          "min": {
+            "format": 0.875,
+            "semantics": 0.75,
+            "expressive": 0.125,
+            "correct": 0.125,
+            "tight": 0.125
+          },
+          "max": {
+            "format": 0.875,
+            "semantics": 0.75,
+            "expressive": 0.125,
+            "correct": 0.125,
+            "tight": 0.125
+          }
+        }
+      },
+      "sft feedback k=4": {
+        "raw": {
+          "n": 16,
+          "seeds": 3,
+          "mean": {
+            "format": 1.0,
+            "semantics": 0.8541666666666666,
+            "expressive": 0.5625,
+            "correct": 0.5625,
+            "tight": 0.3125
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 0.8125,
+            "expressive": 0.5625,
+            "correct": 0.5625,
+            "tight": 0.3125
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 0.875,
+            "expressive": 0.5625,
+            "correct": 0.5625,
+            "tight": 0.3125
+          }
+        },
+        "pruned": {
+          "n": 16,
+          "seeds": 3,
+          "mean": {
+            "format": 1.0,
+            "semantics": 0.8541666666666666,
+            "expressive": 0.375,
+            "correct": 0.375,
+            "tight": 0.375
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 0.8125,
+            "expressive": 0.375,
+            "correct": 0.375,
+            "tight": 0.375
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 0.875,
+            "expressive": 0.375,
+            "correct": 0.375,
+            "tight": 0.375
+          }
+        }
+      },
+      "sft single": {
+        "raw": {
+          "n": 16,
+          "seeds": 3,
+          "mean": {
+            "format": 1.0,
+            "semantics": 0.8125,
+            "expressive": 0.5,
+            "correct": 0.5,
+            "tight": 0.25
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 0.8125,
+            "expressive": 0.5,
+            "correct": 0.5,
+            "tight": 0.25
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 0.8125,
+            "expressive": 0.5,
+            "correct": 0.5,
+            "tight": 0.25
+          }
+        },
+        "pruned": {
+          "n": 16,
+          "seeds": 3,
+          "mean": {
+            "format": 1.0,
+            "semantics": 0.8125,
+            "expressive": 0.375,
+            "correct": 0.375,
+            "tight": 0.375
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 0.8125,
+            "expressive": 0.375,
+            "correct": 0.375,
+            "tight": 0.375
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 0.8125,
+            "expressive": 0.375,
+            "correct": 0.375,
+            "tight": 0.375
+          }
+        }
+      },
+      "sft resample k=4": {
+        "raw": {
+          "n": 16,
+          "seeds": 3,
+          "mean": {
+            "format": 1.0,
+            "semantics": 0.8958333333333334,
+            "expressive": 0.6041666666666666,
+            "correct": 0.6041666666666666,
+            "tight": 0.2916666666666667
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 0.875,
+            "expressive": 0.5625,
+            "correct": 0.5625,
+            "tight": 0.25
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 0.9375,
+            "expressive": 0.625,
+            "correct": 0.625,
+            "tight": 0.3125
+          }
+        },
+        "pruned": {
+          "n": 16,
+          "seeds": 3,
+          "mean": {
+            "format": 1.0,
+            "semantics": 0.8958333333333334,
+            "expressive": 0.4375,
+            "correct": 0.4375,
+            "tight": 0.4375
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 0.875,
+            "expressive": 0.4375,
+            "correct": 0.4375,
+            "tight": 0.4375
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 0.9375,
+            "expressive": 0.4375,
+            "correct": 0.4375,
+            "tight": 0.4375
+          }
+        }
+      },
+      "gold bias": {
+        "raw": {
+          "n": 16,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 1.0,
+            "correct": 1.0,
+            "tight": 1.0
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 1.0,
+            "correct": 1.0,
+            "tight": 1.0
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 1.0,
+            "correct": 1.0,
+            "tight": 1.0
+          }
+        },
+        "pruned": {
+          "n": 16,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.8125,
+            "correct": 0.8125,
+            "tight": 0.8125
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.8125,
+            "correct": 0.8125,
+            "tight": 0.8125
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.8125,
+            "correct": 0.8125,
+            "tight": 0.8125
+          }
+        }
+      },
+      "exhaustive": {
+        "raw": {
+          "n": 16,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.9375,
+            "correct": 0.75,
+            "tight": 0.25
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.9375,
+            "correct": 0.75,
+            "tight": 0.25
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.9375,
+            "correct": 0.75,
+            "tight": 0.25
+          }
+        },
+        "pruned": {
+          "n": 16,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.75,
+            "correct": 0.5625,
+            "tight": 0.5
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.75,
+            "correct": 0.5625,
+            "tight": 0.5
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.75,
+            "correct": 0.5625,
+            "tight": 0.5
+          }
+        }
+      }
+    },
+    "test": {
+      "base3shot feedback k=4": {
+        "raw": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 0.475,
+            "semantics": 0.39375,
+            "expressive": 0.3125,
+            "correct": 0.3,
+            "tight": 0.26875
+          },
+          "min": {
+            "format": 0.475,
+            "semantics": 0.39375,
+            "expressive": 0.3125,
+            "correct": 0.3,
+            "tight": 0.26875
+          },
+          "max": {
+            "format": 0.475,
+            "semantics": 0.39375,
+            "expressive": 0.3125,
+            "correct": 0.3,
+            "tight": 0.26875
+          }
+        },
+        "pruned": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 0.475,
+            "semantics": 0.39375,
+            "expressive": 0.2875,
+            "correct": 0.26875,
+            "tight": 0.26875
+          },
+          "min": {
+            "format": 0.475,
+            "semantics": 0.39375,
+            "expressive": 0.2875,
+            "correct": 0.26875,
+            "tight": 0.26875
+          },
+          "max": {
+            "format": 0.475,
+            "semantics": 0.39375,
+            "expressive": 0.2875,
+            "correct": 0.26875,
+            "tight": 0.26875
+          }
+        }
+      },
+      "base3shot single": {
+        "raw": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 0.9625,
+            "semantics": 0.79375,
+            "expressive": 0.3875,
+            "correct": 0.29375,
+            "tight": 0.2625
+          },
+          "min": {
+            "format": 0.9625,
+            "semantics": 0.79375,
+            "expressive": 0.3875,
+            "correct": 0.29375,
+            "tight": 0.2625
+          },
+          "max": {
+            "format": 0.9625,
+            "semantics": 0.79375,
+            "expressive": 0.3875,
+            "correct": 0.29375,
+            "tight": 0.2625
+          }
+        },
+        "pruned": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 0.9625,
+            "semantics": 0.79375,
+            "expressive": 0.3625,
+            "correct": 0.2625,
+            "tight": 0.2625
+          },
+          "min": {
+            "format": 0.9625,
+            "semantics": 0.79375,
+            "expressive": 0.3625,
+            "correct": 0.2625,
+            "tight": 0.2625
+          },
+          "max": {
+            "format": 0.9625,
+            "semantics": 0.79375,
+            "expressive": 0.3625,
+            "correct": 0.2625,
+            "tight": 0.2625
+          }
+        }
+      },
+      "sft feedback k=4": {
+        "raw": {
+          "n": 160,
+          "seeds": 3,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.9541666666666666,
+            "correct": 0.9541666666666666,
+            "tight": 0.9541666666666666
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.95,
+            "correct": 0.95,
+            "tight": 0.95
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.95625,
+            "correct": 0.95625,
+            "tight": 0.95625
+          }
+        },
+        "pruned": {
+          "n": 160,
+          "seeds": 3,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.8291666666666666,
+            "correct": 0.8291666666666666,
+            "tight": 0.8291666666666666
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.825,
+            "correct": 0.825,
+            "tight": 0.825
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.83125,
+            "correct": 0.83125,
+            "tight": 0.83125
+          }
+        }
+      },
+      "sft single": {
+        "raw": {
+          "n": 160,
+          "seeds": 3,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.9,
+            "correct": 0.9,
+            "tight": 0.9
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.9,
+            "correct": 0.9,
+            "tight": 0.9
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.9,
+            "correct": 0.9,
+            "tight": 0.9
+          }
+        },
+        "pruned": {
+          "n": 160,
+          "seeds": 3,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.775,
+            "correct": 0.775,
+            "tight": 0.775
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.775,
+            "correct": 0.775,
+            "tight": 0.775
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.775,
+            "correct": 0.775,
+            "tight": 0.775
+          }
+        }
+      },
+      "sft resample k=4": {
+        "raw": {
+          "n": 160,
+          "seeds": 3,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.9458333333333334,
+            "correct": 0.9458333333333334,
+            "tight": 0.9458333333333334
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.9375,
+            "correct": 0.9375,
+            "tight": 0.9375
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.95625,
+            "correct": 0.95625,
+            "tight": 0.95625
+          }
+        },
+        "pruned": {
+          "n": 160,
+          "seeds": 3,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.8208333333333334,
+            "correct": 0.8208333333333334,
+            "tight": 0.8208333333333334
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.8125,
+            "correct": 0.8125,
+            "tight": 0.8125
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.83125,
+            "correct": 0.83125,
+            "tight": 0.83125
+          }
+        }
+      },
+      "gold bias": {
+        "raw": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 1.0,
+            "correct": 1.0,
+            "tight": 1.0
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 1.0,
+            "correct": 1.0,
+            "tight": 1.0
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 1.0,
+            "correct": 1.0,
+            "tight": 1.0
+          }
+        },
+        "pruned": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.8625,
+            "correct": 0.8625,
+            "tight": 0.8625
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.8625,
+            "correct": 0.8625,
+            "tight": 0.8625
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.8625,
+            "correct": 0.8625,
+            "tight": 0.8625
+          }
+        }
+      },
+      "exhaustive": {
+        "raw": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 1.0,
+            "correct": 0.8375,
+            "tight": 0.28125
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 1.0,
+            "correct": 0.8375,
+            "tight": 0.28125
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 1.0,
+            "correct": 0.8375,
+            "tight": 0.28125
+          }
+        },
+        "pruned": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.85625,
+            "correct": 0.70625,
+            "tight": 0.69375
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.85625,
+            "correct": 0.70625,
+            "tight": 0.69375
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.85625,
+            "correct": 0.70625,
+            "tight": 0.69375
+          }
+        }
+      }
+    },
+    "seen": {
+      "sft feedback k=4": {
+        "raw": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.96875,
+            "correct": 0.96875,
+            "tight": 0.96875
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.96875,
+            "correct": 0.96875,
+            "tight": 0.96875
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.96875,
+            "correct": 0.96875,
+            "tight": 0.96875
+          }
+        },
+        "pruned": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 0.99375,
+            "semantics": 0.99375,
+            "expressive": 0.89375,
+            "correct": 0.89375,
+            "tight": 0.89375
+          },
+          "min": {
+            "format": 0.99375,
+            "semantics": 0.99375,
+            "expressive": 0.89375,
+            "correct": 0.89375,
+            "tight": 0.89375
+          },
+          "max": {
+            "format": 0.99375,
+            "semantics": 0.99375,
+            "expressive": 0.89375,
+            "correct": 0.89375,
+            "tight": 0.89375
+          }
+        }
+      },
+      "sft single": {
+        "raw": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.88125,
+            "correct": 0.88125,
+            "tight": 0.88125
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.88125,
+            "correct": 0.88125,
+            "tight": 0.88125
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.88125,
+            "correct": 0.88125,
+            "tight": 0.88125
+          }
+        },
+        "pruned": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.80625,
+            "correct": 0.80625,
+            "tight": 0.80625
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.80625,
+            "correct": 0.80625,
+            "tight": 0.80625
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.80625,
+            "correct": 0.80625,
+            "tight": 0.80625
+          }
+        }
+      },
+      "sft resample k=4": {
+        "raw": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.9625,
+            "correct": 0.9625,
+            "tight": 0.9625
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.9625,
+            "correct": 0.9625,
+            "tight": 0.9625
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.9625,
+            "correct": 0.9625,
+            "tight": 0.9625
+          }
+        },
+        "pruned": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.8875,
+            "correct": 0.8875,
+            "tight": 0.8875
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.8875,
+            "correct": 0.8875,
+            "tight": 0.8875
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.8875,
+            "correct": 0.8875,
+            "tight": 0.8875
+          }
+        }
+      },
+      "gold bias": {
+        "raw": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 1.0,
+            "correct": 1.0,
+            "tight": 1.0
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 1.0,
+            "correct": 1.0,
+            "tight": 1.0
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 1.0,
+            "correct": 1.0,
+            "tight": 1.0
+          }
+        },
+        "pruned": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.925,
+            "correct": 0.925,
+            "tight": 0.925
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.925,
+            "correct": 0.925,
+            "tight": 0.925
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.925,
+            "correct": 0.925,
+            "tight": 0.925
+          }
+        }
+      },
+      "exhaustive": {
+        "raw": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 1.0,
+            "correct": 0.8375,
+            "tight": 0.25
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 1.0,
+            "correct": 0.8375,
+            "tight": 0.25
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 1.0,
+            "correct": 0.8375,
+            "tight": 0.25
+          }
+        },
+        "pruned": {
+          "n": 160,
+          "seeds": 1,
+          "mean": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.93125,
+            "correct": 0.775,
+            "tight": 0.7625
+          },
+          "min": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.93125,
+            "correct": 0.775,
+            "tight": 0.7625
+          },
+          "max": {
+            "format": 1.0,
+            "semantics": 1.0,
+            "expressive": 0.93125,
+            "correct": 0.775,
+            "tight": 0.7625
+          }
+        }
+      }
+    }
+  },
+  "repair": {
+    "seen": {
+      "n": 300,
+      "reach": {
+        "format": 1.0,
+        "semantics": 1.0,
+        "expressive": 0.99,
+        "correct": 0.98,
+        "tight": 0.98
+      },
+      "correct_by_broken_level": {
+        "tight": 1.0,
+        "format": 1.0,
+        "semantics": 0.9615384615384616,
+        "expressive": 0.94,
+        "correct": 1.0
+      },
+      "n_by_broken_level": {
+        "tight": 59,
+        "format": 100,
+        "semantics": 78,
+        "expressive": 50,
+        "correct": 13
+      }
+    },
+    "test": {
+      "n": 300,
+      "reach": {
+        "format": 1.0,
+        "semantics": 1.0,
+        "expressive": 0.9833333333333333,
+        "correct": 0.9833333333333333,
+        "tight": 0.9833333333333333
+      },
+      "correct_by_broken_level": {
+        "tight": 1.0,
+        "semantics": 0.9770114942528736,
+        "format": 1.0,
+        "correct": 1.0,
+        "expressive": 0.9285714285714286
+      },
+      "n_by_broken_level": {
+        "tight": 54,
+        "semantics": 87,
+        "format": 103,
+        "correct": 14,
+        "expressive": 42
+      }
+    },
+    "gold": {
+      "n": 176,
+      "reach": {
+        "format": 1.0,
+        "semantics": 0.9715909090909091,
+        "expressive": 0.6988636363636364,
+        "correct": 0.6875,
+        "tight": 0.4375
+      },
+      "correct_by_broken_level": {
+        "format": 0.6875,
+        "semantics": 0.7045454545454546,
+        "expressive": 0.6304347826086957,
+        "tight": 0.7894736842105263,
+        "correct": 0.6666666666666666
+      },
+      "n_by_broken_level": {
+        "format": 64,
+        "semantics": 44,
+        "expressive": 46,
+        "tight": 19,
+        "correct": 3
+      }
+    }
+  },
+  "gold_grid": {
+    "base3shot single": {
+      "bench-animals": 2,
+      "bench-blocks": 0,
+      "bench-epidemic": 2,
+      "bench-event_calculus": 1,
+      "bench-grandfather": 2,
+      "bench-penguins": 2,
+      "bench-propositional": 0,
+      "bench-sugar": 1,
+      "bench-traffic": 5,
+      "bench-trains": 2,
+      "gold-adoptable": 2,
+      "gold-enrol": 2,
+      "gold-ripe": 2,
+      "gold-sprinkler": 2,
+      "gold-toxic": 2,
+      "gold-uncle": 5
+    },
+    "base3shot feedback k=4": {
+      "bench-animals": 2,
+      "bench-blocks": 0,
+      "bench-epidemic": 0,
+      "bench-event_calculus": 0,
+      "bench-grandfather": 0,
+      "bench-penguins": 0,
+      "bench-propositional": 0,
+      "bench-sugar": 0,
+      "bench-traffic": 5,
+      "bench-trains": 0,
+      "gold-adoptable": 1,
+      "gold-enrol": 0,
+      "gold-ripe": 0,
+      "gold-sprinkler": 0,
+      "gold-toxic": 2,
+      "gold-uncle": 5
+    },
+    "sft single": {
+      "bench-animals": 2,
+      "bench-blocks": 1,
+      "bench-epidemic": 5,
+      "bench-event_calculus": 2,
+      "bench-grandfather": 5,
+      "bench-penguins": 1,
+      "bench-propositional": 1,
+      "bench-sugar": 2,
+      "bench-traffic": 5,
+      "bench-trains": 2,
+      "gold-adoptable": 2,
+      "gold-enrol": 5,
+      "gold-ripe": 2,
+      "gold-sprinkler": 2,
+      "gold-toxic": 5,
+      "gold-uncle": 5
+    },
+    "sft feedback k=4": {
+      "bench-animals": 2,
+      "bench-blocks": 1,
+      "bench-epidemic": 5,
+      "bench-event_calculus": 2,
+      "bench-grandfather": 5,
+      "bench-penguins": 2,
+      "bench-propositional": 1,
+      "bench-sugar": 2,
+      "bench-traffic": 5,
+      "bench-trains": 2,
+      "gold-adoptable": 2,
+      "gold-enrol": 5,
+      "gold-ripe": 2,
+      "gold-sprinkler": 2,
+      "gold-toxic": 5,
+      "gold-uncle": 5
+    },
+    "sft resample k=4": {
+      "bench-animals": 2,
+      "bench-blocks": 5,
+      "bench-epidemic": 5,
+      "bench-event_calculus": 2,
+      "bench-grandfather": 5,
+      "bench-penguins": 1,
+      "bench-propositional": 1,
+      "bench-sugar": 2,
+      "bench-traffic": 5,
+      "bench-trains": 2,
+      "gold-adoptable": 2,
+      "gold-enrol": 5,
+      "gold-ripe": 2,
+      "gold-sprinkler": 2,
+      "gold-toxic": 5,
+      "gold-uncle": 5
+    },
+    "gold bias": {
+      "bench-animals": 2,
+      "bench-blocks": 5,
+      "bench-epidemic": 5,
+      "bench-event_calculus": 5,
+      "bench-grandfather": 5,
+      "bench-penguins": 5,
+      "bench-propositional": 5,
+      "bench-sugar": 5,
+      "bench-traffic": 5,
+      "bench-trains": 2,
+      "gold-adoptable": 2,
+      "gold-enrol": 5,
+      "gold-ripe": 5,
+      "gold-sprinkler": 5,
+      "gold-toxic": 5,
+      "gold-uncle": 5
+    },
+    "exhaustive": {
+      "bench-animals": 4,
+      "bench-blocks": 3,
+      "bench-epidemic": 5,
+      "bench-event_calculus": 5,
+      "bench-grandfather": 5,
+      "bench-penguins": 5,
+      "bench-propositional": 5,
+      "bench-sugar": 5,
+      "bench-traffic": 2,
+      "bench-trains": 3,
+      "gold-adoptable": 2,
+      "gold-enrol": 5,
+      "gold-ripe": 2,
+      "gold-sprinkler": 3,
+      "gold-toxic": 2,
+      "gold-uncle": 5
+    }
+  }
+}

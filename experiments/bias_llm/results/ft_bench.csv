@@ -1,0 +1,11 @@
+id,family,n_modes,mode_p,mode_r,mode_f1,valid,timeout,solved,runtime_s,hypothesis,error,acc,hyp_match
+bench-animals,benchmark,8,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,,False
+bench-blocks,benchmark,2,0.5,0.5,0.5,True,False,False,0.015562966000061351,,,,False
+bench-epidemic,benchmark,3,0.3333333333333333,0.5,0.4,True,False,False,0.01774369999998271,,,,False
+bench-event_calculus,benchmark,4,0.25,0.5,0.3333333333333333,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,,False
+bench-grandfather,benchmark,5,0.6,1.0,0.7499999999999999,True,False,True,0.12966203900009532,"grandfather(V2,V1) :- parent(V3,V1), father(V2,V3).",,,False
+bench-penguins,benchmark,5,0.6,1.0,0.7499999999999999,True,False,True,0.01213281399986954,flies(V1) :- not penguin(V1).,,,True
+bench-propositional,benchmark,2,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,,False
+bench-sugar,benchmark,2,0.5,0.3333333333333333,0.4,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,,False
+bench-traffic,benchmark,7,0.42857142857142855,1.0,0.6,True,False,True,0.01484311199988042,stop(V1) :- red(V1).,,,True
+bench-trains,benchmark,8,0.625,1.0,0.7692307692307693,True,False,True,0.16809659799992005,"eastbound(V1) :- has_car(V1,V3), short(V3), triangle_load(V3).",,,False

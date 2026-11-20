@@ -1,0 +1,11 @@
+id,family,n_modes,mode_p,mode_r,mode_f1,valid,timeout,solved,runtime_s,hypothesis,error,acc,hyp_match
+bench-animals,benchmark,5,0.6,1.0,0.7499999999999999,True,False,True,0.01459621200001493,mammal(V1) :- produces_milk(V1).,,,True
+bench-blocks,benchmark,7,0.0,0.0,0.0,False,False,False,nan,,ParseError: Syntax error at 'pick_up' on line 1,,False
+bench-epidemic,benchmark,8,0.0,0.0,0.0,False,False,False,nan,,ParseError: Syntax error at 'happen' on line 1,,False
+bench-event_calculus,benchmark,5,0.0,0.0,0.0,False,False,False,nan,,ParseError: Syntax error at 'person' on line 1,,False
+bench-grandfather,benchmark,3,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,,False
+bench-penguins,benchmark,2,0.5,0.3333333333333333,0.4,True,False,False,0.012481377000085558,,,,False
+bench-propositional,benchmark,2,0.0,0.0,0.0,False,False,False,nan,,ParseError: Syntax error at '_' on line 1,,False
+bench-sugar,benchmark,3,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,,False
+bench-traffic,benchmark,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,,False
+bench-trains,benchmark,6,0.16666666666666666,0.2,0.1818181818181818,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,,False

@@ -1,0 +1,161 @@
+id,family,n_modes,mode_p,mode_r,mode_f1,valid,timeout,solved,runtime_s,hypothesis,error,acc,hyp_match
+chain-00068,chain,3,1.0,0.42857142857142855,0.6,True,False,False,0.32522653199998786,,,0.0,False
+part-00064,part,8,0.875,1.0,0.9333333333333333,True,False,False,0.1506807379998918,,,0.0,False
+chain-00074,chain,2,0.5,0.14285714285714285,0.22222222222222224,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00466,ec,5,0.6,1.0,0.7499999999999999,True,False,True,0.03154696599995077,"happens(charge(r4),V1) :- holdsAt(moving(r4),V1).",,1.0,True
+ec-00215,ec,4,1.0,1.0,1.0,True,False,True,0.1319664999998622,"happens(charge(r3),V1) :- holdsAt(low(r4),V1).",,1.0,True
+part-00301,part,7,0.7142857142857143,0.7142857142857143,0.7142857142857143,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00399,chain,3,1.0,0.42857142857142855,0.6,True,False,False,0.19351269399999182,,,0.0,False
+chain-00107,chain,2,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00198,ec,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00432,chain,5,0.2,0.2,0.20000000000000004,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00339,ec,4,0.75,1.0,0.8571428571428571,True,False,True,0.05942815799994605,"happens(charge(r1),V1) :- holdsAt(moving(r3),V1).",,1.0,True
+ec-00399,ec,4,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00225,ec,2,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+unary-00079,unary,3,0.3333333333333333,0.07692307692307693,0.125,True,False,False,0.011817201000212663,,,0.0,False
+unary-00306,unary,7,1.0,1.0,1.0,True,False,True,0.029096554000034303,risky(V1) :- tall(V1).,,1.0,True
+ec-00295,ec,5,0.6,0.75,0.6666666666666665,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+unary-00266,unary,4,1.0,0.5714285714285714,0.7272727272727273,True,False,True,0.013477933999865854,flagged(V1) :- wet(V1).,,1.0,True
+ec-00051,ec,2,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00390,chain,6,0.5,0.6,0.5454545454545454,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+unary-00183,unary,4,1.0,0.4444444444444444,0.6153846153846153,True,False,False,0.010762030000023515,,,0.0,False
+unary-00141,unary,5,1.0,0.5555555555555556,0.7142857142857143,True,False,False,0.013704521000136083,,,0.0,False
+part-00475,part,6,0.3333333333333333,0.4,0.3636363636363636,True,False,True,0.40777089900007013,"good(V1) :- has_player(V1,V3), striped(V3).",,1.0,True
+part-00032,part,7,0.8571428571428571,0.8571428571428571,0.8571428571428571,True,False,False,0.013078431999929307,,,0.0,False
+chain-00344,chain,2,1.0,0.4,0.5714285714285715,True,False,False,1.2734323239999412,,,0.0,False
+chain-00254,chain,4,1.0,0.5714285714285714,0.7272727272727273,True,False,True,1.0860839960000703,"boss_of(V1,V2) :- knows(V1,V3), helps(V3,V2).",,1.0,True
+unary-00067,unary,5,0.2,0.2,0.20000000000000004,True,False,False,0.011729928000022483,,,0.0,False
+unary-00382,unary,5,0.8,0.8,0.8000000000000002,True,False,False,0.020446010999876307,,,0.0,False
+ec-00182,ec,2,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+unary-00387,unary,6,1.0,0.5454545454545454,0.7058823529411764,True,False,False,0.023312185000122554,,,0.0,False
+unary-00376,unary,5,0.2,0.2,0.20000000000000004,True,False,False,0.013433999999961088,,,0.0,False
+part-00094,part,7,0.7142857142857143,0.7142857142857143,0.7142857142857143,True,False,False,0.028630844000190336,,,0.0,False
+unary-00495,unary,2,1.0,0.2857142857142857,0.4444444444444445,True,False,False,0.01704801400001088,,,0.0,False
+chain-00178,chain,3,0.3333333333333333,0.2,0.25,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+part-00149,part,7,0.8571428571428571,0.8571428571428571,0.8571428571428571,True,False,False,0.02191933699987203,,,0.0,False
+ec-00498,ec,9,0.2222222222222222,0.5,0.30769230769230765,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00134,ec,2,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00221,chain,3,0.3333333333333333,0.2,0.25,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+unary-00187,unary,6,0.16666666666666666,0.07692307692307693,0.10526315789473684,True,False,False,0.013251804999981687,,,0.0,False
+part-00411,part,7,0.8571428571428571,0.8571428571428571,0.8571428571428571,True,False,False,0.01906846399992901,,,0.0,False
+part-00089,part,5,0.8,0.8,0.8000000000000002,True,False,False,0.02064584599997943,,,0.0,False
+chain-00203,chain,3,1.0,0.6,0.7499999999999999,True,False,True,1.1710941119999916,"connected(V4,V1) :- knows(V4,V2), friend(V2,V1).",,1.0,True
+chain-00120,chain,4,1.0,0.5714285714285714,0.7272727272727273,True,False,True,0.16505969100012408,"influences(V3,V1) :- near(V3,V2), sibling(V2,V1).",,1.0,True
+chain-00235,chain,3,1.0,0.42857142857142855,0.6,True,False,False,1.078458936999823,,,0.0,False
+ec-00470,ec,6,0.3333333333333333,0.5,0.4,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+unary-00416,unary,7,1.0,1.0,1.0,True,False,True,0.12719860700008212,"ready(V1) :- sweet(V1), large(V1).",,1.0,True
+chain-00106,chain,3,1.0,0.6,0.7499999999999999,True,False,True,0.26067800600003466,"boss_of(V1,V3) :- calls(V1,V2), friend(V2,V3).",,1.0,True
+ec-00168,ec,3,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+part-00181,part,7,1.0,1.0,1.0,True,False,True,0.44033730000001015,"stable(V1) :- has_player(V1,V2), insured(V2), smoker(V2), tagged(V2).",,1.0,True
+chain-00121,chain,3,0.3333333333333333,0.2,0.25,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+unary-00255,unary,6,0.6666666666666666,0.6666666666666666,0.6666666666666666,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00447,chain,4,0.25,0.2,0.22222222222222224,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+part-00096,part,7,0.8571428571428571,0.8571428571428571,0.8571428571428571,True,False,False,0.014062156000136383,,,0.0,False
+chain-00128,chain,4,0.5,0.2857142857142857,0.36363636363636365,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+part-00117,part,6,0.8333333333333334,0.8333333333333334,0.8333333333333334,True,False,False,0.014749284000117768,,,0.0,False
+unary-00223,unary,7,1.0,1.0,1.0,True,False,True,0.03079753199995139,"flagged(V1) :- sick(V1), cheap(V1).",,1.0,True
+chain-00002,chain,3,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00040,chain,3,1.0,0.42857142857142855,0.6,True,False,False,1.2996124750000035,,,0.0,False
+ec-00292,ec,4,0.75,0.75,0.75,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+part-00155,part,6,0.8333333333333334,0.8333333333333334,0.8333333333333334,True,False,False,0.013403347999883408,,,0.0,False
+unary-00164,unary,3,0.3333333333333333,0.09090909090909091,0.14285714285714288,True,False,False,0.009657527999934246,,,0.0,False
+unary-00186,unary,2,0.5,0.16666666666666666,0.25,True,False,False,0.009798522999972192,,,0.0,False
+part-00417,part,8,0.875,1.0,0.9333333333333333,True,False,True,0.20541195999999218,"good(V1) :- has_car(V1,V2), fast(V2), young(V2).",,1.0,True
+chain-00112,chain,3,0.3333333333333333,0.2,0.25,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00144,ec,2,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+unary-00291,unary,3,1.0,0.42857142857142855,0.6,True,False,False,0.012394798999821433,,,0.0,False
+ec-00145,ec,9,0.0,0.0,0.0,False,False,False,nan,,ParseError: Syntax error at '+' on line 1,0.0,False
+unary-00488,unary,4,1.0,0.5714285714285714,0.7272727272727273,True,False,False,0.011289152000017566,,,0.0,False
+unary-00454,unary,3,1.0,0.75,0.8571428571428571,True,False,False,0.011971818999882089,,,0.0,False
+chain-00162,chain,3,1.0,0.6,0.7499999999999999,True,False,False,0.42536425399998734,,,0.0,False
+ec-00378,ec,3,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+unary-00391,unary,5,1.0,0.5555555555555556,0.7142857142857143,True,False,False,0.017092130000037287,,,0.0,False
+unary-00128,unary,4,0.25,0.1111111111111111,0.15384615384615383,True,False,False,0.00982890800014502,,,0.0,False
+ec-00282,ec,4,0.75,0.75,0.75,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00441,chain,4,0.5,0.2857142857142857,0.36363636363636365,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+part-00166,part,6,0.8333333333333334,1.0,0.9090909090909091,True,False,False,2.4995750269999917,,,0.0,False
+chain-00495,chain,2,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+unary-00499,unary,5,1.0,1.0,1.0,True,False,True,0.022290439000016704,ready(V1) :- tagged(V1).,,1.0,True
+part-00182,part,7,0.8571428571428571,0.8571428571428571,0.8571428571428571,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00276,ec,4,1.0,1.0,1.0,True,False,True,0.027098813000066002,"happens(charge(r2),V1) :- holdsAt(idle(r2),V1).",,1.0,True
+ec-00195,ec,5,0.8,1.0,0.888888888888889,True,False,True,0.05213961200001904,"happens(charge(r3),V1) :- holdsAt(low(r1),V1).",,1.0,True
+chain-00010,chain,3,1.0,0.6,0.7499999999999999,True,False,True,0.13288321400000314,"reachable(V1,V3) :- calls(V2,V1), trusts(V2,V3).",,1.0,False
+chain-00253,chain,3,1.0,0.42857142857142855,0.6,True,False,False,0.06227922300013233,,,0.0,False
+unary-00002,unary,5,0.2,0.2,0.20000000000000004,True,False,False,0.009286259000191421,,,0.0,False
+chain-00280,chain,3,0.6666666666666666,0.4,0.5,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00368,chain,8,0.25,0.2857142857142857,0.26666666666666666,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00107,ec,11,0.18181818181818182,0.5,0.26666666666666666,False,False,False,nan,,ParseError: Syntax error at '_' on line 1,0.0,False
+ec-00189,ec,4,0.0,0.0,0.0,False,False,False,nan,,ParseError: Syntax error at '+' on line 1,0.0,False
+chain-00454,chain,3,1.0,0.6,0.7499999999999999,True,False,False,0.6382922139998755,,,0.0,False
+part-00316,part,5,0.4,0.4,0.4000000000000001,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00220,ec,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00473,chain,3,1.0,0.6,0.7499999999999999,True,False,True,0.27872181599991563,"second_degree(V2,V1) :- knows(V2,V3), parent(V3,V1).",,1.0,True
+unary-00191,unary,7,1.0,1.0,1.0,True,False,True,0.06824631499989664,"risky(V1) :- sweet(V1), hot(V1).",,1.0,True
+unary-00028,unary,5,1.0,0.5555555555555556,0.7142857142857143,True,False,False,0.014127477000101862,,,0.0,False
+ec-00375,ec,3,0.6666666666666666,0.5,0.5714285714285715,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00123,chain,8,0.375,0.42857142857142855,0.39999999999999997,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00381,ec,4,0.5,0.6666666666666666,0.5714285714285715,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00148,ec,4,0.75,0.75,0.75,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+unary-00127,unary,4,0.25,0.14285714285714285,0.18181818181818182,True,False,False,0.008205833000147322,,,0.0,False
+part-00033,part,7,0.8571428571428571,0.8571428571428571,0.8571428571428571,True,False,False,0.013326595000080488,,,0.0,False
+chain-00067,chain,8,0.375,0.42857142857142855,0.39999999999999997,False,False,False,nan,,ParseError: Syntax error at 'since' on line 1,0.0,False
+ec-00272,ec,3,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+part-00406,part,38,0.05263157894736842,0.4,0.09302325581395349,True,False,False,0.8706662879999385,,,0.0,False
+ec-00483,ec,4,0.75,0.75,0.75,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00131,chain,5,0.4,0.2857142857142857,0.3333333333333333,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+unary-00418,unary,6,1.0,0.8571428571428571,0.923076923076923,True,False,True,0.0408598129999973,ready(V1) :- bright(V1).,,1.0,True
+ec-00369,ec,4,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00311,chain,4,1.0,0.5714285714285714,0.7272727272727273,True,False,False,0.015216809999856196,,,0.0,False
+chain-00251,chain,4,1.0,0.5714285714285714,0.7272727272727273,True,False,True,0.1795085520000157,"second_degree(V3,V1) :- calls(V3,V2), linked(V2,V1).",,1.0,True
+part-00147,part,7,0.8571428571428571,0.8571428571428571,0.8571428571428571,True,False,False,0.011207402000081856,,,0.0,False
+part-00389,part,5,0.8,0.8,0.8000000000000002,True,False,False,0.011358908000147494,,,0.0,False
+part-00224,part,6,0.8333333333333334,1.0,0.9090909090909091,True,False,True,0.9653170690000934,"target(V2) :- has_room(V2,V1), hot(V1), rare(V1).",,1.0,True
+unary-00206,unary,2,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00146,chain,3,1.0,0.6,0.7499999999999999,True,False,True,0.11150460800013207,"boss_of(V2,V3) :- sibling(V2,V4), friend(V4,V3).",,1.0,True
+part-00466,part,5,0.4,0.3333333333333333,0.3636363636363636,True,False,True,0.31638421499997094,"premium(V1) :- has_atom(V1,V3), sour(V3).",,1.0,True
+part-00176,part,6,0.6666666666666666,0.6666666666666666,0.6666666666666666,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00400,chain,3,0.3333333333333333,0.14285714285714285,0.2,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00241,ec,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00340,ec,4,0.75,0.75,0.75,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+unary-00151,unary,5,1.0,1.0,1.0,True,False,True,0.022702435999917725,special(V1) :- large(V1).,,1.0,True
+chain-00494,chain,3,0.6666666666666666,0.2857142857142857,0.4,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+unary-00202,unary,3,0.6666666666666666,0.4,0.5,True,False,True,0.012891984000134471,special(V1) :- tagged(V1).,,1.0,True
+part-00135,part,7,0.8571428571428571,1.0,0.923076923076923,True,False,False,0.5012904570000956,,,0.0,False
+unary-00300,unary,5,0.2,0.16666666666666666,0.1818181818181818,True,False,False,0.00963844800003244,,,0.0,False
+ec-00347,ec,3,0.0,0.0,0.0,False,False,False,nan,,ParseError: Syntax error at '+' on line 1,0.0,False
+chain-00232,chain,3,1.0,0.6,0.7499999999999999,True,False,True,0.5293708110000352,"grandparent(V2,V3) :- owes(V2,V1), calls(V1,V3).",,1.0,True
+ec-00159,ec,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00444,chain,5,0.6,0.42857142857142855,0.5,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00090,chain,2,0.5,0.2,0.28571428571428575,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00363,ec,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+part-00013,part,5,0.8,0.8,0.8000000000000002,True,False,False,0.014620207999996637,,,0.0,False
+ec-00137,ec,4,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00266,chain,3,0.3333333333333333,0.2,0.25,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+unary-00194,unary,4,0.25,0.14285714285714285,0.18181818181818182,True,False,False,0.011261880000120073,,,0.0,False
+ec-00047,ec,4,1.0,1.0,1.0,True,False,True,0.06457812199982982,"happens(charge(r1),V1) :- holdsAt(idle(r3),V1).",,1.0,True
+unary-00286,unary,4,1.0,0.8,0.888888888888889,True,False,False,0.01707137099992906,,,0.0,False
+part-00077,part,5,1.0,1.0,1.0,True,False,True,0.4632578010000543,"eligible(V1) :- has_player(V1,V3), metal(V3).",,1.0,True
+unary-00285,unary,4,1.0,0.5714285714285714,0.7272727272727273,True,False,False,0.02228658700005326,,,0.0,False
+chain-00033,chain,3,1.0,0.42857142857142855,0.6,True,False,False,0.03611067199994977,,,0.0,False
+unary-00447,unary,5,1.0,1.0,1.0,True,False,True,0.037385889999995925,"ready(V1) :- rich(V1), cheap(V1).",,1.0,True
+ec-00359,ec,4,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00326,ec,4,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+chain-00194,chain,4,0.5,0.2857142857142857,0.36363636363636365,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+part-00233,part,5,0.8,0.8,0.8000000000000002,True,False,False,0.01876452800001971,,,0.0,False
+part-00476,part,7,0.14285714285714285,0.14285714285714285,0.14285714285714285,True,False,False,0.02324898500000927,,,0.0,False
+ec-00482,ec,16,0.125,0.5,0.2,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+part-00121,part,7,0.8571428571428571,0.8571428571428571,0.8571428571428571,True,False,False,0.018655651000017315,,,0.0,False
+ec-00199,ec,5,0.8,1.0,0.888888888888889,True,False,True,0.06165003900014199,"happens(charge(r4),V1) :- holdsAt(moving(r3),V1).",,1.0,True
+ec-00105,ec,4,0.75,1.0,0.8571428571428571,True,False,True,0.04621481999993193,"happens(charge(r1),V1) :- holdsAt(low(r3),V1).",,1.0,True
+ec-00380,ec,2,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+part-00329,part,6,0.6666666666666666,0.6666666666666666,0.6666666666666666,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+part-00495,part,7,0.8571428571428571,1.0,0.923076923076923,True,False,True,0.32843297599993093,"target(V3) :- has_room(V3,V1), rich(V1), coastal(V1).",,1.0,False
+chain-00047,chain,2,0.5,0.2,0.28571428571428575,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00477,ec,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+part-00030,part,6,0.8333333333333334,0.8333333333333334,0.8333333333333334,True,False,False,0.017522253999914028,,,0.0,False
+unary-00082,unary,4,1.0,1.0,1.0,True,False,True,0.01965164500006722,safe(V1) :- insured(V1).,,1.0,True
+part-00361,part,7,0.8571428571428571,0.8571428571428571,0.8571428571428571,True,False,False,0.015973134999967442,,,0.0,False
+ec-00323,ec,4,0.75,0.75,0.75,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False
+ec-00052,ec,3,0.3333333333333333,0.3333333333333333,0.3333333333333333,True,False,False,0.30754784700002347,,,0.0,False
+part-00288,part,6,0.8333333333333334,0.8333333333333334,0.8333333333333334,True,False,True,0.7595437479999418,"premium(V1) :- has_car(V1,V3), wild(V3), urban(V3).",,1.0,True
+ec-00229,ec,5,0.4,0.6666666666666666,0.5,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False

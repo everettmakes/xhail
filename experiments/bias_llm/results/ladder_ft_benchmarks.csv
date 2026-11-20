@@ -1,0 +1,11 @@
+id,family,level,failed,reason
+bench-animals,benchmark,1,semantics,"`#modeh mammal(+dog).`: type `dog` is not a unary background predicate (candidates: animal, cold_blooded, has_hair, lays_eggs, produces_milk)."
+bench-blocks,benchmark,2,expressive,"no #modeb (with matching types and +/- links) for `holdsAt(clear(a),T)` in `happens(pick_up(a),T) :- holdsAt(clear(a),T).`"
+bench-epidemic,benchmark,2,expressive,"no #modeb (with matching types and +/- links) for `holdsAt(ill(alice),T)` in `happens(infect(bob),T) :- holdsAt(ill(alice),T).`"
+bench-event_calculus,benchmark,2,expressive,"no #modeh can produce the head `happens(work(alice),T)`"
+bench-grandfather,benchmark,4,tight,5 modes where gold needs 3
+bench-penguins,benchmark,4,tight,5 modes where gold needs 3
+bench-propositional,benchmark,1,semantics,"`#modeh output(+inductive_rule,+input_a,+input_b).`: output/3 is neither the predicate in the examples (output/0) nor used in the body of a background rule."
+bench-sugar,benchmark,2,expressive,"no #modeh can produce the head `happens(use(glucose),T)`"
+bench-traffic,benchmark,4,tight,7 modes where gold needs 3
+bench-trains,benchmark,4,tight,8 modes where gold needs 5

@@ -1,0 +1,24 @@
+{
+  "overall": {
+    "n": 10,
+    "valid": 0.2,
+    "solved": 0.1,
+    "acc": null,
+    "hyp_match": 0.1,
+    "timeouts": 0,
+    "median_runtime_s_solved": 0.0146,
+    "mean_n_modes": 4.4,
+    "mode_f1": 0.2
+  },
+  "benchmark": {
+    "n": 10,
+    "valid": 0.2,
+    "solved": 0.1,
+    "acc": null,
+    "hyp_match": 0.1,
+    "timeouts": 0,
+    "median_runtime_s_solved": 0.0146,
+    "mean_n_modes": 4.4,
+    "mode_f1": 0.2
+  }
+}

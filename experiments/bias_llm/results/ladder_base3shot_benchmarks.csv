@@ -1,0 +1,11 @@
+id,family,level,failed,reason
+bench-animals,benchmark,4,tight,5 modes where gold needs 3
+bench-blocks,benchmark,1,semantics,"`#modeh holdsAt(+holding,+time).`: type `holding` is not a unary background predicate (candidates: block, initially, time)."
+bench-epidemic,benchmark,1,semantics,"`#modeb infect(+person,-person).`: infect/2 is not defined in the background (available: clipped/3, happens/2, holdsAt/2, initiates/3, person/1, terminates/3, time/1)."
+bench-event_calculus,benchmark,1,semantics,"`#modeh happens(+action,+time).`: type `action` is not a unary background predicate (candidates: person, time)."
+bench-grandfather,benchmark,1,semantics,"`#modeh father(+person,+person).`: father/2 is neither the predicate in the examples (grandfather/2) nor used in the body of a background rule."
+bench-penguins,benchmark,2,expressive,"no #modeb (with matching types and +/- links) for `not penguin(X)` in `flies(X) :- bird(X), not penguin(X).`"
+bench-propositional,benchmark,1,semantics,"`#modeh output(_,_).`: output/2 is neither the predicate in the examples (output/0) nor used in the body of a background rule."
+bench-sugar,benchmark,1,semantics,"`#modeh happens(+action,+time).`: type `action` is not a unary background predicate (candidates: sugar, time)."
+bench-traffic,benchmark,1,semantics,`#modeh stops(+light).`: stops/1 is neither the predicate in the examples (stop/1) nor used in the body of a background rule.
+bench-trains,benchmark,1,semantics,`#modeh car(+car).`: car/1 is neither the predicate in the examples (eastbound/1) nor used in the body of a background rule.

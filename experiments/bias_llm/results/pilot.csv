@@ -1,0 +1,4 @@
+id,family,n_modes,mode_p,mode_r,mode_f1,valid,timeout,solved,runtime_s,hypothesis,error,acc,hyp_match,attempts,first_category
+chain-00068,chain,2,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False,3,induction
+part-00064,part,7,1.0,1.0,1.0,True,False,True,0.17221287500069593,"approved(V1) :- has_atom(V1,V2), sick(V2), metal(V2).",,1.0,True,1,solved
+chain-00074,chain,2,0.0,0.0,0.0,False,False,False,nan,,RuntimeError: Abduction yielded no model (program is UNSAT): no minimal explanation exists for the given examples and background. Check that the modeh declarations cover the positive examples.,0.0,False,3,abduction

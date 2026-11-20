@@ -1,0 +1,38 @@
+{
+  "overall": {
+    "n": 3,
+    "valid": 0.333,
+    "solved": 0.333,
+    "acc": 0.333,
+    "hyp_match": 0.333,
+    "timeouts": 0,
+    "median_runtime_s_solved": 0.1722,
+    "mean_n_modes": 3.667,
+    "mode_f1": 0.333,
+    "mean_attempts": 2.33
+  },
+  "chain": {
+    "n": 2,
+    "valid": 0,
+    "solved": 0,
+    "acc": 0.0,
+    "hyp_match": 0,
+    "timeouts": 0,
+    "median_runtime_s_solved": null,
+    "mean_n_modes": 2,
+    "mode_f1": 0.0,
+    "mean_attempts": 3.0
+  },
+  "part": {
+    "n": 1,
+    "valid": 1,
+    "solved": 1,
+    "acc": 1.0,
+    "hyp_match": 1,
+    "timeouts": 0,
+    "median_runtime_s_solved": 0.1722,
+    "mean_n_modes": 7,
+    "mode_f1": 1.0,
+    "mean_attempts": 1.0
+  }
+}
